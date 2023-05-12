@@ -31,6 +31,8 @@ SECRET_KEY = 'django-insecure--t$g5pr+fgyeuz@m_)in1%*)(^ke495z$@w(-k+v@%2o^ntx-^
 DEBUG = True
 
 ALLOWED_HOSTS = []
+lOGOUT_REDIRECT_URL ='/'
+LOGIN_REDIRECT_URL ='cincuentaAmigos:P1'
 
 
 # Application definition
@@ -42,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cincuentaAmigos'
+    'cincuentaAmigos',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [

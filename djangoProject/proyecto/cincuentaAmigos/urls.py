@@ -20,6 +20,9 @@ from django.conf import settings
 
 app_name ="cincuentaAmigos"
 urlpatterns = [
+    path('admin/', views.adminLogin, name="adminLink"),
     path('admin/', admin.site.urls),
-    path('',views.index, name='index')
+    path('',views.index, name='index'),
+    path('nuevaPagina/', views.paginaUno, name='P1'),
+    path('registro/', views.registro, name='registro'),
 ]
