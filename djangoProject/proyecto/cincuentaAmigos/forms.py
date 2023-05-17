@@ -3,8 +3,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Mesa
 
-tus
-
 class AgregarNombre(forms.Form):
     nombre = forms.CharField(label = 'ingresa tu nombre', max_length =10)
 
