@@ -25,4 +25,5 @@ urlpatterns = [
     path('',views.index, name='index'),
     path('nuevaPagina/', views.paginaUno, name='P1'),
     path('registro/', views.registro, name='registro'),
+    path('mesa/', views.asignaMesa, name='loginMesa'),
 ]

@@ -12,6 +12,12 @@ class CustomUserCreationForm(UserCreationForm):
         fields =['username', "first_name", "last_name","email", "password1", "password2"]
 
 class MesaForm(forms.Form):
+    class Meta:
+        model= Mesa
+        fields =['numero_mesa', "ubicacion"]
+
+
+class MesaForm2(forms.Form):
     numero_mesa = forms.IntegerField(
         label = "Número de Mesa",
         required = True,

@@ -7,6 +7,10 @@ from .forms import CustomUserCreationForm
 from django.contrib.auth import authenticate,login
 from django.contrib.auth.decorators import login_required
 
+from django.contrib.sessions.backends.db import SessionStore
+
+s = SessionStore()
+
 # Create your views here.
 def adminLogin(request):
     return redirect('/admin')
@@ -37,3 +41,54 @@ def registro(request):
             return redirect(to="cincuentaAmigos:P1")
         data["form"]= formulario
     return render(request,'registration/registration.html', data)
+
+def asignaMesa(request):
+    data = {'form': MesaForm2() }
+    if request.method == "POST":
+        formulario = MesaForm2(data=request.POST)
+        if formulario.is_valid() :
+            """
+            usuario = formulario.save()
+            usuario.save()
+            user = authenticate(
+                username=formulario.cleaned_data["username"],
+                password=formulario.cleaned_data["password1"],
+            )
+            login(request,user)
+            messages.success(
+                request,"Registro exitoso, inicia sesión"
+            )
+            """
+            numero_mesa = formulario.cleaned_data["numero_mesa"]
+            ubicacion = formulario.cleaned_data["ubicacion"]
+
+            encontrado =len(Mesa.objects.filter(pk=numero_mesa))
+            if encontrado > 0:
+                messages.error(request, "El número de mesa ya está asignada")
+            else:
+                mesa = Mesa(numero_mesa = numero_mesa,
+                        ubicacion = ubicacion)
+                algo = mesa.save()
+                s["numero_mesa"] = numero_mesa
+                s.create()
+                print(s["numero_mesa"])
+                return redirect(to="cincuentaAmigos:index")
+        data["form"]= formulario
+    return render(request,'registration/asignacionMesa.html', data)
+
+def asignaMesa2(request):
+    data = {'form': MesaForm() }
+    if request.method == "POST":
+        formulario =MesaForm(data=request.POST)
+        if formulario.is_valid() :
+            usuario = formulario.save()
+            usuario.save()
+            mesa=formulario.cleaned_data["numero_mesa"],
+            ubicacion=formulario.cleaned_data["ubicacion"],
+            #login(request,user)
+            messages.success(
+                request,"Registro exitoso, inicia sesión"
+            )
+            return redirect(to="cincuentaAmigos:index")
+        data["form"]= formulario
+    return render(request,'registration/asignacionMesa.html', data)
