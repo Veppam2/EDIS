@@ -23,7 +23,21 @@ def paginaUno(request):
     return render(request, 'pagina1.html')
 
 def menuPrincipal(request):
-    return render(request, 'menuPrincipal.html')
+    listaCategorias = Categoria.objects.all()
+    print(listaCategorias)
+    return render(request, 'menu/menuPrincipal.html')
+
+def entradas(request):
+    return render(request, 'menu/submenu.html')
+
+def platillos(request):
+    return render(request, 'menu/submenu.html')
+
+def bebidas(request):
+    return render(request, 'menu/submenu.html')
+
+def helados(request):
+    return render(request, 'menu/submenu.html')
 
 
 def registro(request):
@@ -43,7 +57,7 @@ def registro(request):
             )
             return redirect(to="cincuentaAmigos:P1")
         data["form"]= formulario
-    return render(request,'registration/registration.html', data)
+    return render(request,'login/registration.html', data)
 
 def asignaMesa(request):
     data = {'form': MesaForm2() }
@@ -77,21 +91,7 @@ def asignaMesa(request):
                 print(s["numero_mesa"])
                 return redirect(to="cincuentaAmigos:menuPrincipal")
         data["form"]= formulario
-    return render(request,'registration/asignacionMesa.html', data)
+    return render(request,'login/asignacionMesa.html', data)
 
-def asignaMesa2(request):
-    data = {'form': MesaForm() }
-    if request.method == "POST":
-        formulario =MesaForm(data=request.POST)
-        if formulario.is_valid() :
-            usuario = formulario.save()
-            usuario.save()
-            mesa=formulario.cleaned_data["numero_mesa"],
-            ubicacion=formulario.cleaned_data["ubicacion"],
-            #login(request,user)
-            messages.success(
-                request,"Registro exitoso, inicia sesión"
-            )
-            return redirect(to="cincuentaAmigos:index")
-        data["form"]= formulario
-    return render(request,'registration/asignacionMesa.html', data)
+
+

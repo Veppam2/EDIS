@@ -27,4 +27,8 @@ urlpatterns = [
     path('registro/', views.registro, name='registro'),
     path('mesa/', views.asignaMesa, name='loginMesa'),
     path('menuPrincipal/', views.menuPrincipal, name='menuPrincipal'),
+    path('submenu/', views.entradas, name = 'entradas'),
+    path('submenu/', views.platillos, name = 'platillos'),
+    path('submenu/', views.bebidas, name = 'bebidas'),
+    path('helados/', views.helados, name = 'helados'),
 ]

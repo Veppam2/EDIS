@@ -59,6 +59,15 @@ background-color:#1D1C20;
 color:#fff;
 padding:20px;
 }
+.card-button{
+margin:-30px auto;
+margin-bottom:-50px;
+height:100px;
+width:300px;
+background-color:#1D1C20;
+color:#fff;
+padding:20px;
+}
 .card-meal-type{
 font-style:italic;
 }

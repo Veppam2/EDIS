@@ -18,6 +18,8 @@ class Helado(models.Model):
     id_helado = models.AutoField(primary_key = True)
     #TEXT, NOT NULL, UNIQUE
     sabor = models.CharField(max_length=50, unique = True)
+    #TEXT, NOT NULL
+    imagen  =  models.CharField(max_length=1000)
 
 class Mesa(models.Model):
     #INTEGER, PK, (Sin autoincrement)
