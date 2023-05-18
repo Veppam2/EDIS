@@ -39,6 +39,9 @@ def platillos(request):
 def bebidas(request):
     return render(request, 'menu/submenu.html')
 
+def postres(request):
+    return render(request, 'menu/submenu.html')
+
 def helados(request):
     return render(request, 'menu/submenu.html')
 

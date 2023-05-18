@@ -30,5 +30,6 @@ urlpatterns = [
     path('submenu/', views.entradas, name = 'entradas'),
     path('submenu/', views.platillos, name = 'platillos'),
     path('submenu/', views.bebidas, name = 'bebidas'),
+    path('submenu/', views.postres, name = 'postres'),
     path('helados/', views.helados, name = 'helados'),
 ]

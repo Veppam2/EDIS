@@ -26,7 +26,27 @@
         <img src="https://images.unsplash.com/photo-1604135307399-86c6ce0aba8e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80"
         href="{% url 'cincuentaAmigos:index' %}">
       </div>
-      <button type="button" class="card-button"><h2 class="card-title" href="{% url 'cincuentaAmigos:entradas' %}">{{i.nombre}}</h2></button>
+      <button type="button" class="card-button">
+        {% if i.nombre == "Entradas" %}
+        <a class="card-title" href="{% url 'cincuentaAmigos:entradas' %}">
+          {{i.nombre}}
+        </a>
+        {% elif i.nombre == "Platillos Principales" %}
+        <a class="card-title" href="{% url 'cincuentaAmigos:platillos' %}">
+          {{i.nombre}}
+        </a>
+
+        {% elif i.nombre == "Bebidas" %}
+        <a class="card-title" href="{% url 'cincuentaAmigos:entradas' %}">
+          {{i.nombre}}
+        </a>
+        {% elif i.nombre == "Postres" %}
+        <a class="card-title" href="{% url 'cincuentaAmigos:postres' %}">
+          {{i.nombre}}
+        </a>
+        {% endif %}
+      </button>
+
     </div>
 
     {% endfor %}
