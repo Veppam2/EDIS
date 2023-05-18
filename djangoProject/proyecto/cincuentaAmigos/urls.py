@@ -26,4 +26,5 @@ urlpatterns = [
     path('nuevaPagina/', views.paginaUno, name='P1'),
     path('registro/', views.registro, name='registro'),
     path('mesa/', views.asignaMesa, name='loginMesa'),
+    path('menuPrincipal/', views.menuPrincipal, name='menuPrincipal'),
 ]

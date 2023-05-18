@@ -22,6 +22,9 @@ def index(request):
 def paginaUno(request):
     return render(request, 'pagina1.html')
 
+def menuPrincipal(request):
+    return render(request, 'menuPrincipal.html')
+
 
 def registro(request):
     data = {'form': CustomUserCreationForm() }
@@ -72,7 +75,7 @@ def asignaMesa(request):
                 s["numero_mesa"] = numero_mesa
                 s.create()
                 print(s["numero_mesa"])
-                return redirect(to="cincuentaAmigos:index")
+                return redirect(to="cincuentaAmigos:menuPrincipal")
         data["form"]= formulario
     return render(request,'registration/asignacionMesa.html', data)
 
