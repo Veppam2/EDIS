@@ -25,7 +25,10 @@ def paginaUno(request):
 def menuPrincipal(request):
     listaCategorias = Categoria.objects.all()
     print(listaCategorias)
-    return render(request, 'menu/menuPrincipal.html')
+    return render(request,
+        'menu/menuPrincipal.html',
+        {'listaCategorias': listaCategorias}
+    )
 
 def entradas(request):
     return render(request, 'menu/submenu.html')

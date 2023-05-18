@@ -19,19 +19,25 @@
     <p>Aqui entre amigos, un heladito</p>
       </div>
     <div class="container">
+
+    {% for i in listaCategorias %}
     <div class="card">
       <div class="card-image">
         <img src="https://images.unsplash.com/photo-1604135307399-86c6ce0aba8e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80"
         href="{% url 'cincuentaAmigos:index' %}">
       </div>
-      <button type="button" class="card-button"><h2 class="card-title" href="{% url 'cincuentaAmigos:entradas' %}">Entradas</h2></button>
+      <button type="button" class="card-button"><h2 class="card-title" href="{% url 'cincuentaAmigos:entradas' %}">{{i.nombre}}</h2></button>
     </div>
+
+    {% endfor %}
+    <!-- --
       <div class="card">
       <div class="card-image">
         <img src="https://images.unsplash.com/photo-1551782450-17144efb9c50?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1769&q=80">
       </div>
       <button type="button" class="card-button"><h2 class="card-title" href="{% url 'cincuentaAmigos:platillos' %}">Platillos fuertes</h2></button>
     </div>
+
       <div class="card">
       <div class="card-image">
         <img src="https://images.unsplash.com/photo-1635146037526-a75e6905ad78?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1834&q=80">
@@ -44,6 +50,8 @@
       </div>
       <button type="button" class="card-button" href="{% url 'cincuentaAmigos:helados' %}"><h2 class="card-title">Healdos</h2></button>
     </div>
+
+      ---->
     
     </div>
     
