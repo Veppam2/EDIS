@@ -12,6 +12,8 @@ class Categoria(models.Model):
     id_categoria = models.AutoField(primary_key = True)
     #TEXT, NOT NULL, UNIQUE
     nombre = models.CharField(max_length=50, unique = True)
+    #TEXT, NOT NULL
+    imagen  =  models.CharField(max_length=1000)
 
 class Helado(models.Model):
     #INTEGER, PK, AUTOINCREMENT

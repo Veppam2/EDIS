@@ -10,29 +10,51 @@
         <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}"/>
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/menuPrincipal.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/submenu.css' %}" rel="stylesheet" />
     </head>
     <body>
        
-
-<div id="header">
-    <h1>50 Amigos</h1>
-    <p>Aqui entre amigos, un heladito</p>
+      <div id="header">
+        <h1>50 Amigos</h1>
+        <p>Aqui entre amigos, un heladito</p>
       </div>
-    <div class="container">
+    
+      <div class="container">
 
-    {% for alimento in listaAlimento %}
-    <div class="card">
-      <div class="card-image">
-        <img src={{postre.imagen}}
-        href="{% url 'cincuentaAmigos:index' %}">
-      </div>
-      <<h3>{{alimento.nombre}}</h3>>
-      <<h3>{{alimento.precio}}</h3>>
-      <<h3>{{alimento.descripcion}}</h3>>
-    </div>
+        <ul class="cards">
 
-    {% endfor %}
+          {% for alimento in listaAlimento %}
 
+          <li class="cards_item">
+            <div class="card">
+              
+              <div class="card_image">
+                <img src={{alimento.imagen}} alt="mixed vegetable salad in a mason jar. " /></div>
+              <div class="card_content">
+                <h2 class="card_title">{{alimento.nombre}}</h2>
+                <h1 class="orange"> ${{alimento.precio}}</h1>
+                <div class="card_text">
+                  <p>
+                    {{alimento.descripcion}}
+                  </p>
+                </div>
+                <div class="centrar-boton">
+                <button class="card-price">Agregar al carrito</button>
+                </div>
+              </div>
+
+              
+            </div>
+                <!--
+
+                  <button class="card_btn orange">+</button>
+                -->
+          </li>
+
+          {%endfor%}
+      
+          
+        </ul>
     </div>
 
     </body>

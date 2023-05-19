@@ -1,80 +1,89 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-         <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Scrolling Nav - Start Bootstrap Template</title>
-        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}"/>
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'css/menuPrincipal.css' %}" rel="stylesheet" />
-    </head>
-    <body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Scrolling Nav - Start Bootstrap Template</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'css/menuPrincipal.css' %}" rel="stylesheet" />
+  </head>
+
+  <body>
        
 
-<div id="header">
+  <div id="header">
     <h1>50 Amigos</h1>
     <p>Aqui entre amigos, un heladito</p>
-      </div>
-    <div class="container">
+  </div>
+
+  <div class="container">
 
     {% for i in listaCategorias %}
-    <div class="card">
-      <div class="card-image">
-        <img src="https://images.unsplash.com/photo-1604135307399-86c6ce0aba8e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80"
-        href="{% url 'cincuentaAmigos:index' %}">
-      </div>
-      <button type="button" class="card-button">
-        {% if i.nombre == "Entradas" %}
-        <a class="card-title" href="{% url 'cincuentaAmigos:entradas' %}">
-          {{i.nombre}}
-        </a>
-        {% elif i.nombre == "Platillos Principales" %}
-        <a class="card-title" href="{% url 'cincuentaAmigos:platillos' %}">
-          {{i.nombre}}
-        </a>
-
-        {% elif i.nombre == "Bebidas" %}
-        <a class="card-title" href="{% url 'cincuentaAmigos:entradas' %}">
-          {{i.nombre}}
-        </a>
-        {% elif i.nombre == "Postres" %}
-        <a class="card-title" href="{% url 'cincuentaAmigos:postres' %}">
-          {{i.nombre}}
-        </a>
-        {% endif %}
-      </button>
-
-    </div>
+      
+      {% if i.nombre == "Entradas" %}
+        <div class="card">
+          <div class="card-image"><img src={{i.imagen}} /></div>
+          <div class="card-text">
+            <button type="button" class="card-button">
+              <a href="{% url 'cincuentaAmigos:platillos' %}">
+                <h2 class="card-title">{{i.nombre}}</h2>
+              </a>
+            </button>
+          </div>
+        </div>
+      {% elif i.nombre == "Platillos principales" %}
+         <div class="card">
+          <div class="card-image"><img src={{i.imagen}} /></div>
+          <div class="card-text">
+            <button type="button" class="card-button">
+               <a href="{% url 'cincuentaAmigos:platillos' %}">
+                <h2 class="card-title">{{i.nombre}}</h2>
+              </a>
+            </button>
+          </div>
+        </div>
+      {% elif i.nombre == "Bebidas" %}
+        <div class="card">
+          <div class="card-image"><img src={{i.imagen}} /></div>
+          <div class="card-text">
+            <button type="button" class="card-button">
+              <a href="{% url 'cincuentaAmigos:bebidas' %}">
+                <h2 class="card-title">{{i.nombre}}</h2>
+              </a>
+            </button>
+          </div>
+        </div>
+      {% elif i.nombre == "Postres" %}
+        <div class="card">
+          <div class="card-image"><img src={{i.imagen}} /></div>
+          <div class="card-text">
+            <button type="button" class="card-button"> 
+              <a href="{% url 'cincuentaAmigos:postres' %}">
+                <h2 class="card-title">{{i.nombre}}</h2>
+              </a>
+            </button>
+          </div>
+        </div>
+      {% endif %}
 
     {% endfor %}
-    <!-- --
-      <div class="card">
-      <div class="card-image">
-        <img src="https://images.unsplash.com/photo-1551782450-17144efb9c50?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1769&q=80">
-      </div>
-      <button type="button" class="card-button"><h2 class="card-title" href="{% url 'cincuentaAmigos:platillos' %}">Platillos fuertes</h2></button>
-    </div>
 
-      <div class="card">
-      <div class="card-image">
-        <img src="https://images.unsplash.com/photo-1635146037526-a75e6905ad78?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1834&q=80">
+    <div class="card">
+      <div class="card-image"><img src= "https://laloma.com.mx/media/wysiwyg/Loma_copia_3042.jpg"/></div>
+      <div class="card-text">
+        <button type="button" class="card-button">
+          <a href="{% url 'cincuentaAmigos:helados' %}">
+            <h2 class="card-title">Helados</h2>
+          </a>
+        </button>
       </div>
-      <button type="button" class="card-button" href="{% url 'cincuentaAmigos:bebidas' %}"><h2 class="card-title">Bebidas</h2></button>
-    </div>
-      <div class="card">
-      <div class="card-image">
-        <img src="https://www.expatica.com/app/uploads/sites/5/2020/03/Coq-au-vin.jpg">
-      </div>
-      <button type="button" class="card-button" href="{% url 'cincuentaAmigos:helados' %}"><h2 class="card-title">Healdos</h2></button>
-    </div>
-
-      ---->
-    
     </div>
     
+  </div>
     
-    </body>
+  </body>
 </html>

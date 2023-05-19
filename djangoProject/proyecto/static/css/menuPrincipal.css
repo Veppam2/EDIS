@@ -26,6 +26,7 @@ font-style:italic;
 }
 .container{
 width:100vw;
+height: auto;
 display:flex;
 justify-content:space-around;
 flex-wrap:wrap;
@@ -35,7 +36,7 @@ padding:40px 20px;
 display:flex;
 flex-direction:column;
 width:400px;
-margin-bottom:60px;
+margin-bottom:140px;
 }
 .card>div{
 box-shadow:0 15px 20px 0 rgba(0,0,0,0.5);
@@ -53,20 +54,22 @@ object-position:bottom;
 .card-text{
 margin:-30px auto;
 margin-bottom:-50px;
-height:300px;
+height:100px;
 width:300px;
-background-color:#1D1C20;
-color:#fff;
-padding:20px;
+}
+a:link, a:visited, a:active {
+    text-decoration:none;
+    color:#fff;
+}
+button{
+box-shadow:darkslategray;
 }
 .card-button{
-margin:-30px auto;
-margin-bottom:-50px;
+margin:0;
+margin-bottom:0;
 height:100px;
 width:300px;
 background-color:#1D1C20;
-color:#fff;
-padding:20px;
 }
 .card-meal-type{
 font-style:italic;
@@ -79,15 +82,5 @@ margin-top:5px;
 .card-body{
 font-size:1.25rem;
 }
-.card-price{
-width:100px;
-height:100px;
-background-color:#970C0A;
-color:#fff;
-margin-left:auto;
-font-size:2rem;
-display:flex;
-justify-content:center;
-align-items:center;
-}
+
 

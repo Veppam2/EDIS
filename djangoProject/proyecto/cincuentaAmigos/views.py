@@ -24,7 +24,7 @@ def paginaUno(request):
 
 def menuPrincipal(request):
     listaCategorias = Categoria.objects.all()
-    print(listaCategorias)
+    print("menuprincipal")
     return render(request,
         'menu/menuPrincipal.html',
         {'listaCategorias': listaCategorias}
@@ -40,9 +40,8 @@ def bebidas(request):
     return render(request, 'menu/submenu.html')
 
 def postres(request):
-    #TODO: Que el id sea el que se consulte en Categoria
-    print("HAscead")
-    lista_postres= Alimento.objects.filter(id_categoria = 4)
+    id_categoria = Categoria.objects.get(nombre = "Postres")
+    lista_postres= Alimento.objects.filter(id_categoria = id_categoria)
    #lista_postres= Alimento.objects.all()
     print(lista_postres)
     return render(request,
