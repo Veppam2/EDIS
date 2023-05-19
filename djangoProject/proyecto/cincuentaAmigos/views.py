@@ -40,7 +40,15 @@ def bebidas(request):
     return render(request, 'menu/submenu.html')
 
 def postres(request):
-    return render(request, 'menu/submenu.html')
+    #TODO: Que el id sea el que se consulte en Categoria
+    print("HAscead")
+    lista_postres= Alimento.objects.filter(id_categoria = 4)
+   #lista_postres= Alimento.objects.all()
+    print(lista_postres)
+    return render(request,
+        'menu/submenu.html',
+        {'listaAlimento': lista_postres}
+    )
 
 def helados(request):
     return render(request, 'menu/submenu.html')

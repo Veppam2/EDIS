@@ -38,6 +38,8 @@ class Alimento(models.Model):
     imagen  =  models.CharField(max_length=1000)
     #REAL, NOT NULL
     precio  =  models.FloatField()
+    #TEXT, NOT NULL
+    descripcion  = models.CharField(max_length=1000)
 
 class Votacion(models.Model):
     #INTEGER, NOT NULL, FK
