@@ -266,6 +266,8 @@
   --bs-gray-600: #6B7280;
   --bs-gray-700: #4B5563;
   --bs-gray-800: #374151;
+  --brown: #8E806A;
+  --beige: #C3B091;
   --bs-font-sans-serif: "Nunito Sans", sans-serif;
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)); }
@@ -305,7 +307,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-bottom: 0.5rem;
   font-weight: 600;
   line-height: 1.3;
-  color: #1c2540; }
+  color: #675D50; }
 
 h1, .h1 {
   font-size: calc(1.375rem + 1.5vw); }
@@ -2725,7 +2727,7 @@ textarea.form-control-lg {
   display: inline-block;
   font-weight: 600;
   line-height: 1.5;
-  color: #1F2937;
+  color: #C3B091;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
@@ -2740,7 +2742,7 @@ textarea.form-control-lg {
     .btn {
       transition: none; } }
   .btn:hover {
-    color: #1F2937; }
+    color: #443d35; }
   .btn-check:focus + .btn, .btn:focus {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(36, 46, 76, 0.25); }
@@ -2752,6 +2754,41 @@ textarea.form-control-lg {
     pointer-events: none;
     opacity: 0.65;
     box-shadow: none; }
+
+.btn-primaryM {
+    position: relative;
+    background-color: #8E806A;
+    border: none;
+    font-size: 28px;
+    color: #FFFFFF;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+
+
+.button:after {
+    content: "";
+    background: #8E806A;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+} }
+  
 
 .btn-primary {
   color: #ffffff;
