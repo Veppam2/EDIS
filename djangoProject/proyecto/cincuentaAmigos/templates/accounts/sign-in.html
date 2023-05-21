@@ -1,13 +1,14 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
-
 {% block header %}{% endblock header %}
-
 {% block content %}
+{%load crispy_forms_tags %}
 
     <main>
 
-        {% include 'includes/pre-loader.html' %}
+        {% comment %} {% include 'includes/pre-loader.html' %} {% endcomment %}
+
+        <link rel="stylesheet" href="{% static 'css/messages.css' %}">
 
         <!-- Section -->
         <section class="min-vh-100 d-flex align-items-center section-image overlay-soft-dark" data-background="{% static 'assets/img/pages/restaurante50.jpg' %}">
@@ -20,10 +21,14 @@
                             </div>
                             <form action="" method="post">
                                 {% csrf_token %}
-                                <form action="" method="post"> 
-                                    <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Número de Mesa</label>
-                                        <select type="number" class="form-control" id="exampleFormControlSelect1" >
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Número de Mesa</label>
+
+                                    <div class="input-group mb-4">
+                                        {% comment %} <span class="form-control"><i class="fas fa-search"></i></span> {% endcomment %}
+
+                                        <select class="form-select" id="inlineFormCustomSelectPref" name="numero_mesa" aria-label="Selecciona una mesa">
+                                            <option selected disabled>Selecciona la mesa</option>
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -31,29 +36,50 @@
                                             <option>5</option>
                                             <option>6</option>
                                             <option>7</option>
+                                            <option>8</option>
+                                            <option>14</option>
+                                            <option>15</option>
+                                            <option>16</option>
+                                            <option>17</option>
+                                            <option>18</option>
+                                            <option>19</option>
                                         </select>
                                     </div>
-                                    <span class="datepicker-main"></span>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Ubicación</label>
-                                        <select type="email" class="form-control" id="exampleFormControlSelect1">
-                                            <option>Terraza</option>
-                                            <option>Balcón</option>
-                                            <option>Jardín</option>
-                                            <option>Comedor central</option>
-                                        </select>
-                                    </div>
-                                    <span class="datepicker-main"></span>
-                                    <div class="d-grid">
-                                        <button type="submit" class="btn btn-primaryM">Iniciar Sesión</button>
-                                    </div>
-                                </form>
-                                <div class="d-flex justify-content-center align-items-center mt-4">
-                                    <span class="fw-normal">
-                                        Iniciar sesión como
-                                        <a href="{% url 'cincuentaAmigos:adminLink' %}" class="fw-bold text-underline">Administrador</a>
-                                    </span>
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Ubicación</label>
+                                    <select class="form-select" id="inlineFormCustomSelectPref" name="ubicacion" aria-label="Selecciona una ubicación">
+                                        <option selected disabled>Selecciona la ubicación</option>
+                                        <option>Terraza</option>
+                                        <option>Balcón</option>
+                                        <option>Jardín</option>
+                                        <option>Comedor central</option>
+                                    </select>
+                                </div>
+
+                                <div class="{% if messages %}d-none{% endif %} mb-5"></div> 
+                                
+                                <div class="my-4">
+                                    {% if messages %}
+                                        <ul class="messages">
+                                            {% for message in messages %}
+                                                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </div>
+
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primaryM">Iniciar Sesión</button>
+                                </div>
+                            </form>
+                            <div class="d-flex justify-content-center align-items-center mt-4">
+                                <span class="fw-normal">
+                                    Iniciar sesión como
+                                    <a href="{% url 'cincuentaAmigos:adminLink' %}" class="fw-bold text-underline">Administrador</a>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>

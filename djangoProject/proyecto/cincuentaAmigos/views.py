@@ -72,39 +72,30 @@ def registro(request):
         data["form"]= formulario
     return render(request,'login/registration.html', data)
 
+
 def asignaMesa(request):
-    data = {'form': MesaForm2() }
     if request.method == "POST":
-        formulario = MesaForm2(data=request.POST)
-        if formulario.is_valid() :
-            """
-            usuario = formulario.save()
-            usuario.save()
-            user = authenticate(
-                username=formulario.cleaned_data["username"],
-                password=formulario.cleaned_data["password1"],
-            )
-            login(request,user)
-            messages.success(
-                request,"Registro exitoso, inicia sesión"
-            )
-            """
-            numero_mesa = formulario.cleaned_data["numero_mesa"]
-            ubicacion = formulario.cleaned_data["ubicacion"]
+        numero_mesa = request.POST.get("numero_mesa")
+        ubicacion = request.POST.get("ubicacion")
 
-            encontrado =len(Mesa.objects.filter(pk=numero_mesa))
-            if encontrado > 0:
-                messages.error(request, "El número de mesa ya está asignada")
-            else:
-                mesa = Mesa(numero_mesa = numero_mesa,
-                        ubicacion = ubicacion)
-                algo = mesa.save()
-                s["numero_mesa"] = numero_mesa
-                s.create()
-                print(s["numero_mesa"])
-                return redirect(to="cincuentaAmigos:menuPrincipal")
-        data["form"]= formulario
-    return render(request,'login/asignacionMesa.html', data)
+        if not numero_mesa:
+            messages.error(request, "Debes seleccionar una mesa.")
 
+        elif not ubicacion:
+            messages.error(request, "Debes seleccionar una ubicación.")
+
+        # Verificar si el número de mesa ya está asignado
+        elif Mesa.objects.filter(numero_mesa=numero_mesa).exists():
+            messages.error(request, "La mesa seleccionada ya está ocupada.")
+
+        else:
+            # Crear una nueva instancia de la mesa y guardarla en la base de datos
+            mesa = Mesa(numero_mesa=numero_mesa, ubicacion=ubicacion)
+            mesa.save()
+
+            # Redireccionar al menú principal u otra página relevante
+            return redirect(to="cincuentaAmigos:menuPrincipal")
+
+    return render(request, 'accounts/sign-in.html')
 
 
