@@ -1,0 +1,148 @@
+/* Mohave & Open Sans Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Mohave:wght@300;700&family=Open+Sans&display=swap");
+/* Fonts & Colors */
+:root {
+  --title-font: "Mohave", sans-serif;
+  --body-font: "Open Sans", sans-serif;
+  --orange: hsl(0, 100%, 65%);
+  --lighter-orange: hsl(0, 100%, 77%);
+  --grey: hsl(197, 3%, 46%);
+  --dark: hsl(0, 0%, 16%);
+  --white: hsl(0, 0%, 100%);
+}
+
+/* General */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background-color: var(--lighter-orange);
+  color: var(--white);
+}
+
+p {
+  margin: 0;
+}
+p:not(:last-child) {
+  margin-bottom: 14px;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: 15em;
+  background: transparent no-repeat center;
+  background-size: cover;
+}
+
+/* Layout */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Typography */
+.card_title {
+  font-family: var(--title-font);
+  font-size: 28px;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+.card_text p {
+  font-family: var(--body-font);
+  font-size: 14px;
+  line-height: 24px;
+}
+
+/* Utilities */
+.orange {
+  color: var(--orange);
+}
+
+.note-sm {
+  color: var(--grey);
+  font-family: var(--title-font);
+  font-size: 14px;
+}
+
+/* Components */
+.cards {
+  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px 0;
+}
+.cards_item {
+  display: flex;
+  padding: 1rem;
+}
+
+.card {
+  background-color: var(--white);
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.card_content {
+  padding: 26px 16px 16px;
+}
+.card_title {
+  margin-bottom: 5px;
+}
+.card_text {
+  margin: 16px 0;
+}
+.card_btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 70px;
+  text-transform: capitalize;
+  font-family: var(--body-font);
+  float: right;
+}
+.card_btn:hover {
+  text-decoration: none;
+}
+
+.card-price{
+    width:100px;
+    height:50px;
+    background-color:#970C0A;
+    color:#fff;
+    font-size:1rem;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index: 10;
+    position: absolute;
+
+}
+.centrar-boton{
+    padding: 26px 16px 16px;
+    margin-left: 30%;
+}
+
+/* Media queries */
+@media (min-width: 40rem) {
+  .cards_item {
+    width: 50%;
+  }
+}
+@media (min-width: 56rem) {
+  .cards_item {
+    width: 33.3333%;
+  }
+}
