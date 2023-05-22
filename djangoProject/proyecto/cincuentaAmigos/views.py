@@ -16,7 +16,7 @@ def adminLogin(request):
     return redirect('/admin')
 
 def index(request):
-    return render(request, 'index.html')
+    return asignaMesa(request)
 
 @login_required
 def paginaUno(request):
@@ -96,6 +96,6 @@ def asignaMesa(request):
             # Redireccionar al menú principal u otra página relevante
             return redirect(to="cincuentaAmigos:menuPrincipal")
 
-    return render(request, 'accounts/sign-in.html')
+    return render(request, 'index.html')
 
 
