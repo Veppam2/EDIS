@@ -340,11 +340,13 @@ section {
   padding: 0 60px;
   margin-bottom: 15px;
 }
+/* Ajusta el tamaño de la imagen */
 .img-normalizada{
   width: 70%;
   height: 200px;
   border-radius: 400px;
   z-index: 1;
+  object-fit: cover;
 }
 
 .menu .tab-content .menu-item h4 {
