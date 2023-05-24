@@ -14,6 +14,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Contact us if you want to remove it.
 
 */
+@import url(https://fonts.googleapis.com/css?family=Raleway:300);
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700&display=swap");
 .datepicker {
   display: none; }
@@ -287,16 +288,15 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #1F2937;
+  color: #000000bb;
   background-color: #ffffff;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(23, 31, 56, 0); }
+  -webkit-text-size-adjust: 100%; }
 
 hr {
   margin: 1rem 0;
   color: inherit;
   background-color: currentColor;
-  border: 0;
+  border: 0;  
   opacity: 0.25; }
 
 hr:not([size]) {
@@ -307,7 +307,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-bottom: 0.5rem;
   font-weight: 600;
   line-height: 1.3;
-  color: #675D50; }
+  color: #4b3c38; }
 
 h1, .h1 {
   font-size: calc(1.375rem + 1.5vw); }
@@ -401,7 +401,7 @@ sup {
   top: -.5em; }
 
 a {
-  color: #242e4c;
+  color: #4c2424;
   text-decoration: none; }
   a:hover {
     color: #0b0f18; }
@@ -2727,7 +2727,7 @@ textarea.form-control-lg {
   display: inline-block;
   font-weight: 600;
   line-height: 1.5;
-  color: #C3B091;
+  color: #ffffff;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
@@ -2742,7 +2742,20 @@ textarea.form-control-lg {
     .btn {
       transition: none; } }
   .btn:hover {
-    color: #443d35; }
+    color: #aba8a5; 
+    background: #342c26;
+    cursor: pointer;
+    &:before{
+      transform: translateX(300px)  skewX(-15deg);  
+      opacity: 0.6;
+      transition: .7s;
+    }
+    &:after{
+      transform: translateX(300px) skewX(-15deg);  
+      opacity: 1;
+      transition: .7s;
+    }
+  }
   .btn-check:focus + .btn, .btn:focus {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(36, 46, 76, 0.25); }
@@ -2757,7 +2770,7 @@ textarea.form-control-lg {
 
 .btn-primaryM {
     position: relative;
-    background-color: #8E806A;
+    background-color: #5e5353;
     border: none;
     font-size: 28px;
     color: #FFFFFF;
@@ -2766,28 +2779,48 @@ textarea.form-control-lg {
     transition-duration: 0.4s;
     text-decoration: none;
     overflow: hidden;
-    cursor: pointer;
-
-
-.button:after {
-    content: "";
-    background: #8E806A;
-    display: block;
-    position: absolute;
-    padding-top: 300%;
-    padding-left: 350%;
-    margin-left: -20px!important;
-    margin-top: -120%;
-    opacity: 0;
-    transition: all 0.8s
-}
+    cursor: pointer; 
+    transition: .6s;
+    overflow: hidden;
+    &:focus{
+      outline: 0;
+    }
+    &:before{
+      content: '';
+      display: block;
+      position: absolute;
+      background: rgba(255, 255, 255, 0.5);
+      width: 60px;
+      height: 100%;
+      left: 0;
+      top: 0;
+      opacity: .5;
+      filter: blur(30px);
+      transform: translateX(-100px)  skewX(-15deg);
+    }
+    &:after{
+      content: '';
+      display: block;
+      position: absolute;
+      background: rgba(255,255,255,0.2);
+      width: 30px;
+      height: 100%;
+      left: 30px;
+      top: 0;
+      opacity: 0;
+      filter: blur(5px);
+      transform: translateX(-100px) skewX(-15deg);
+    }
 
 .button:active:after {
     padding: 0;
     margin: 0;
     opacity: 1;
     transition: 0s
-} }
+} 
+
+
+}
   
 
 .btn-primary {
@@ -18641,7 +18674,7 @@ ul li {
 
 a,
 .text-action {
-  color: #242e4c;
+  color: #342c26;
   font-weight: 400;
   transition: all 0.2s ease; }
   a:hover,

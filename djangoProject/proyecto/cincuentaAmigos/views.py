@@ -26,31 +26,48 @@ def menuPrincipal(request):
     listaCategorias = Categoria.objects.all()
     print("menuprincipal")
     return render(request,
-        'menu/menuPrincipal.html',
+        'menu/menuP.html',
         {'listaCategorias': listaCategorias}
     )
 
 def entradas(request):
-    return render(request, 'menu/submenu.html')
+    id_categoria = Categoria.objects.get(nombre = "Entradas")
+    lista_entradas= Alimento.objects.filter(id_categoria = id_categoria)
+    print(lista_entradas)
+    return render(request,
+        'menu/menuEntradas.html',
+        {'listaAlimentoE': lista_entradas}
+    )
 
 def platillos(request):
-    return render(request, 'menu/submenu.html')
+    id_categoria = Categoria.objects.get(nombre = "Platillos principales")
+    lista_platillos= Alimento.objects.filter(id_categoria = id_categoria)
+    print(lista_platillos)
+    return render(request,
+        'menu/menuPlatillos.html',
+        {'listaAlimentoP': lista_platillos}
+    )
 
 def bebidas(request):
-    return render(request, 'menu/submenu.html')
+    id_categoria = Categoria.objects.get(nombre = "Bebidas")
+    lista_bebidas= Alimento.objects.filter(id_categoria = id_categoria)
+    print(lista_bebidas)
+    return render(request,
+        'menu/menuBebidas.html',
+        {'listaAlimentoB': lista_bebidas}
+    )
 
 def postres(request):
     id_categoria = Categoria.objects.get(nombre = "Postres")
     lista_postres= Alimento.objects.filter(id_categoria = id_categoria)
-   #lista_postres= Alimento.objects.all()
     print(lista_postres)
     return render(request,
-        'menu/submenu.html',
-        {'listaAlimento': lista_postres}
+        'menu/menuPostres.html',
+        {'listaAlimentoO': lista_postres}
     )
 
 def helados(request):
-    return render(request, 'menu/submenu.html')
+    return render(request, 'menu/menuS.html')
 
 
 def registro(request):

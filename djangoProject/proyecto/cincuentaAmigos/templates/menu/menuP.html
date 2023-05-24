@@ -11,7 +11,6 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}"/>
   <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
   <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
@@ -40,12 +39,12 @@
 </head>
 
 <body>
-
+  /entradas
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <a href="" class="logo d-flex align-items-center me-auto me-lg-0">
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>50<span>amigos</span></h1>
@@ -63,7 +62,7 @@
 
     <!-- ======= Menu Section ======= -->
     <section id="chefs" class="chefs section-bg">
-      <div class="container" data-aos="fade-up">
+      <div class="container" data-aos="fade-up" >
 
         <div class="section-header">
           <h2>nuestro</h2>
@@ -76,7 +75,7 @@
           {% for i in listaCategorias %}
             
             {% if i.nombre == "Entradas" %}
-            <div class="card col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="card col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">                
               <div class="card-image"><img src={{i.imagen}} /></div>
               <div class="contenido-card">
                 <a href="{% url 'cincuentaAmigos:entradas' %}">
@@ -89,7 +88,7 @@
             <div class="card col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
               <div class="card-image"><img src={{i.imagen}} /></div>
               <div class="contenido-card">
-                <a href="{% url 'cincuentaAmigos:postres' %}">
+                <a href="{% url 'cincuentaAmigos:platillos' %}">
                   <h2 class="card-title">Platillos</h2>
                 </a>
               </div>
@@ -116,9 +115,7 @@
             </div>
             {% endif %}          
           {% endfor %}
-          
-          
-          
+
         </div>
 
         
@@ -127,7 +124,7 @@
             <a href="{% url 'cincuentaAmigos:helados' %}">
              <h2 class="card-title">Helado</h2>
            </a>
-         </div>
+          </div>
         </div>
       </div>
     </section><!-- End Section -->
