@@ -23,7 +23,6 @@ urlpatterns = [
     path('admin/', views.adminLogin, name="adminLink"),
     path('admin/', admin.site.urls),
     path('',views.index, name='index'),
-    path('nuevaPagina/', views.paginaUno, name='P1'),
     path('menuPrincipal/', views.menuPrincipal, name='menuPrincipal'),
     path('menuPrincipal/entradas', views.entradas, name = 'entradas'),
     path('menuPrincipal/platillos', views.platillos, name = 'platillos'),

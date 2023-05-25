@@ -18,15 +18,11 @@ def adminLogin(request):
 def index(request):
     return asignaMesa(request)
 
-@login_required
-def paginaUno(request):
-    return render(request, 'pagina1.html')
-
 def menuPrincipal(request):
     listaCategorias = Categoria.objects.all()
     print("menuprincipal")
     return render(request,
-        'menu/menuP.html',
+        'menu/menuPrincipal.html',
         {'listaCategorias': listaCategorias}
     )
 
@@ -36,7 +32,7 @@ def entradas(request):
     print(lista_entradas)
     return render(request,
         'menu/menuEntradas.html',
-        {'listaAlimentoE': lista_entradas}
+        {'listaEntradas': lista_entradas}
     )
 
 def platillos(request):
@@ -45,7 +41,7 @@ def platillos(request):
     print(lista_platillos)
     return render(request,
         'menu/menuPlatillos.html',
-        {'listaAlimentoP': lista_platillos}
+        {'listaPlatillos': lista_platillos}
     )
 
 def bebidas(request):
@@ -54,7 +50,7 @@ def bebidas(request):
     print(lista_bebidas)
     return render(request,
         'menu/menuBebidas.html',
-        {'listaAlimentoB': lista_bebidas}
+        {'listaBebidas': lista_bebidas}
     )
 
 def postres(request):
@@ -63,8 +59,9 @@ def postres(request):
     print(lista_postres)
     return render(request,
         'menu/menuPostres.html',
-        {'listaAlimentoO': lista_postres}
+        {'listaPostres': lista_postres}
     )
+
 
 def helados(request):
     return render(request, 'menu/menuS.html')

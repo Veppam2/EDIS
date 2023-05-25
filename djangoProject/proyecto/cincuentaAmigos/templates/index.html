@@ -1,8 +1,30 @@
-{% extends 'layouts/base.html' %}
 {% load static %}
-{% block header %}{% endblock header %}
-{% block content %}
 {% load crispy_forms_tags %}
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Primary Meta Tags -->
+    <title>50 Amigos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="title" content="50 Amigos">
+    <meta name="author" content="EDIS">
+    <meta name="description" content="Menú de tableta para el restaurante 50 amigos.">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="{% static 'assets/img/favicon/CincuentaAmigos.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'assets/img/favicon/CincuentaAmigos.png' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Fontawesome -->
+    <link type="text/css" href="{% static 'vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    
+    <!-- Pixel CSS -->
+    <link type="text/css" href="{% static 'css/pixel.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
 
     <main>
 
@@ -88,7 +110,12 @@
             </div>
         </section>
     </main>
-
- {% endblock content %}
+  
+    {% include 'includes/scripts.html' %}
+    {% block javascripts %}{% endblock javascripts %}
+  
+  
+  </body>
+    
 
  {% block footer %}{% endblock footer %}
