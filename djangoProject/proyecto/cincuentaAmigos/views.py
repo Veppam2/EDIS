@@ -67,26 +67,6 @@ def helados(request):
     return render(request, 'menu/menuS.html')
 
 
-def registro(request):
-    data = {'form': CustomUserCreationForm() }
-    if request.method == "POST":
-        formulario = CustomUserCreationForm(data=request.POST)
-        if formulario.is_valid() :
-            usuario = formulario.save()
-            usuario.save()
-            user = authenticate(
-                username=formulario.cleaned_data["username"],
-                password=formulario.cleaned_data["password1"],
-            )
-            login(request,user)
-            messages.success(
-                request,"Registro exitoso, inicia sesión"
-            )
-            return redirect(to="cincuentaAmigos:P1")
-        data["form"]= formulario
-    return render(request,'login/registration.html', data)
-
-
 def asignaMesa(request):
     if request.method == "POST":
         numero_mesa = request.POST.get("numero_mesa")
@@ -106,10 +86,27 @@ def asignaMesa(request):
             # Crear una nueva instancia de la mesa y guardarla en la base de datos
             mesa = Mesa(numero_mesa=numero_mesa, ubicacion=ubicacion)
             mesa.save()
-
+            s["numero_mesa"] = numero_mesa
+            s.create()
+            print(s["numero_mesa"])
             # Redireccionar al menú principal u otra página relevante
             return redirect(to="cincuentaAmigos:menuPrincipal")
 
-    return render(request, 'index.html')
+    return render(request, 'index.html')    
+
+
+def agregar_al_carrito(request, alimento_id):
+    print(s["numero_mesa"])
+    if request.method == 'POST':
+        mesa = Mesa.objects.get(numero_mesa = s["numero_mesa"])
+        alimento = Alimento.objects.get(id_alimento = alimento_id)
+
+        carrito = Carrito(numero_mesa=mesa, id_alimento=alimento)
+        carrito.save()
+
+        return redirect(request.META['HTTP_REFERER'])
+
+    return redirect(to="cincuentaAmigos:menuPrincipal")
+
 
 

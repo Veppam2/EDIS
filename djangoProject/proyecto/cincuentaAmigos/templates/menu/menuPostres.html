@@ -32,14 +32,6 @@
 
   <!-- Template Main CSS File -->
   <link href="{% static 'css/main.css' %}" rel="stylesheet" />
-
-  <!-- =======================================================
-  * Template Name: Yummy
-  * Updated: Mar 10 2023 with Bootstrap v5.2.3
-  * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="foo">
@@ -111,7 +103,10 @@
                   <p class="price letra">
                     ${{alimento.precio}}
                   </p>
-                  <button class="card-price centrar-boton">Agregar</button>                  
+                  <form action="{% url 'cincuentaAmigos:agregar_al_carrito' alimento.id_alimento %}" method="post">
+                    {% csrf_token %}
+                  <button class="card-price centrar-boton" type="submit">Agregar al carrito</button>    
+                  </form>       
                 </div><!-- Menu Item -->
 
                 {%endfor%} 
@@ -216,10 +211,6 @@
         &copy; Copyright <strong><span>Yummy</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/ -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
@@ -242,7 +233,7 @@
    <!-- Template Main JS File -->
    <script src="{% static '/assets/js/main.js' %}"></script>
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-   <script src="{% static '/assets/js/shoppingCart.js' %}"></script>
+   <script src="{% static '/assets/js/shopping-cart.js' %}"></script>
 
 </body>
 
