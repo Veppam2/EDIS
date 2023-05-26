@@ -85,7 +85,7 @@ def votacion_helados(request):
         votante = request.POST.get("nombre_votante")
         sabor_votado = request.POST.get("sabor_votado")
         #Creo nuevo voto
-        print("ENTRA")
+        print("ENTRA2")
         print(votante)
         print(sabor_votado)
         return redirect(request.META['HTTP_REFERER'])
