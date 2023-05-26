@@ -31,4 +31,6 @@ urlpatterns = [
     path('menuPrincipal/helados/', views.helados, name = 'helados'),
     path('menuPrincipal/agregar_al_carrito/', views.agregar_al_carrito, name='agregar_al_carrito'),
     path('menuPrincipal/eliminar_carrito/', views.eliminar_carrito, name='eliminar_carrito'),
+    path('menuPrincipal/helados/', views.helados, name = 'helados'),
+    path('menuPrincipal/helados/votacion', views.votacion_helados, name = 'votacion'),
 ]

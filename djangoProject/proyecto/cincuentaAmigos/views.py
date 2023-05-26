@@ -70,7 +70,30 @@ def postres(request):
 
 
 def helados(request):
-    return render(request, 'menu/menuS.html')
+    lista_helados= Helado.objects.all()
+    print(lista_helados)
+    return render(request,
+        'helados/menuHelado.html',
+        {'listaHelado': lista_helados}
+    )
+
+def votacion_helados(request):
+    print("ENTRA")
+    lista_helados= Helado.objects.all()
+    if request.method == "POST":
+        mesa = Mesa.objects.get(numero_mesa = s["numero_mesa"])
+        votante = request.POST.get("nombre_votante")
+        sabor_votado = request.POST.get("sabor_votado")
+        #Creo nuevo voto
+        print("ENTRA")
+        print(votante)
+        print(sabor_votado)
+        return redirect(request.META['HTTP_REFERER'])
+    return render(request,
+        'helados/votacionHelados.html',
+        {'listaHelado': lista_helados}
+    )
+
 
 
 def asignaMesa(request):

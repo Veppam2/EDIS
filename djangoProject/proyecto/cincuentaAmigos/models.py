@@ -22,6 +22,8 @@ class Helado(models.Model):
     sabor = models.CharField(max_length=50, unique = True)
     #TEXT, NOT NULL
     imagen  =  models.CharField(max_length=1000)
+    #TEXT, NOT NULL
+    descripcion = models.CharField(max_length=100)
 
 class Mesa(models.Model):
     #INTEGER, PK, (Sin autoincrement)

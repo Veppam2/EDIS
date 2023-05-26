@@ -1,0 +1,272 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>50amigos-Menu</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/menuP.css' %}" rel="stylesheet" />
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- =======================================================
+  * Template Name: Yummy
+  * Updated: Mar 10 2023 with Bootstrap v5.2.3
+  * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+  {%load crispy_forms_tags %}
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1>50<span>amigos</span></h1>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+            <li><a href="{% url 'cincuentaAmigos:entradas' %}"><h5>Entradas</h5></a></li>
+            <li><a href="{% url 'cincuentaAmigos:platillos' %}"><h5>Platillos</h5></a></li>
+            <li><a href="{% url 'cincuentaAmigos:bebidas' %}"><h5>Bebidas</h5></a></li>
+            <li><a class="active" href="{% url 'cincuentaAmigos:postres' %}"><h5>Postres</h5></a></li>
+          <li class="dropdown"><a href="#"><span><h5>Helado</h5></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="#">Votación</a></li>
+              <li><a href="#">...</a></li>
+              <li><a href="#">...</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <a class="btn-book-a-table" href="#book-a-table">Carrito</a> <!-- imagen de carrito -->
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+    </div>
+  </header><!-- End Header -->
+
+
+  <!-- ======= Footer ======= -->
+  <main id="main">
+
+      <!-- ======= Postres Section ======= -->
+
+      <section id="menu" class="menu">
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nuevo Voto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="" method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombre_votante">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Sabor de Helado:</label>
+            <select name="sabores" id="sabor_votado">
+              {% for helado in listaHelado %}
+                <option value="{{helado.sabor}}">{{helado.sabor}}</option>
+                {% endfor %}
+            </select>
+          </div>
+
+        <button type="submit" class="btn btn-primary">Votar!</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="container" data-aos="fade-up">
+
+          <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+
+            <div class="tab-pane fade active show" id="menu-postres">
+              <div class="tab-header text-center">
+                <p>Menu</p>
+                <h3>Helados</h3>
+              </div>
+
+              <div class="row gy-5">
+        <button type="button" class="card-button" id="iniciar_votacion" onclick="mostrarYOcultar()">
+            <h2 class="card-title">Inicio de Votación </h2>
+        </button>
+
+        <!-- Botones de la votación -->
+        <div id="botones_votacion" style="display:none">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Nuevo Voto</button>
+          <button type="button" class="btn btn-primary" >Terminar votación </button>
+        </div>
+                {% for helado in listaHelado %}
+
+                <div class="col-lg-3 menu-item">
+                  <a href="" class="glightbox"><img src={{helado.imagen}} class="img-normalizada" alt=""></a>
+                  <div class="contenido-card">
+                    <a href="{% url 'cincuentaAmigos:postres' %}">
+                    <h2 class="title">{{helado.sabor}}</h2>
+                    </a>
+                  </div>
+                  <p class="descripcion">
+                    <a class="letra">
+                      {{helado.descripcion}}
+                    </a>
+                  </p>
+                </div><!-- Menu Item -->
+
+                {%endfor%}
+
+              </div>
+            </div>
+        </div>
+      </section><!-- Fin Postres Section -->
+
+
+  </main><!-- End #main -->
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div>
+            <h4>Address</h4>
+            <p>
+              A108 Adam Street <br>
+              New York, NY 535022 - US<br>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Reservations</h4>
+            <p>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>
+              <strong>Mon-Sat: 11AM</strong> - 23PM<br>
+              Sunday: Closed
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Yummy</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+  <!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+   <!-- Vendor JS Files -->
+   <script src="{% static '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+   <script src="{% static '/assets/vendor/aos/aos.js' %}"></script>
+   <script src="{% static '/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+   <script src="{% static '/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+   <script src="{% static '/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+   <script src="{% static '/assets/vendor/php-email-form/validate.js' %}"></script>
+
+   <!-- Template Main JS File -->
+   <script src="{% static '/assets/js/main.js' %}"></script>
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+   <script type="text/javascript">
+     function mostrarYOcultar() {
+         var botones_votos = document.getElementById("botones_votacion");
+         botones_votos.style.display = "block";
+         var boton_iniciar = document.getElementById("iniciar_votacion");
+         boton_iniciar.style.display = "none";
+     }
+     $('#exampleModal').on('show.bs.modal', function (event) {
+         var button = $(event.relatedTarget) // Button that triggered the modal
+         var recipient = button.data('whatever') // Extract info from data-* attributes
+         // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+         // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+         var modal = $(this)
+         modal.find('.modal-title').text("Nuevo Voto")
+         modal.find('.modal-body input').val()
+     })
+   </script>
+</body>
+
+</html>
