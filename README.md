@@ -30,8 +30,8 @@ A few examples of useful commands and/or tasks.
 
 ```
 $ cd EDIS/djangoProject/proyecto
-$ sudo docker build -t python-django-app .
-$ sudo docker run -it -p 8000:8000 python-django-edis-app
+$ sudo docker build -t python-django-edis .
+$ sudo docker run -it -p 8000:8000 python-django-edis
 ```
 Después redirigirse a http://0.0.0.0:8000/
 
