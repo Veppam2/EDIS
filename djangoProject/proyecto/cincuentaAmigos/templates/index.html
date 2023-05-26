@@ -19,8 +19,8 @@
     <!-- Fontawesome -->
     <link type="text/css" href="{% static 'vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
     
-    <!-- Pixel CSS -->
-    <link type="text/css" href="{% static 'css/pixel.css' %}" rel="stylesheet">
+    <!-- Login CSS -->
+    <link type="text/css" href="{% static 'css/login.css' %}" rel="stylesheet">
 
 </head>
 
@@ -45,7 +45,7 @@
                             <form action="" method="post">
                                 {% csrf_token %}
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Número de Mesa</label>
+                                    <label class="pd-d" for="exampleFormControlSelect1">Número de Mesa</label>
 
                                     <div class="input-group mb-4">
                                         <select class="form-select" id="inlineFormCustomSelectPref" name="numero_mesa" aria-label="Selecciona una mesa">
@@ -80,7 +80,7 @@
                                     </select>
                                 </div>
 
-                                <div class="{% if messages %}d-none{% endif %} mb-5"></div> 
+                                <div class="{% if messages %}d-none{% endif %} mb-4"></div> 
                                 
                                 <div class="my-4">
                                     {% if messages %}
