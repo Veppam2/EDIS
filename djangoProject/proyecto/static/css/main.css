@@ -848,7 +848,6 @@ header {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: url("../img/cd-remove-item.svg") no-repeat center center;
 }
 .no-touch #cd-cart .cd-item-remove:hover {
   background-color: #e0e6ef;
@@ -1249,4 +1248,28 @@ xkeyframes
 
 .footer .credits a {
   color: #fff;
+}
+
+.modal-center {
+  justify-content: center;
+}
+
+.table-image thead td,
+.table-image thead th {
+  border: 0;
+  color: #666;
+  font-size: 0.8rem;
+}
+.table-image td,
+.table-image th {
+  vertical-align: middle;
+  text-align: center;
+}
+.table-image td.qty,
+.table-image th.qty {
+  max-width: 2rem;
+}
+
+.modal-footer {
+  padding-top: 0rem;
 }
