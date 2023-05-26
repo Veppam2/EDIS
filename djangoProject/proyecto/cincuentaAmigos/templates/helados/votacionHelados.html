@@ -97,11 +97,13 @@
           {% csrf_token %}
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" id="nombre_votante">
+            <!--  Nombre del que vota -->
+            <input type="text" class="form-control" id="nombre_votante" name="nombre_votante">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Sabor de Helado:</label>
-            <select name="sabores" id="sabor_votado">
+            <select id="sabor_votado" name ="sabor_votado">
+            <!--  Sabor del helado -->
               {% for helado in listaHelado %}
                 <option value="{{helado.sabor}}">{{helado.sabor}}</option>
                 {% endfor %}
@@ -113,6 +115,31 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal " id="resultadoVotacion" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Resultado de la votación</h5>
+      </div>
+      <div class="modal-body">
+        <p class="resultado">Helado ganador: {{heladoGanador.sabor}}</p>
+        <p>¡Que tenga un buen día!</p>
+
+      </div>
+      <div class="modal-footer">
+        <div >
+          <!-- <a href="{% url 'cincuentaAmigos:menuPrincipal' %}">
+            Cerrar
+            </a> -->
+            <a href="{% url 'cincuentaAmigos:menuPrincipal' %}">
+            Cerrar
+            </a>
+        </div>
       </div>
     </div>
   </div>
@@ -132,7 +159,7 @@
         <!-- Botones de la votación -->
         <div id="botones_votacion" >
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Nuevo Voto</button>
-          <button type="button" class="btn btn-primary" >Terminar votación </button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#resultadoVotacion">Terminar votación </button>
         </div>
                 {% for helado in listaHelado %}
 
@@ -257,7 +284,11 @@
          modal.find('.modal-title').text("Nuevo Voto")
          modal.find('.modal-body input').val()
      })
+     $('#resultadoVotacion').on('show.bs.modal', function (event) {
+         var button = $(event.relatedTarget) // Button that triggered the modalvar 
+     })
    </script>
+   
 </body>
 
 </html>

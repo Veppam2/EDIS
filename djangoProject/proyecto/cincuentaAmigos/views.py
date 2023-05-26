@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from .models import *
 from .forms import *
 from django.contrib import messages
+from django.db.models import Count
 
 from .forms import CustomUserCreationForm
 from django.contrib.auth import authenticate,login
@@ -80,15 +81,22 @@ def helados(request):
 def votacion_helados(request):
     print("ENTRA")
     lista_helados= Helado.objects.all()
+    
     if request.method == "POST":
         mesa = Mesa.objects.get(numero_mesa = s["numero_mesa"])
         votante = request.POST.get("nombre_votante")
         sabor_votado = request.POST.get("sabor_votado")
-        #Creo nuevo voto
-        print("ENTRA2")
-        print(votante)
-        print(sabor_votado)
-        return redirect(request.META['HTTP_REFERER'])
+        helado = Helado.objects.get(sabor = sabor_votado)
+        nuevo_voto = Votacion( numero_mesa=mesa,
+                              id_helado=helado,
+                              nombre_votante = votante )
+        nuevo_voto.save()
+        ganador = Votacion.objects.filter(numero_mesa = s["numero_mesa"]).values('id_helado').annotate(num_votos=Count('id_helado')).order_by('-num_votos').first()
+        helado_ganador = Helado.objects.get(id_helado = ganador['id_helado'])
+
+        return render(request,
+            'helados/votacionHelados.html',
+            {'heladoGanador': helado_ganador})
     return render(request,
         'helados/votacionHelados.html',
         {'listaHelado': lista_helados}
