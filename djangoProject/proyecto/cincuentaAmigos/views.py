@@ -15,51 +15,57 @@ s = SessionStore()
 def adminLogin(request):
     return redirect('/admin')
 
+
 def index(request):
     return asignaMesa(request)
 
+
 def menuPrincipal(request):
     listaCategorias = Categoria.objects.all()
-    print("menuprincipal")
+    lista_carrito = mostrar_carrito(request)
     return render(request,
         'menu/menuPrincipal.html',
-        {'listaCategorias': listaCategorias}
+        {'listaCategorias': listaCategorias, 'listaCarrito': lista_carrito}
     )
+
 
 def entradas(request):
     id_categoria = Categoria.objects.get(nombre = "Entradas")
     lista_entradas= Alimento.objects.filter(id_categoria = id_categoria)
-    print(lista_entradas)
+    lista_carrito = mostrar_carrito(request)
     return render(request,
         'menu/menuEntradas.html',
-        {'listaEntradas': lista_entradas}
+        {'listaEntradas': lista_entradas, 'listaCarrito': lista_carrito}
     )
+
 
 def platillos(request):
     id_categoria = Categoria.objects.get(nombre = "Platillos principales")
     lista_platillos= Alimento.objects.filter(id_categoria = id_categoria)
-    print(lista_platillos)
+    lista_carrito = mostrar_carrito(request)
     return render(request,
         'menu/menuPlatillos.html',
-        {'listaPlatillos': lista_platillos}
+        {'listaPlatillos': lista_platillos, 'listaCarrito': lista_carrito}
     )
+
 
 def bebidas(request):
     id_categoria = Categoria.objects.get(nombre = "Bebidas")
     lista_bebidas= Alimento.objects.filter(id_categoria = id_categoria)
-    print(lista_bebidas)
+    lista_carrito = mostrar_carrito(request)
     return render(request,
         'menu/menuBebidas.html',
-        {'listaBebidas': lista_bebidas}
+        {'listaBebidas': lista_bebidas, 'listaCarrito': lista_carrito}
     )
+
 
 def postres(request):
     id_categoria = Categoria.objects.get(nombre = "Postres")
     lista_postres= Alimento.objects.filter(id_categoria = id_categoria)
-    print(lista_postres)
+    lista_carrito = mostrar_carrito(request)
     return render(request,
         'menu/menuPostres.html',
-        {'listaPostres': lista_postres}
+        {'listaPostres': lista_postres, 'listaCarrito': lista_carrito}
     )
 
 
@@ -96,7 +102,6 @@ def asignaMesa(request):
 
 
 def agregar_al_carrito(request):
-    print(s["numero_mesa"])
     if request.method == 'POST':
         mesa = Mesa.objects.get(numero_mesa = s["numero_mesa"])
         cantidad = int(request.POST.get("cantidad"))
@@ -112,4 +117,24 @@ def agregar_al_carrito(request):
     return redirect(to="cincuentaAmigos:menuPrincipal")
 
 
+def eliminar_carrito(request):
+    print(s["numero_mesa"])
+    print("Entrooooooo")
+    mesa = Mesa.objects.get(numero_mesa = s["numero_mesa"])
+    lista_carrito = Carrito.objects.filter(numero_mesa = mesa)
+    
+    lista_carrito.delete()
+
+    return redirect(request.META['HTTP_REFERER'])
+
+
+def mostrar_carrito(request):
+    mesa = Mesa.objects.get(numero_mesa = s["numero_mesa"])
+    lista_carrito = Carrito.objects.filter(numero_mesa = mesa)
+    lista_alimentos = []
+    for item in lista_carrito:
+        alimento = Alimento.objects.get(id_alimento=item.id_alimento_id)
+        lista_alimentos.append(alimento)
+
+    return lista_alimentos
 

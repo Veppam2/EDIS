@@ -56,21 +56,3 @@ class Carrito(models.Model):
     numero_mesa  =  models.ForeignKey(Mesa, on_delete=models.CASCADE)
     #INTEGER, NOT NULL, FK
     id_alimento  =  models.ForeignKey(Alimento, on_delete=models.CASCADE)
-
-"""
-class Orden(models.Model):
-"""
-
-
-"""
-class  Grupo(models.Model):
-  id_grupo  =  models.AutoField(primary_key=True)
-
-class  Estudiante(models.Model):
-  numCta  =  models.IntegerField(default=0, max_length=9)
-  nombres  =  models.CharField(max_length=200)
-  apellidos  =  models.CharField(max_length=200)
-  edad = models.IntegerField(default=0, max_length=3)
-  # Cada estudiante guarda el grupo en el que está inscrito
-  grupo  =  models.ForeignKey(Grupo, on_delete=models.SET_NULL, null=True)
-"""
