@@ -112,20 +112,13 @@
                       Agregar
                     </button>
                   </div>
-                  {% comment %} <form action="{% url 'cincuentaAmigos:agregar_al_carrito' alimento.id_alimento %}" method="post">
-                    {% csrf_token %}
-                  <button class="card-price centrar-boton" type="submit">Agregar al carrito</button>    
-                  </form>        {% endcomment %}
                 </div><!-- Menu Item -->
-
                 {%endfor%} 
                             
               </div>
             </div>
         </div>  
       </section><!-- Fin Postres Section -->
-
-
   </main><!-- End #main -->
 
 
@@ -165,19 +158,19 @@
         </div>
         <div class="modal-footer border-top-0 d-flex justify-content-between">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Agregar</button>
 
-          {% comment %} <form action="{% url 'cincuentaAmigos:agregar_al_carrito' cartItemId input1%}" method="post">
+          <form action="{% url 'cincuentaAmigos:agregar_al_carrito' %}" method="post">
             {% csrf_token %}
-          <button class="card-price centrar-boton" type="submit">Agregar al carrito</button>   
-          </form>  {% endcomment %}
-          
+            <button class="card-price centrar-boton" type="submit">Agregar al carrito</button>   
+            <input type="hidden" id="cartItemId" name="cartItemId" value="">
+            <input type="hidden" id="cantidad" name="cantidad" value="">
+          </form>  
         </div>
       </div>
     </div>
   </div> <!-- Fin Modal Cart -->
 
-{% comment %} <button type="button" class="card-price centrar-boton">Agregar</button> {% endcomment %}
+
   <div id="cd-shadow-layer"></div>
 
 	<div id="cd-cart">
@@ -260,7 +253,6 @@
             <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -312,13 +304,15 @@
           var qty = $(this).val();
           var total = precio * qty;
           $('#cartItemTotal').text('$' + total);
-        });
+          $('#cantidad').val(qty);
+        });      
   
         // Inicializar el valor total
         var qty = $('#input1').val();
+        var qty = $('#input1').val();
         var total = precio * qty;
         $('#cartItemTotal').text('$' + total);
-  
+        
         $('#cartModal').modal('show');
       });
   

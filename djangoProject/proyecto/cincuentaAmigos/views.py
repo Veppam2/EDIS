@@ -95,10 +95,12 @@ def asignaMesa(request):
     return render(request, 'index.html')    
 
 
-def agregar_al_carrito(request, alimento_id, cantidad):
+def agregar_al_carrito(request):
     print(s["numero_mesa"])
     if request.method == 'POST':
         mesa = Mesa.objects.get(numero_mesa = s["numero_mesa"])
+        cantidad = int(request.POST.get("cantidad"))
+        alimento_id = int(request.POST.get("cartItemId"))
         alimento = Alimento.objects.get(id_alimento = alimento_id)
 
         for _ in range(cantidad):
