@@ -16,9 +16,6 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
 
-    <!-- Fontawesome -->
-    <link type="text/css" href="{% static 'vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
-    
     <!-- Login CSS -->
     <link type="text/css" href="{% static 'css/login.css' %}" rel="stylesheet">
 
@@ -27,14 +24,8 @@
 <body>
 
     <main>
-
-        {% comment %} {% include 'includes/pre-loader.html' %} {% endcomment %}
-
-        <link rel="stylesheet" href="{% static 'css/messages.css' %}">
-        <link rel="stylesheet" href="{% static 'css/pixel.css' %}">
-
         <!-- Section -->
-        <section class="min-vh-100 d-flex align-items-center section-image overlay-soft-dark" data-background="{% static 'assets/img/pages/restaurante50.jpg' %}">
+        <section class="min-vh-100 d-flex align-items-center section-image overlay-soft-dark" data-background="{% static 'assets/img/restaurante50.jpg' %}">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 d-flex align-items-center justify-content-center">
@@ -45,10 +36,10 @@
                             <form action="" method="post">
                                 {% csrf_token %}
                                 <div class="form-group">
-                                    <label class="pd-d" for="exampleFormControlSelect1">Número de Mesa</label>
+                                    <label class="pd-d" for="numeroMesaSelect">Número de Mesa</label>
 
                                     <div class="input-group mb-4">
-                                        <select class="form-select" id="inlineFormCustomSelectPref" name="numero_mesa" aria-label="Selecciona una mesa">
+                                        <select class="form-select" id="numeroMesaSelect" name="numero_mesa" aria-label="Selecciona una mesa">
                                             <option selected disabled>Selecciona la mesa</option>
                                             <option>1</option>
                                             <option>2</option>
@@ -70,8 +61,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Ubicación</label>
-                                    <select class="form-select" id="inlineFormCustomSelectPref" name="ubicacion" aria-label="Selecciona una ubicación">
+                                    <label for="ubicacionSelect">Ubicación</label>
+                                    <select class="form-select" id="ubicacionSelect" name="ubicacion" aria-label="Selecciona una ubicación">
                                         <option selected disabled>Selecciona la ubicación</option>
                                         <option>Terraza</option>
                                         <option>Balcón</option>
@@ -106,14 +97,8 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> <!-- Fin Section -->
     </main>
   
-    {% include 'includes/scripts.html' %}
-    {% block javascripts %}{% endblock javascripts %}
-  
-  
-  </body>
-    
-
- {% block footer %}{% endblock footer %}
+    <script src="{% static 'js/background.js' %}"></script>
+</body>
