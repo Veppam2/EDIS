@@ -30,7 +30,7 @@
   <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/menu.css' %}" rel="stylesheet" />
 </head>
 
 <body class="foo">
@@ -39,7 +39,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <a href="{% url 'cincuentaAmigos:menuPrincipal' %}" class="logo d-flex align-items-center me-auto me-lg-0">
+      <a href="{% url 'cincuentaAmigos:menu-principal' %}" class="logo d-flex align-items-center me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>50<span>amigos</span></h1>
@@ -47,10 +47,10 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-            <li><a href="{% url 'cincuentaAmigos:entradas' %}"><h5 class="h5-font">Entradas</h5></a></li>
-            <li><a href="{% url 'cincuentaAmigos:platillos' %}"><h5 class="h5-font">Platillos</h5></a></li>
-            <li><a href="{% url 'cincuentaAmigos:bebidas' %}"><h5 class="h5-font">Bebidas</h5></a></li>
-            <li><a class="active" href="{% url 'cincuentaAmigos:postres' %}"><h5 class="h5-font">Postres</h5></a></li>
+          <li><a href="{% url 'cincuentaAmigos:entradas' %}"><h5 class="h5-font">Entradas</h5></a></li>
+          <li><a href="{% url 'cincuentaAmigos:platillos' %}"><h5 class="h5-font">Platillos</h5></a></li>
+          <li><a class="active" href="{% url 'cincuentaAmigos:bebidas' %}"><h5 class="h5-font">Bebidas</h5></a></li>
+          <li><a href="{% url 'cincuentaAmigos:postres' %}"><h5 class="h5-font">Postres</h5></a></li>
           <li class="dropdown"><a href="#"><span><h5 class="h5-font">Helado</h5></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="#">Votación</a></li>
@@ -60,7 +60,6 @@
           </li>
         </ul>
       </nav>
-
       <div id="cd-cart-trigger"><a class="btn-book-a-table" href="">Carrito</a></div>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
@@ -68,29 +67,29 @@
   </header><!-- End Header -->
 
 
-  <!-- ======= Footer ======= -->
+  <!-- ======= main ======= -->
   <main id="main">
      
-      <!-- ======= Postres Section ======= -->
-      <section id="menu" class="menu">
+       <!-- ======= Bebida Section ======= -->
+       <section id="menu" class="menu">
         <div class="container" data-aos="fade-up">
   
           <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
 
-            <div class="tab-pane fade active show" id="menu-postres">
+            <div class="tab-pane fade active show" id="menu-bebidas">
               <div class="tab-header text-center">
                 <p>Menu</p>
-                <h3>Postres</h3>
+                <h3>Bebidas</h3>
               </div>
   
               <div class="row gy-5">
 
-                {% for alimento in listaPostres %}
+                {% for alimento in listaBebidas %}
                   
                 <div class="col-lg-3 menu-item">
                   <a href="" class="glightbox"><img src={{alimento.imagen}} class="img-normalizada" alt=""></a>
                   <div class="contenido-card">
-                    <a href="{% url 'cincuentaAmigos:postres' %}">
+                    <a href="{% url 'cincuentaAmigos:bebidas' %}">
                     <h2 class="title">{{alimento.nombre}}</h2>
                     </a>
                   </div>
@@ -111,14 +110,15 @@
                       data-precio="{{ alimento.precio }}">
                       Agregar
                     </button>
-                  </div>
+                  </div>           
                 </div><!-- Menu Item -->
+
                 {%endfor%} 
                             
               </div>
             </div>
         </div>  
-      </section><!-- Fin Postres Section -->
+      </section><!--  Section -->
   </main><!-- End #main -->
 
 
@@ -159,7 +159,7 @@
         <div class="modal-footer border-top-0 d-flex justify-content-between">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 
-          <form action="{% url 'cincuentaAmigos:agregar_al_carrito' %}" method="post">
+          <form action="{% url 'cincuentaAmigos:agregar-al-carrito' %}" method="post">
             {% csrf_token %}
             <button class="card-price centrar-boton" type="submit">Agregar al carrito</button>   
             <input type="hidden" id="cartItemId" name="cartItemId" value="">
@@ -173,7 +173,7 @@
 
   <div id="cd-shadow-layer"></div>
 
-  <div id="cd-cart">
+	<div id="cd-cart">
 		<h2>Carrito</h2>
 		<ul class="cd-cart-items">
       {% for alimento in listaCarrito %}
@@ -189,7 +189,7 @@
 			<p>Total <span>$39.96</span></p>
 		</div> <!-- cd-cart-total -->
 
-    <form action="{% url 'cincuentaAmigos:eliminar_carrito' %}" method="post">
+    <form action="{% url 'cincuentaAmigos:eliminar-carrito' %}" method="post">
       {% csrf_token %}
 		  <button class="checkout-btn" type="submit">Mandar Orden</a>
     </form>  

@@ -30,7 +30,7 @@
   <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/menu.css' %}" rel="stylesheet" />
 
   <!-- =======================================================
   * Template Name: Yummy
@@ -47,7 +47,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <a href="{% url 'cincuentaAmigos:menuPrincipal' %}" class="logo d-flex align-items-center me-auto me-lg-0">
+      <a href="{% url 'cincuentaAmigos:menu-principal' %}" class="logo d-flex align-items-center me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>50<span>amigos</span></h1>
@@ -77,7 +77,7 @@
           <div class="container-card">
           {% for i in listaCategorias %}
             <div class="card col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">                
-              <div class="card-image"><img src={{i.imagen}} /></div>
+              <div class="card-image"><img src={{i.imagen}}></div>
               <div class="contenido-card">
                 {% if i.nombre == "Entradas" %}
                 <a href="{% url 'cincuentaAmigos:entradas' %}">
@@ -135,7 +135,7 @@
 			<p>Total <span>$39.96</span></p>
 		</div> <!-- cd-cart-total -->
 
-    <form action="{% url 'cincuentaAmigos:eliminar_carrito' %}" method="post">
+    <form action="{% url 'cincuentaAmigos:eliminar-carrito' %}" method="post">
       {% csrf_token %}
 		  <button class="checkout-btn" type="submit">Mandar Orden</a>
     </form>  

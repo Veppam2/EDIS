@@ -30,7 +30,7 @@
   <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/menu.css' %}" rel="stylesheet" />
 </head>
 
 <body class="foo">
@@ -39,7 +39,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <a href="{% url 'cincuentaAmigos:menuPrincipal' %}" class="logo d-flex align-items-center me-auto me-lg-0">
+      <a href="{% url 'cincuentaAmigos:menu-principal' %}" class="logo d-flex align-items-center me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>50<span>amigos</span></h1>
@@ -162,7 +162,7 @@
         <div class="modal-footer border-top-0 d-flex justify-content-between">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 
-          <form action="{% url 'cincuentaAmigos:agregar_al_carrito' %}" method="post">
+          <form action="{% url 'cincuentaAmigos:agregar-al-carrito' %}" method="post">
             {% csrf_token %}
             <button class="card-price centrar-boton" type="submit">Agregar al carrito</button>   
             <input type="hidden" id="cartItemId" name="cartItemId" value="">
@@ -192,7 +192,7 @@
 			<p>Total <span>$39.96</span></p>
 		</div> <!-- cd-cart-total -->
 
-    <form action="{% url 'cincuentaAmigos:eliminar_carrito' %}" method="post">
+    <form action="{% url 'cincuentaAmigos:eliminar-carrito' %}" method="post">
       {% csrf_token %}
 		  <button class="checkout-btn" type="submit">Mandar Orden</a>
     </form>  

@@ -15,20 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from . import views
-from django.conf import settings
 
-app_name ="cincuentaAmigos"
+from .views import menu_views, views
+
+app_name = 'cincuentaAmigos'
 urlpatterns = [
-    path('admin/', views.adminLogin, name="adminLink"),
+    path('admin/', views.adminLogin, name="admin"),
     path('admin/', admin.site.urls),
     path('',views.index, name='index'),
-    path('menuPrincipal/', views.menuPrincipal, name='menuPrincipal'),
-    path('menuPrincipal/entradas', views.entradas, name = 'entradas'),
-    path('menuPrincipal/platillos', views.platillos, name = 'platillos'),
-    path('menuPrincipal/bebidas', views.bebidas, name = 'bebidas'),
-    path('menuPrincipal/postres', views.postres, name = 'postres'),
-    path('menuPrincipal/helados/', views.helados, name = 'helados'),
-    path('menuPrincipal/agregar_al_carrito/', views.agregar_al_carrito, name='agregar_al_carrito'),
-    path('menuPrincipal/eliminar_carrito/', views.eliminar_carrito, name='eliminar_carrito'),
+    path('menu-principal/', views.menu_principal, name='menu-principal'),
+    path('menu-principal/entradas', menu_views.entradas, name = 'entradas'),
+    path('menu-principal/platillos', menu_views.platillos, name = 'platillos'),
+    path('menu-principal/bebidas', menu_views.bebidas, name = 'bebidas'),
+    path('menu-principal/postres', menu_views.postres, name = 'postres'),
+    path('menu-principal/helados/', menu_views.helados, name = 'helados'),
+    path('menu-principal/agregar-al-carrito/', views.agregar_al_carrito, name='agregar-al-carrito'),
+    path('menu-principal/eliminar-carrito/', views.eliminar_carrito, name='eliminar-carrito'),
 ]

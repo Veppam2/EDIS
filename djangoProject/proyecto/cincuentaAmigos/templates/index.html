@@ -1,5 +1,4 @@
 {% load static %}
-{% load crispy_forms_tags %}
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -36,10 +35,10 @@
                             <form action="" method="post">
                                 {% csrf_token %}
                                 <div class="form-group">
-                                    <label class="pd-d" for="numeroMesaSelect">Número de Mesa</label>
+                                    <label class="pd-d" for="numero-mesa-select">Número de Mesa</label>
 
                                     <div class="input-group mb-4">
-                                        <select class="form-select" id="numeroMesaSelect" name="numero_mesa" aria-label="Selecciona una mesa">
+                                        <select class="form-select" id="numero-mesa-select" name="numero-mesa" aria-label="Selecciona una mesa">
                                             <option selected disabled>Selecciona la mesa</option>
                                             <option>1</option>
                                             <option>2</option>
@@ -61,8 +60,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="ubicacionSelect">Ubicación</label>
-                                    <select class="form-select" id="ubicacionSelect" name="ubicacion" aria-label="Selecciona una ubicación">
+                                    <label for="ubicacion-select">Ubicación</label>
+                                    <select class="form-select" id="ubicacion-select" name="ubicacion" aria-label="Selecciona una ubicación">
                                         <option selected disabled>Selecciona la ubicación</option>
                                         <option>Terraza</option>
                                         <option>Balcón</option>
@@ -90,7 +89,7 @@
                             <div class="d-flex justify-content-center align-items-center mt-4">
                                 <span class="fw-normal">
                                     Inicia sesión como
-                                    <a href="{% url 'cincuentaAmigos:adminLink' %}" class="fw-bold text-underline">Administrador</a>
+                                    <a href="{% url 'cincuentaAmigos:admin' %}" class="fw-bold text-underline">Administrador</a>
                                 </span>
                             </div>
                         </div>
