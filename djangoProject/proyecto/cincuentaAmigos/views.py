@@ -71,16 +71,24 @@ def postres(request):
 
 
 def helados(request):
+    if Votacion.objects.filter(numero_mesa = s["numero_mesa"]).exists():
+        return votacion_helados(request)
     lista_helados= Helado.objects.all()
-    print(lista_helados)
     return render(request,
         'helados/menuHelado.html',
         {'listaHelado': lista_helados}
     )
 
+def nuevo_comensal(request):
+    carrito = Carrito.objects.filter(numero_mesa = s["numero_mesa"])
+    votacion = Votacion.objects.filter(numero_mesa = s["numero_mesa"])
+    carrito.delete()
+    votacion.delete()
+    return menuPrincipal(request)
+
 def votacion_helados(request):
-    print("ENTRA")
     lista_helados= Helado.objects.all()
+    helado_ganador = Helado.objects.first()
     
     if request.method == "POST":
         mesa = Mesa.objects.get(numero_mesa = s["numero_mesa"])
@@ -96,10 +104,12 @@ def votacion_helados(request):
 
         return render(request,
             'helados/votacionHelados.html',
-            {'heladoGanador': helado_ganador})
+            {'listaHelado': lista_helados,
+             'heladoGanador': helado_ganador})
     return render(request,
         'helados/votacionHelados.html',
-        {'listaHelado': lista_helados}
+        {'listaHelado': lista_helados,
+         'heladoGanador': helado_ganador}
     )
 
 
@@ -168,4 +178,3 @@ def mostrar_carrito(request):
         lista_alimentos.append(alimento)
 
     return lista_alimentos
-
