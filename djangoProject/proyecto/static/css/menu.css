@@ -865,25 +865,44 @@ header {
   display: table;
   clear: both;
 }
+/* Boton de checkout*/
 #cd-cart .checkout-btn {
   display: block;
   width: 100%;
   height: 60px;
   line-height: 60px;
-  background: #7dcf85;
+  background: #86DF5C;
+  color: #FFF;  
+  text-align: center;
+  border: #86DF5C;
+  border-radius: 10px;
+  cursor: grab;
+}
+#cd-cart .checkout-btn:hover {
+  background: #86df5cca;
+	color: #ffffff;
+}
+
+/*boton de regresar menu*/
+.cd-go-to-cart {
+  display: block;
+  width: 89%;
+  height: 60px;
+  line-height: 60px;
+  background: #FFBD59;
   color: #FFF;
   text-align: center;
+  border: #FFBD59;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+  padding: 1px 6px 1px 6px;
+  margin-left: 2rem;
 }
-.no-touch #cd-cart .checkout-btn:hover {
-  background: #a2dda8;
+.cd-go-to-cart:hover {
+  background: #ffbd59c7;
+	color: #ffffff;
 }
-#cd-cart .cd-go-to-cart {
-  text-align: center;
-  margin: 1em 0;
-}
-#cd-cart .cd-go-to-cart a {
-  text-decoration: underline;
-}
+
 @media only screen and (min-width: 1200px) {
   #cd-cart > * {
     padding: 0 2em;
