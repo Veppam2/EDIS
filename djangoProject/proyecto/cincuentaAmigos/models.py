@@ -56,3 +56,5 @@ class Carrito(models.Model):
     numero_mesa  =  models.ForeignKey(Mesa, on_delete=models.CASCADE)
     #INTEGER, NOT NULL, FK
     id_alimento  =  models.ForeignKey(Alimento, on_delete=models.CASCADE)
+
+    cantidad = models.IntegerField()
