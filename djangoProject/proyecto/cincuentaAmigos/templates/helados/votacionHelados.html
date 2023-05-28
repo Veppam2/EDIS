@@ -25,7 +25,6 @@
   <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-  <link href="{% static 'css/menuP.css' %}" rel="stylesheet" />
 
   <!-- Template Main CSS File -->
   <link href="{% static 'css/main.css' %}" rel="stylesheet" />
@@ -126,8 +125,22 @@
         <h5 class="modal-title">Resultado de la votación</h5>
       </div>
       <div class="modal-body">
-        <p class="resultado">Helado ganador: {{heladoGanador.sabor}}</p>
-        <p>¡Que tenga un buen día!</p>
+        {% if votos %}
+        <p class="resultado">Helado ganador: {{votos.0.id_helado__sabor}}</p>
+        <p class="resultado">Votos:</p>
+        <ul>
+          {% for voto in votos %}
+            <li>
+              <p>{{voto.id_helado__sabor}}: {{ voto.num_votos }}</p> 
+            </li>
+          {%endfor%} 
+        </ul>
+        <p>En caso de empate se elige alteatoriamente entre los sabores ganadores.</p>
+        {% else %}
+        <p>No se resgistro ningún voto.</p>
+        {%  endif %}
+
+        <h5>¡Que tenga un buen día!</h5>
 
       </div>
       <div class="modal-footer">
