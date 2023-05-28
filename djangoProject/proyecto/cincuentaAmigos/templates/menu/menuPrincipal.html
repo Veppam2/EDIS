@@ -54,7 +54,6 @@
       </a>
 
       <div id="cd-cart-trigger"><a class="btn-book-a-table" href="">Carrito</a></div>
-      <div id="cd-cart-trigger"><a class="btn-book-a-table" href="{% url 'cincuentaAmigos:logout' %}">Cerrar Sesión</a></div>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
@@ -117,6 +116,14 @@
     </section><!-- End Section -->
   </main><!-- End #main -->
 
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="row gy-3">
+        <div id=""><a class="btn-cerrar-sesion" href="{% url 'cincuentaAmigos:logout' %}">Cerrar Sesión</a></div>
+
+      </div>
+    </div>
+  
 
   <div id="cd-shadow-layer"></div>
 
@@ -144,6 +151,7 @@
 		<p class="cd-go-to-cart"><a href="#0">Go to cart page</a></p>
 	</div> <!-- cd-cart -->
 
+  
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <div id="preloader"></div>

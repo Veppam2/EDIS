@@ -58,10 +58,10 @@
             <li><a href="{% url 'cincuentaAmigos:entradas' %}"><h5>Entradas</h5></a></li>
             <li><a href="{% url 'cincuentaAmigos:platillos' %}"><h5>Platillos</h5></a></li>
             <li><a href="{% url 'cincuentaAmigos:bebidas' %}"><h5>Bebidas</h5></a></li>
-            <li><a class="active" href="{% url 'cincuentaAmigos:postres' %}"><h5>Postres</h5></a></li>
-          <li class="dropdown"><a href="#"><span><h5>Helado</h5></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <li><a href="{% url 'cincuentaAmigos:postres' %}"><h5>Postres</h5></a></li>
+          <li class="dropdown"><a  class="active" href=""><span><h5>Helado</h5></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="#">Votación</a></li>
+              <li><a href="{% url 'cincuentaAmigos:votacion' %}">Votación</a></li>
               <li><a href="#">...</a></li>
               <li><a href="#">...</a></li>
             </ul>
@@ -131,14 +131,7 @@
                 <!-- --
         <button type="button" class="card-button" id="iniciar_votacion" onclick="mostrarYOcultar()">
             <h2 class="card-title">Inicio de Votación </h2>
-        </button>
-
-                  ---->
-        <button type="button" class="card-button" id="iniciar_votacion">
-            <a href="{% url 'cincuentaAmigos:votacion' %}">
-              <h2 class="card-title">Inicio de Votación </h2>
-            </a>
-        </button>
+        </button-->
 
         <!-- Botones de la votación -->
         <div id="botones_votacion" style="display:none">
@@ -147,7 +140,7 @@
         </div>
                 {% for helado in listaHelado %}
 
-                <div class="col-lg-3 menu-item">
+                <div class="col-lg-3 menu-item-h">
                   <a href="" class="glightbox"><img src={{helado.imagen}} class="img-normalizada" alt=""></a>
                   <div class="contenido-card">
                     <a href="{% url 'cincuentaAmigos:postres' %}">
@@ -162,6 +155,12 @@
                 </div><!-- Menu Item -->
 
                 {%endfor%}
+
+                <button type="button" class="bton first" data-bs-dismiss="modal" id="iniciar_votacion">
+                  <a href="{% url 'cincuentaAmigos:votacion' %}">
+                    Inicio de Votación
+                  </a>
+                </button>
 
               </div>
             </div>
