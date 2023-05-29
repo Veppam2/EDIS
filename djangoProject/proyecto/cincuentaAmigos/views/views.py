@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.db.models import Count
-from django.db.models import Sum
+from django.core.exceptions import ObjectDoesNotExist
 
 from ..models import *
 
@@ -64,17 +64,6 @@ def menu_principal(request):
 
 # Vistas del Carrito
 
-def mostrar_carrito(request):
-    mesa = Mesa.objects.get(numero_mesa = sesion_mesa(request))
-    lista_carrito = Carrito.objects.filter(numero_mesa = mesa)
-    lista_alimentos = []
-    for item in lista_carrito:
-        alimento = Alimento.objects.get(id_alimento=item.id_alimento_id)
-        lista_alimentos.append(alimento)
-
-    return lista_alimentos
-
-
 def agregar_al_carrito(request):
     if request.method == 'POST':
         mesa = Mesa.objects.get(numero_mesa = sesion_mesa(request))
@@ -103,6 +92,44 @@ def eliminar_carrito(request):
     lista_carrito = Carrito.objects.filter(numero_mesa = mesa)
     
     lista_carrito.delete()
+
+    return redirect(request.META['HTTP_REFERER'])
+
+
+def eliminar_alimento(request):
+    mesa = Mesa.objects.get(numero_mesa = sesion_mesa(request))
+    alimento_id = int(request.POST.get("alimento_id"))
+    alimento = Alimento.objects.get(id_alimento=alimento_id)
+    
+    try:
+        carrito = Carrito.objects.get(numero_mesa=mesa, id_alimento=alimento)
+        carrito.delete()
+            
+    except Carrito.DoesNotExist:
+        raise ObjectDoesNotExist("El elemento no existe en el carrito.")
+
+    return redirect(request.META['HTTP_REFERER'])
+
+
+def eliminar_cantidad(request):
+    print("entrooooooooo")
+    mesa = Mesa.objects.get(numero_mesa = sesion_mesa(request))
+    cantidad = int(request.POST.get("cantidad"))
+    alimento_id = int(request.POST.get("alimento_id"))
+    alimento = Alimento.objects.get(id_alimento=alimento_id)
+    
+    try:
+        carrito = Carrito.objects.get(numero_mesa=mesa, id_alimento=alimento)
+        
+        if carrito.cantidad == 1:
+            carrito.delete()
+        
+        else:
+            carrito.cantidad -= cantidad
+            carrito.save()
+            
+    except Carrito.DoesNotExist:
+        raise ObjectDoesNotExist("El elemento no existe en el carrito.")
 
     return redirect(request.META['HTTP_REFERER'])
 

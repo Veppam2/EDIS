@@ -80,3 +80,81 @@ function move_navigation( $navigation, $MQ) {
 		$navigation.insertAfter('header');
 	}
 }
+
+
+function agregarCantidad(alimentoId, cantidad) {
+	var csrftoken = getCookie('csrftoken');
+
+    $.ajax({
+        url: "/menu-principal/agregar-al-carrito/",
+        type: "POST",
+        data: {
+            cartItemId: alimentoId,
+            cantidad: cantidad,
+			csrfmiddlewaretoken: csrftoken 
+        },
+        success: function() {
+            location.reload(); 
+        },
+        error: function() {
+            alert("Error en la petición AJAX");
+        }
+    });
+}
+
+
+function eliminarCantidad(alimentoId, cantidad) {
+	var csrftoken = getCookie('csrftoken');
+
+    $.ajax({
+        url: "/menu-principal/eliminar-cantidad-carrito/",
+        type: "POST",
+        data: {
+            alimento_id: alimentoId,
+            cantidad: cantidad,
+			csrfmiddlewaretoken: csrftoken 
+        },
+        success: function() {
+            location.reload(); 
+        },
+        error: function() {
+            alert("Error en la petición AJAX");
+        }
+    });
+}
+
+
+function eliminarTotal(alimentoId) {
+	var csrftoken = getCookie('csrftoken');
+
+    $.ajax({
+        url: "/menu-principal/eliminar-alimento/",
+        type: "POST",
+        data: {
+            alimento_id: alimentoId,
+			csrfmiddlewaretoken: csrftoken 
+        },
+        success: function() {
+            location.reload(); 
+        },
+        error: function() {
+            alert("Error en la petición AJAX");
+        }
+    });
+}
+
+
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}

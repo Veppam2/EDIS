@@ -1375,3 +1375,65 @@ xkeyframes
 .modal-footer {
   padding-top: 0rem;
 }
+
+/*--------------------------------------------------------------
+# Carrito
+--------------------------------------------------------------*/
+@media (min-width: 1025px) {
+  .h-custom {
+  height: 100vh !important;
+  }
+}
+  
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+font-size: 1rem;
+line-height: 2.15;
+padding-left: .75em;
+padding-right: .75em;
+}
+
+.card-registration .select-arrow {
+top: 13px;
+}
+
+.bg-grey {
+background-color: #d2d2d2;
+}
+  
+@media (min-width: 992px) {
+  .card-registration-2 .bg-grey {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  }
+}
+  
+@media (max-width: 991px) {
+  .card-registration-2 .bg-grey {
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  }
+}
+
+.c-card {
+  background: #ffffff;
+  position: relative;
+  width: 100%;
+  margin: 80px 10px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0px 1px 30px rgba(0,0,0,0.2);
+}
+
+.c-section {
+    height: 100%;
+    overflow: auto;
+    padding: 80px 0 !important;
+}
+
+.c-btn {
+  color: var(--color-primary)
+}
+.c-btn:hover {
+  color: #b3472f;
+}

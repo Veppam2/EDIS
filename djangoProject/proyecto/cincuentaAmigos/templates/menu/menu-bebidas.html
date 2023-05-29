@@ -160,8 +160,6 @@
           <form action="{% url 'cincuentaAmigos:agregar-al-carrito' %}" method="post">
             {% csrf_token %}
             <button class="card-price centrar-boton" type="submit">Agregar al carrito</button>   
-            <input type="hidden" id="cartItemId" name="cartItemId" value="">
-            <input type="hidden" id="cantidad" name="cantidad" value="">
           </form>  
         </div>
       </div>
@@ -186,12 +184,15 @@
 			<p>Total <span>$ {{ precioTotal }}</span></p>
 		</div> <!-- cd-cart-total -->
 
-    <form action="{% url 'cincuentaAmigos:eliminar-carrito' %}" method="post">
+    <form action="{% url 'cincuentaAmigos:carrito' %}" method="post">
       {% csrf_token %}
-		  <button class="checkout-btn" type="submit">Mandar Orden</a>
-    </form>  
+		  <button class="checkout-btn" type="submit">Ver Carrito</a>
+    </form> 
 		
-		<button class="cd-go-to-cart" href="#0">Regresar al menu</button>
+		<form action="{% url 'cincuentaAmigos:menu-principal' %}" method="post">
+      {% csrf_token %}
+		  <button class="cd-go-to-cart" type="submit">Regresar al menu</a>
+    </form>  
 	</div> <!-- cd-cart -->
 
 

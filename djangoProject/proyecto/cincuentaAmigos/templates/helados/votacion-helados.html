@@ -61,9 +61,6 @@
       </nav>
 
       <div id="cd-cart-trigger"><a class="btn-book-a-table" href="">Carrito</a></div><!-- imagen de carrito -->
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-    </div>
   </header><!-- End Header -->
 
 
@@ -277,12 +274,15 @@
 			<p>Total <span>$ {{ precioTotal }} </span></p>
 		</div> <!-- cd-cart-total -->
 
-    <form action="{% url 'cincuentaAmigos:eliminar-carrito' %}" method="post">
+    <form action="{% url 'cincuentaAmigos:carrito' %}" method="post">
       {% csrf_token %}
-		  <button class="checkout-btn" type="submit">Mandar Orden</a>
-    </form>  
+		  <button class="checkout-btn" type="submit">Ver Carrito</a>
+    </form> 
 		
-		<button class="cd-go-to-cart" href="#0">Regresar al menu</button>
+		<form action="{% url 'cincuentaAmigos:menu-principal' %}" method="post">
+      {% csrf_token %}
+		  <button class="cd-go-to-cart" type="submit">Regresar al menu</a>
+    </form>  
 	</div> <!-- cd-cart -->
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

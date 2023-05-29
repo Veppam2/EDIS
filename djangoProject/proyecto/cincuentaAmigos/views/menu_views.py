@@ -50,3 +50,12 @@ def postres(request):
          'datosCarrito': datos_carrito,
          'precioTotal': precio_total}
     )
+
+
+def carrito(request):
+    datos_carrito, precio_total = obtener_datos_carrito(request)
+    return render(request,
+        'carrito/carrito.html',
+        {'datosCarrito': datos_carrito,
+         'precioTotal': precio_total}
+    )
