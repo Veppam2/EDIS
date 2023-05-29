@@ -9,16 +9,22 @@ from ..models import *
 def sesion_mesa(request):
     return request.session.get('numero_mesa');
 
-
 def admin_login(request):
     return redirect('/admin')
 
 
 def index(request):
-    return asigna_mesa(request)
+    val = sesion_mesa(request)
+    if val is None:
+        return asigna_mesa(request)
+    else:
+        return redirect(to="cincuentaAmigos:menu-principal")
 
 
 def logout(request):
+    val = sesion_mesa(request)
+    if val is None:
+        return redirect(to="cincuentaAmigos:index")
     mesa = Mesa.objects.get(numero_mesa = sesion_mesa(request))
     mesa.delete()
     request.session.flush()
@@ -26,6 +32,7 @@ def logout(request):
 
 
 def asigna_mesa(request):
+
     if request.method == "POST":
         numero_mesa = request.POST.get("numero-mesa")
         ubicacion = request.POST.get("ubicacion")
@@ -52,6 +59,10 @@ def asigna_mesa(request):
 
 
 def menu_principal(request):
+    val = sesion_mesa(request)
+    if val is None:
+        return redirect(to="cincuentaAmigos:index")
+
     listaCategorias = Categoria.objects.all()
     lista_carrito = mostrar_carrito(request)
     return render(request,
@@ -62,6 +73,11 @@ def menu_principal(request):
 # Vistas del Carrito
 
 def mostrar_carrito(request):
+
+    val = sesion_mesa(request)
+    if val is None:
+        return redirect(to="cincuentaAmigos:index")
+
     mesa = Mesa.objects.get(numero_mesa = sesion_mesa(request))
     lista_carrito = Carrito.objects.filter(numero_mesa = mesa)
     lista_alimentos = []
@@ -73,6 +89,9 @@ def mostrar_carrito(request):
 
 
 def agregar_al_carrito(request):
+    val = sesion_mesa(request)
+    if val is None:
+        return redirect(to="cincuentaAmigos:index")
     if request.method == 'POST':
         mesa = Mesa.objects.get(numero_mesa = sesion_mesa(request))
         cantidad = int(request.POST.get("cantidad"))
@@ -96,6 +115,9 @@ def agregar_al_carrito(request):
 
 
 def eliminar_carrito(request):
+    val = sesion_mesa(request)
+    if val is None:
+        return redirect(to="cincuentaAmigos:index")
     mesa = Mesa.objects.get(numero_mesa = sesion_mesa(request))
     lista_carrito = Carrito.objects.filter(numero_mesa = mesa)
     
@@ -106,6 +128,9 @@ def eliminar_carrito(request):
 # Votación de helados
 
 def nuevo_comensal(request):
+    val = sesion_mesa(request)
+    if val is None:
+        return redirect(to="cincuentaAmigos:index")
     carrito = Carrito.objects.filter(numero_mesa = sesion_mesa(request))
     votacion = Votacion.objects.filter(numero_mesa = sesion_mesa(request))
     carrito.delete()
@@ -114,6 +139,10 @@ def nuevo_comensal(request):
 
 
 def votacion_helados(request):
+    val = sesion_mesa(request)
+    if val is None:
+        return redirect(to="cincuentaAmigos:index")
+
     lista_helados= Helado.objects.all()
     
     if request.method == "POST":
@@ -138,6 +167,11 @@ def votacion_helados(request):
 
 
 def helados(request):
+
+    val = sesion_mesa(request)
+    if val is None:
+        return redirect(to="cincuentaAmigos:index")
+
     if Votacion.objects.filter(numero_mesa = sesion_mesa(request)).exists():
         return votacion_helados(request)
     lista_helados= Helado.objects.all()

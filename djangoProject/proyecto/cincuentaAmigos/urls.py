@@ -32,6 +32,6 @@ urlpatterns = [
     path('menu-principal/helados/', views.helados, name = 'helados'),
     path('menu-principal/agregar-al-carrito/', views.agregar_al_carrito, name='agregar-al-carrito'),
     path('menu-principal/eliminar-carrito/', views.eliminar_carrito, name='eliminar-carrito'),
-    path('menuPrincipal/helados/votacion', views.votacion_helados, name = 'votacion'),
-    path('menuPrincipal/helados/nuevo-comensal', views.nuevo_comensal, name = 'nuevo-comensal'),
+    path('menu-principal/helados/votacion', views.votacion_helados, name = 'votacion'),
+    path('menu-principal/helados/nuevo-comensal', views.nuevo_comensal, name = 'nuevo-comensal'),
 ]
