@@ -21,7 +21,7 @@
 /* Colors */
 :root {
   --color-default: #ffffff;
-  --color-primary: #d76416;
+  --color-primary: #FF6440;
   --color-secondary: #160d02;
 }
 
@@ -185,7 +185,7 @@ section {
 }
 
 .scroll-top:hover {
-  background: #ec2727;
+  background: #FF6440;
   color: #fff;
 }
 
@@ -355,8 +355,8 @@ section {
 }
 /* Ajusta el tamaño de la imagen */
 .img-normalizada{
-  width: 70%;
-  height: 200px;
+  width: 15rem;
+  height: 15rem;
   border-radius: 400px;
   z-index: 1;
   object-fit: cover;
@@ -452,7 +452,29 @@ section {
   color: #fdfdfd;
   font-size: 1.5rem;
 }
-
+.card-helado{
+  position: absolute;
+  display:flex;
+	width: 40%;
+  border: 2px solid #FFBD59;
+  color: #FFBD59;
+	border-radius: 9px;
+	overflow: hidden;
+	background:#ffffff;
+  font-size:1rem;
+	box-shadow: 0px 1px 30px rgba(0,0,0,0.2);
+	transition: all 400ms ease; /* Animation */
+	cursor: grab;
+  justify-content:center;
+  padding: 10px;
+  margin-left: 32%;
+  margin-bottom: 0; 
+  margin-top: 5px; 
+  
+}
+.card-helado:hover{
+  box-shadow: 5px 5px 30px rgba(0,0,0,0.4);
+}
 
 /*--------------------------------------------------------------
 # Header

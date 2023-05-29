@@ -105,12 +105,12 @@
         </div>
 
         
-        <div class="card align" data-aos="fade-up" data-aos-delay="500">
-          <div class="contenido-card">
-            <a href="{% url 'cincuentaAmigos:helados' %}">
-             <h2 class="card-title">Helado</h2>
-           </a>
-          </div>
+        <div class="d-flex align-items-stretch" type="button" data-aos="fade-up" data-aos-delay="500">
+          <form action="{% url 'cincuentaAmigos:helados' %}" method="GET">
+            <button class="card-helado"> 
+              Helado
+            </button>  
+          </form>        
         </div>
       </div>
     </section><!-- End Section -->
@@ -140,7 +140,7 @@
 		</ul> <!-- cd-cart-items -->
 
 		<div class="cd-cart-total">
-			<p>Total <span>$39.96</span></p>
+			<p>Total <span>$</span></p>
 		</div> <!-- cd-cart-total -->
 
     <form action="{% url 'cincuentaAmigos:eliminar-carrito' %}" method="post">
