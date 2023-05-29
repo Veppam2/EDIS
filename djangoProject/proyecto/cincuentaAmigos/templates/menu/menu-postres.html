@@ -212,17 +212,16 @@
   <div id="cd-cart">
 		<h2>Carrito</h2>
 		<ul class="cd-cart-items">
-      {% for alimento in listaCarrito %}
+      {% for dato in datosCarrito %}
         <li>
-          <span class="cd-qty">1x</span> {{ alimento.nombre }}
-          <div class="cd-price">{{ alimento.precio }}</div>
-          <a href="#0" class="cd-item-remove cd-img-replace">Remove</a>
+          <span class="cd-qty">{{ dato.cantidad }}x</span> {{ dato.alimento.nombre }}
+          <div class="cd-price">$ {{ dato.precio }}</div>
         </li>
       {%endfor%} 
 		</ul> <!-- cd-cart-items -->
 
 		<div class="cd-cart-total">
-			<p>Total <span>$39.96</span></p>
+			<p>Total <span>$ {{ precioTotal }}</span></p>
 		</div> <!-- cd-cart-total -->
 
     <form action="{% url 'cincuentaAmigos:eliminar-carrito' %}" method="post">

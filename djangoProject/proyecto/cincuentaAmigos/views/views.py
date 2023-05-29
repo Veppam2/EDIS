@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.db.models import Count
+from django.db.models import Sum
 
 from ..models import *
 
@@ -53,10 +54,12 @@ def asigna_mesa(request):
 
 def menu_principal(request):
     listaCategorias = Categoria.objects.all()
-    lista_carrito = mostrar_carrito(request)
+    datos_carrito, precio_total = obtener_datos_carrito(request)
     return render(request,
         'menu/menu-principal.html',
-        {'listaCategorias': listaCategorias, 'listaCarrito': lista_carrito}
+        {'listaCategorias': listaCategorias, 
+         'datosCarrito': datos_carrito,
+         'precioTotal': precio_total}
     )
 
 # Vistas del Carrito
@@ -103,6 +106,27 @@ def eliminar_carrito(request):
 
     return redirect(request.META['HTTP_REFERER'])
 
+
+def obtener_datos_carrito(request):
+    mesa = Mesa.objects.get(numero_mesa=sesion_mesa(request))
+    lista_carrito = Carrito.objects.filter(numero_mesa=mesa)
+
+    precio_total = 0
+
+    # Calcular el precio total del alimento y la cantidad para cada elemento en el carrito
+    datos_carrito = []
+    for item in lista_carrito:
+        alimento = item.id_alimento
+        precio = alimento.precio * item.cantidad
+        datos_carrito.append({
+            'alimento': alimento,
+            'cantidad': item.cantidad,
+            'precio': precio
+        })
+        precio_total += precio
+
+    return datos_carrito, precio_total
+
 # Votación de helados
 
 def nuevo_comensal(request):
@@ -115,6 +139,7 @@ def nuevo_comensal(request):
 
 def votacion_helados(request):
     lista_helados= Helado.objects.all()
+    datos_carrito, precio_total = obtener_datos_carrito(request)
     
     if request.method == "POST":
         mesa = Mesa.objects.get(numero_mesa = sesion_mesa(request))
@@ -133,7 +158,9 @@ def votacion_helados(request):
     return render(request,
         'helados/votacion-helados.html',
         {'listaHelado': lista_helados,
-         'votos': None}
+         'votos': None,
+         'datosCarrito': datos_carrito,
+         'precioTotal': precio_total}
     )
 
 
@@ -141,8 +168,10 @@ def helados(request):
     if Votacion.objects.filter(numero_mesa = sesion_mesa(request)).exists():
         return votacion_helados(request)
     lista_helados= Helado.objects.all()
-    lista_carrito = mostrar_carrito(request)
+    datos_carrito, precio_total = obtener_datos_carrito(request)
     return render(request,
         'helados/menu-helado.html',
-        {'listaHelado': lista_helados, 'listaCarrito': lista_carrito}
+        {'listaHelado': lista_helados, 
+         'datosCarrito': datos_carrito,
+         'precioTotal': precio_total}
     )
