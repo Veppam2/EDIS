@@ -41,7 +41,3 @@ def postres(request):
         'menu/menu-postres.html',
         {'listaPostres': lista_postres, 'listaCarrito': lista_carrito}
     )
-
-
-def helados(request):
-    return render(request, 'menu/menuS.html')

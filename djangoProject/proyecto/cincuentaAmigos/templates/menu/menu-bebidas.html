@@ -51,11 +51,9 @@
           <li><a href="{% url 'cincuentaAmigos:platillos' %}"><h5 class="h5-font">Platillos</h5></a></li>
           <li><a class="active" href="{% url 'cincuentaAmigos:bebidas' %}"><h5 class="h5-font">Bebidas</h5></a></li>
           <li><a href="{% url 'cincuentaAmigos:postres' %}"><h5 class="h5-font">Postres</h5></a></li>
-          <li class="dropdown"><a href="#"><span><h5 class="h5-font">Helado</h5></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown"><a href="{% url 'cincuentaAmigos:helados' %}"><span><h5 class="h5-font">Helado</h5></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="#">Votación</a></li>
-              <li><a href="#">...</a></li>
-              <li><a href="#">...</a></li>
+              <li><a href="{% url 'cincuentaAmigos:votacion' %}">Votación</a></li>
             </ul>
           </li>
         </ul>

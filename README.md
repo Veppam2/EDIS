@@ -10,18 +10,18 @@ These instructions will get you a copy of the project up and running on your loc
 
 The things you need before installing the software.
 
-* You need this
-* And you need this
-* Oh, and don't forget this
+* python3
+* docker
+* [algo no sé si se me olvide]
 
 ### Instalación
 
 A step by step guide that will tell you how to get the development environment up and running.
 
 ```
-$ First step
-$ Another step
-$ Final step
+$ clone repo
+$ [paso extra]
+$ [paso extra]
 ```
 
 ## Uso
@@ -29,10 +29,11 @@ $ Final step
 A few examples of useful commands and/or tasks.
 
 ```
-$ First example
-$ Second example
-$ And keep this in mind
+$ cd EDIS/djangoProject/proyecto
+$ sudo docker build -t python-django-edis .
+$ sudo docker run -it -p 8000:8000 python-django-edis
 ```
+Después redirigirse a http://0.0.0.0:8000/
 
 ## Deployment
 

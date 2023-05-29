@@ -20,15 +20,18 @@ from .views import menu_views, views
 
 app_name = 'cincuentaAmigos'
 urlpatterns = [
-    path('admin/', views.adminLogin, name="admin"),
+    path('admin/', views.admin_login, name="admin"),
     path('admin/', admin.site.urls),
     path('',views.index, name='index'),
+    path('logout/', views.logout, name='logout'),
     path('menu-principal/', views.menu_principal, name='menu-principal'),
     path('menu-principal/entradas', menu_views.entradas, name = 'entradas'),
     path('menu-principal/platillos', menu_views.platillos, name = 'platillos'),
     path('menu-principal/bebidas', menu_views.bebidas, name = 'bebidas'),
     path('menu-principal/postres', menu_views.postres, name = 'postres'),
-    path('menu-principal/helados/', menu_views.helados, name = 'helados'),
+    path('menu-principal/helados/', views.helados, name = 'helados'),
     path('menu-principal/agregar-al-carrito/', views.agregar_al_carrito, name='agregar-al-carrito'),
     path('menu-principal/eliminar-carrito/', views.eliminar_carrito, name='eliminar-carrito'),
+    path('menuPrincipal/helados/votacion', views.votacion_helados, name = 'votacion'),
+    path('menuPrincipal/helados/nuevo-comensal', views.nuevo_comensal, name = 'nuevo-comensal'),
 ]

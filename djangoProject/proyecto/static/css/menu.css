@@ -344,6 +344,15 @@ section {
   padding: 0 60px;
   margin-bottom: 15px;
 }
+.menu .tab-content .menu-item-h {
+  -moz-text-align-last: center;
+  text-align-last: center;
+}
+
+.menu .tab-content .menu-item .menu-img-h {
+  padding: 0 60px;
+  margin-bottom: 15px;
+}
 /* Ajusta el tamaño de la imagen */
 .img-normalizada{
   width: 70%;
@@ -406,6 +415,45 @@ section {
   margin-bottom: 0;
 }
 
+/* Boton de iniciar votación */
+.bton {
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 9px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  display: inline-block;
+  border: 2px solid #FFBD59;
+	transition: transform .3s; /* Animation */
+  justify-content:center;
+  padding: 10px;
+}
+.bton:hover, .bton:focus {
+  color: #ffffff;
+}
+
+.first {
+  -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.first:hover {
+  box-shadow: 0 0 30px 20px #FFBD59 inset;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+.first a{
+  color: #FFBD59;
+  font-size: 1.5rem;
+}
+.first a:hover{
+  color: #fdfdfd;
+  font-size: 1.5rem;
+}
+
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -452,7 +500,7 @@ section {
   color: #fff;
   background: var(--color-primary);
   padding: 8px 50px;
-  margin-left: 30px;
+  margin-left: 10%;
   border-radius: 50px;
   transition: 0.3s;
 }
@@ -902,7 +950,6 @@ header {
   background: #ffbd59c7;
 	color: #ffffff;
 }
-
 @media only screen and (min-width: 1200px) {
   #cd-cart > * {
     padding: 0 2em;
@@ -1184,8 +1231,8 @@ xkeyframes
 --------------------------------------------------------------*/
 .footer {
   font-size: 14px;
-  background-color: #1f1f24;
-  padding: 50px 0;
+  background-color: #ffffff;
+  padding: 35px 0 0 60px;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -1251,6 +1298,20 @@ xkeyframes
 .footer .social-links a:hover {
   color: #fff;
   border-color: #fff;
+}
+.footer .btn-cerrar-sesion, .footer .btn-cerrar-sesion:focus {
+  font-size: 16px;
+  color: #fff;
+  background: var(--color-primary);
+  padding: 8px 40px;
+  margin-left: 85%;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+.footer .btn-cerrar-sesion:hover,
+.footer .btn-cerrar-sesion:focus:hover {
+  color: #fff;
+  background: rgb(225, 157, 126);
 }
 
 .footer .copyright {
