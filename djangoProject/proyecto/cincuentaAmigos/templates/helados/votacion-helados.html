@@ -260,6 +260,32 @@
   </footer><!-- End Footer -->
   <!-- End Footer -->
 
+  <div id="cd-shadow-layer"></div>
+
+  <div id="cd-cart">
+		<h2>Carrito</h2>
+		<ul class="cd-cart-items">
+      {% for alimento in listaCarrito %}
+        <li>
+          <span class="cd-qty">1x</span> {{ alimento.nombre }}
+          <div class="cd-price">{{ alimento.precio }}</div>
+          <a href="#0" class="cd-item-remove cd-img-replace">Remove</a>
+        </li>
+      {%endfor%} 
+		</ul> <!-- cd-cart-items -->
+
+		<div class="cd-cart-total">
+			<p>Total <span>$</span></p>
+		</div> <!-- cd-cart-total -->
+
+    <form action="{% url 'cincuentaAmigos:eliminar-carrito' %}" method="post">
+      {% csrf_token %}
+		  <button class="checkout-btn" type="submit">Mandar Orden</a>
+    </form>  
+		
+		<button class="cd-go-to-cart" href="#0">Regresar al menu</button>
+	</div> <!-- cd-cart -->
+
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <div id="preloader"></div>
