@@ -115,7 +115,6 @@ def nuevo_comensal(request):
 
 def votacion_helados(request):
     lista_helados= Helado.objects.all()
-    helado_ganador = Helado.objects.first()
     
     if request.method == "POST":
         mesa = Mesa.objects.get(numero_mesa = sesion_mesa(request))
@@ -126,17 +125,15 @@ def votacion_helados(request):
                               id_helado=helado,
                               nombre_votante = votante )
         nuevo_voto.save()
-        ganador = Votacion.objects.filter(numero_mesa = sesion_mesa(request)).values('id_helado').annotate(num_votos=Count('id_helado')).order_by('-num_votos').first()
-        helado_ganador = Helado.objects.get(id_helado = ganador['id_helado'])
-
+        votos = Votacion.objects.filter(numero_mesa = sesion_mesa(request)).values('id_helado__sabor').annotate(num_votos=Count('id_helado')).order_by('-num_votos')
         return render(request,
             'helados/votacion-helados.html',
             {'listaHelado': lista_helados,
-             'heladoGanador': helado_ganador})
+             'votos': votos})
     return render(request,
         'helados/votacion-helados.html',
         {'listaHelado': lista_helados,
-         'heladoGanador': helado_ganador}
+         'votos': None}
     )
 
 
