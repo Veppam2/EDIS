@@ -160,6 +160,8 @@
           <form action="{% url 'cincuentaAmigos:agregar-al-carrito' %}" method="post">
             {% csrf_token %}
             <button class="card-price centrar-boton" type="submit">Agregar al carrito</button>   
+            <input type="hidden" id="cartItemId" name="cartItemId" value="">
+            <input type="hidden" id="cantidad" name="cantidad" value="">
           </form>  
         </div>
       </div>

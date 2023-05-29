@@ -112,7 +112,6 @@ def eliminar_alimento(request):
 
 
 def eliminar_cantidad(request):
-    print("entrooooooooo")
     mesa = Mesa.objects.get(numero_mesa = sesion_mesa(request))
     cantidad = int(request.POST.get("cantidad"))
     alimento_id = int(request.POST.get("alimento_id"))
