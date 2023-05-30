@@ -1,6 +1,11 @@
 # Equipo de Desarrollo Inteligente de Software: EDIS
 
 Equipo de desarollo para Ingeniería de Software. 
+### Integrantes:
+ * Janet Illescas Coria
+ * Ulises Rodríguez Grarcía
+ * Zurisadai Uribe García
+ * Víctor Emiliano Cruz Hernández
 
 ## 50 Amigos
 Hay dos métodos para ejecutar el sistema en una máquina local con fines de prueba y desarrollo:
