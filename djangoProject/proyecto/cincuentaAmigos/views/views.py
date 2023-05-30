@@ -225,7 +225,7 @@ def votacion_helados(request):
     return render(request,
         'helados/votacion-helados.html',
         {'listaHelado': lista_helados,
-         'votos': None,
+         'votos': votos,
          'datosCarrito': datos_carrito,
          'precioTotal': precio_total}
     )
