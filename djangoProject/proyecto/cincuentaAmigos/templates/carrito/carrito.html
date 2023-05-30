@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!-- Primary Meta Tags -->
+  <title>50 Amigos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="title" content="50 Amigos">
+  <meta name="author" content="EDIS">
+  <meta name="description" content="Menú de tableta para el restaurante 50 amigos.">
+  
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" href="{% static 'assets/img/favicon/CincuentaAmigos.png' %}">
+  <link rel="icon" type="image/png" href="{% static 'assets/img/favicon/CincuentaAmigos.png' %}">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/menu.css' %}" rel="stylesheet" />
+  
+</head>
+
+<body>
+  
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a href="{% url 'cincuentaAmigos:menu-principal' %}" class="logo d-flex align-items-center me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1>50<span>amigos</span></h1>
+      </a>
+    </div>
+  </header><!-- End Header -->
+ 
+
+  <main id="main">
+        <section class="c-section h-100 h-custom" style="background-color: #eee;">
+            <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12">
+                <div class="c-card card-registration card-registration-2" style="border-radius: 15px;">
+                    <div class="card-body p-0">
+                    <div class="row g-0">
+                        <div class="col-lg-8">
+                        <div class="p-5">
+                            <div class="d-flex justify-content-between align-items-center mb-5">
+                            <h1 class="fw-bold mb-0 text-black">Mi carrito</h1>
+                            </div>
+
+                            {% for dato in datosCarrito %}
+                                <hr class="my-4">
+                                
+                                <div class="row mb-4 d-flex justify-content-between align-items-center">
+                                <div class="col-md-2 col-lg-2 col-xl-2">
+                                    <img
+                                    src="{{ dato.alimento.imagen }}"
+                                    class="img-fluid rounded-3" alt="">
+                                </div>
+                                <div class="col-md-3 col-lg-3 col-xl-3">
+                                    <h6 class="text-muted">{{ dato.alimento.id_categoria.nombre }}</h6>
+                                    <h6 class="text-black mb-0">{{ dato.alimento.nombre }}</h6>
+                                </div>
+                                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                    <button class="btn c-btn px-2"
+                                    onclick="eliminarCantidad({{ dato.alimento.id_alimento }}, 1)">
+                                    <i class="fas fa-minus"></i>
+                                    </button>
+            
+                                    <input id="form1" min="1" name="quantity" value="{{ dato.cantidad }}" type="number"
+                                    class="form-control form-control-sm" readonly/>
+            
+                                    <button class="btn c-btn px-2"
+                                    onclick="agregarCantidad({{ dato.alimento.id_alimento }}, 1)">
+                                    <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                    <h6 class="mb-0">$ {{ dato.precio }}</h6>
+                                </div>
+                                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                    <button class="btn px-2"
+                                    onclick="eliminarTotal({{ dato.alimento.id_alimento }})">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                </div>
+                            {%endfor%}
+        
+                            <hr class="my-4">
+        
+                            <div class="pt-5">
+                            <h6 class="mb-0"><a href="{% url 'cincuentaAmigos:menu-principal' %}" class="text-body"><i
+                                    class="fas fa-long-arrow-alt-left me-2"></i>Regresar al menú</a></h6>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-lg-4 bg-grey">
+                        <div class="p-5">
+                            <h3 class="fw-bold mb-5 mt-2 pt-1">Finalizar pedido</h3>
+                            <hr class="my-4">
+        
+                            <div class="d-flex justify-content-between mb-4">
+                            <h5 class="text-uppercase">Precio total</h5>
+                            <h5>$ {{ precioTotal }}</h5>
+                            </div>
+                        
+                                  <a class="btn btn-dark btn-block btn-lg"
+                                  data-mdb-ripple-color="dark" href="#e-open-modal">Confirmar orden</a>
+                                </div>
+                              </div>
+                              
+                              <div id="e-open-modal" class="e-modal-window">
+                                <div class="">
+                                  <p class="text-center">¡Se envió con éxito tu orden a la cocina!</p>
+                                  <form action="{% url 'cincuentaAmigos:eliminar-carrito' %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="ubicacion" value="Votacion">
+                                    <button type="submit" class="e-pd btn "
+                                    data-mdb-ripple-color="dark">Votación helado</button>
+                                  </form>  
+                                  
+                                  <form action="{% url 'cincuentaAmigos:eliminar-carrito' %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="ubicacion" value="Menu">
+                                    <button type="submit" class="e-pd btn "
+                                    data-mdb-ripple-color="dark">Regresar al menú</button>
+                                  </form>  
+                                </div>
+        
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </section>
+  </main><!-- End #main -->
+
+  <!-- Vendor JS Files -->
+  <script src="{% static '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static '/assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static '/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static '/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static '/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static '/assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="https://kit.fontawesome.com/b9101dc64a.js" crossorigin="anonymous"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/shopping-cart.js' %}"></script>
+
+</body>
+</html>

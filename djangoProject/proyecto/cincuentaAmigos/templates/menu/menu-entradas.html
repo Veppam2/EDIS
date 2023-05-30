@@ -21,6 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Vendor CSS Files -->
   <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -51,24 +52,20 @@
           <li><a href="{% url 'cincuentaAmigos:platillos' %}"><h5 class="h5-font">Platillos</h5></a></li>
           <li><a href="{% url 'cincuentaAmigos:bebidas' %}"><h5 class="h5-font">Bebidas</h5></a></li>
           <li><a href="{% url 'cincuentaAmigos:postres' %}"><h5 class="h5-font">Postres</h5></a></li>
-          <li class="dropdown"><a href="#"><span><h5 class="h5-font">Helado</h5></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown"><a href="{% url 'cincuentaAmigos:helados' %}"><span><h5 class="h5-font">Helado</h5></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="#">Votación</a></li>
-              <li><a href="#">...</a></li>
-              <li><a href="#">...</a></li>
+              <li><a href="{% url 'cincuentaAmigos:votacion' %}">Votación</a></li>
             </ul>
           </li>
         </ul>
       </nav>
 
       <div id="cd-cart-trigger"><a class="btn-book-a-table" href="">Carrito</a></div>
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
     </div>
   </header><!-- End Header -->
 
 
-  <!-- ======= Footer ======= -->
+  <!-- ======= Main ======= -->
   <main id="main">
      
       <!-- ======= Entradas Section ======= -->
@@ -133,7 +130,7 @@
             Agregar al carrito
           </h5>
         </div>
-        <div class="modal-body">
+        <div class="c-mb-0 modal-body">
           <table class="table table-image">
             <thead>
               <tr>
@@ -159,12 +156,12 @@
             </tbody>
           </table> 
         </div>
-        <div class="modal-footer border-top-0 d-flex justify-content-between">
+        <div class="c-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 
           <form action="{% url 'cincuentaAmigos:agregar-al-carrito' %}" method="post">
             {% csrf_token %}
-            <button class="card-price centrar-boton" type="submit">Agregar al carrito</button>   
+            <button class="card-add" type="submit">Agregar a la orden</button>   
             <input type="hidden" id="cartItemId" name="cartItemId" value="">
             <input type="hidden" id="cantidad" name="cantidad" value="">
           </form>  
@@ -172,97 +169,35 @@
       </div>
     </div>
   </div> <!-- Fin Modal Cart -->
-
-
+  
+  <!-- Carrito -->
   <div id="cd-shadow-layer"></div>
 
 	<div id="cd-cart">
 		<h2>Carrito</h2>
 		<ul class="cd-cart-items">
-      {% for alimento in listaCarrito %}
+      {% for dato in datosCarrito %}
         <li>
-          <span class="cd-qty">1x</span> {{ alimento.nombre }}
-          <div class="cd-price">{{ alimento.precio }}</div>
-          <a href="#0" class="cd-item-remove cd-img-replace">Remove</a>
-        </li>
+          <span class="cd-qty">{{ dato.cantidad }}x</span> {{ dato.alimento.nombre }}
+          <div class="cd-price">$ {{ dato.precio }}</div>
+        </li>       
       {%endfor%} 
 		</ul> <!-- cd-cart-items -->
 
+
 		<div class="cd-cart-total">
-			<p>Total <span>$39.96</span></p>
+			<p>Total <span>$ {{ precioTotal }}</span></p>
 		</div> <!-- cd-cart-total -->
 
-    <form action="{% url 'cincuentaAmigos:eliminar-carrito' %}" method="post">
+    <form action="{% url 'cincuentaAmigos:carrito' %}" method="post">
       {% csrf_token %}
-		  <button class="checkout-btn" type="submit">Mandar Orden</a>
-    </form>  
+		  <button class="checkout-btn" type="submit">Ver Carrito</a>
+    </form> 
 		
-		<p class="cd-go-to-cart"><a href="#0">Go to cart page</a></p>
+		<button id="return-to-menu" class="cd-go-to-cart">Regresar al menú</button> 
 	</div> <!-- cd-cart -->
 
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-
-    <div class="container">
-      <div class="row gy-3">
-        <div class="col-lg-3 col-md-6 d-flex">
-          <i class="bi bi-geo-alt icon"></i>
-          <div>
-            <h4>Address</h4>
-            <p>
-              A108 Adam Street <br>
-              New York, NY 535022 - US<br>
-            </p>
-          </div>
-
-        </div>
-
-        <div class="col-lg-3 col-md-6 footer-links d-flex">
-          <i class="bi bi-telephone icon"></i>
-          <div>
-            <h4>Reservations</h4>
-            <p>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
-            </p>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 footer-links d-flex">
-          <i class="bi bi-clock icon"></i>
-          <div>
-            <h4>Opening Hours</h4>
-            <p>
-              <strong>Mon-Sat: 11AM</strong> - 23PM<br>
-              Sunday: Closed
-            </p>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 footer-links">
-          <h4>Follow Us</h4>
-          <div class="social-links d-flex">
-            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Yummy</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-
-  </footer><!-- End Footer -->
-  <!-- End Footer -->
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

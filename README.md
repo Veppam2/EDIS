@@ -58,6 +58,7 @@ Django version 4.1.6, using settings 'proyecto.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
+Después redirigirse a http://0.0.0.0:8000/
 
 #### Utilizando un contenedor de Docker
 Después de haber creado el contenedor, podemos ejecutar el sistema con:

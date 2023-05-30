@@ -69,7 +69,7 @@
 
         <div class="section-header">
           <h2>nuestro</h2>
-          <p>CA<span>TÁL</span>OG<span>O</span></p>
+          <p>CAT<span>ÁLO</span>GO</p>
         </div>
 
         {% comment %} <div class="row gy-4"> {% endcomment %}
@@ -105,42 +105,49 @@
         </div>
 
         
-        <div class="card align" data-aos="fade-up" data-aos-delay="500">
-          <div class="contenido-card">
-            <a href="{% url 'cincuentaAmigos:helados' %}">
-             <h2 class="card-title">Helado</h2>
-           </a>
-          </div>
+        <div class="d-flex align-items-stretch" type="button" data-aos="fade-up" data-aos-delay="500">
+          <form action="{% url 'cincuentaAmigos:helados' %}" method="GET">
+            <button class="card-helado"> 
+              Helado
+            </button>  
+          </form>        
         </div>
       </div>
     </section><!-- End Section -->
   </main><!-- End #main -->
 
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="row gy-3">
+        <div id=""><a class="btn-cerrar-sesion" href="{% url 'cincuentaAmigos:logout' %}">Cerrar Sesión</a></div>
+
+      </div>
+    </div>
+  </footer>
 
   <div id="cd-shadow-layer"></div>
 
   <div id="cd-cart">
 		<h2>Carrito</h2>
 		<ul class="cd-cart-items">
-      {% for alimento in listaCarrito %}
-        <li>
-          <span class="cd-qty">1x</span> {{ alimento.nombre }}
-          <div class="cd-price">{{ alimento.precio }}</div>
-          <a href="#0" class="cd-item-remove cd-img-replace">Remove</a>
-        </li>
+      {% for dato in datosCarrito %}
+      <li>
+        <span class="cd-qty">{{ dato.cantidad }}x</span> {{ dato.alimento.nombre }}
+        <div class="cd-price">$ {{ dato.precio }}</div>
+      </li> 
       {%endfor%} 
 		</ul> <!-- cd-cart-items -->
 
 		<div class="cd-cart-total">
-			<p>Total <span>$39.96</span></p>
+			<p>Total <span>$ {{ precioTotal }} </span></p>
 		</div> <!-- cd-cart-total -->
 
-    <form action="{% url 'cincuentaAmigos:eliminar-carrito' %}" method="post">
+    <form action="{% url 'cincuentaAmigos:carrito' %}" method="post">
       {% csrf_token %}
-		  <button class="checkout-btn" type="submit">Mandar Orden</a>
+		  <button class="checkout-btn" type="submit">Ver Carrito</a>
     </form>  
 		
-		<p class="cd-go-to-cart"><a href="#0">Go to cart page</a></p>
+    <button id="return-to-menu" class="cd-go-to-cart">Regresar al menú</button>
 	</div> <!-- cd-cart -->
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
