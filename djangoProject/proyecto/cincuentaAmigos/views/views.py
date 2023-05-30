@@ -120,6 +120,9 @@ def eliminar_carrito(request):
 
 
 def eliminar_alimento(request):
+    val = sesion_mesa(request)
+    if val is None:
+        return redirect(to="cincuentaAmigos:index")
     mesa = Mesa.objects.get(numero_mesa = sesion_mesa(request))
     alimento_id = int(request.POST.get("alimento_id"))
     alimento = Alimento.objects.get(id_alimento=alimento_id)
@@ -135,6 +138,9 @@ def eliminar_alimento(request):
 
 
 def eliminar_cantidad(request):
+    val = sesion_mesa(request)
+    if val is None:
+        return redirect(to="cincuentaAmigos:index")
     mesa = Mesa.objects.get(numero_mesa = sesion_mesa(request))
     cantidad = int(request.POST.get("cantidad"))
     alimento_id = int(request.POST.get("alimento_id"))
@@ -157,6 +163,9 @@ def eliminar_cantidad(request):
 
 
 def obtener_datos_carrito(request):
+    val = sesion_mesa(request)
+    if val is None:
+        return redirect(to="cincuentaAmigos:index")
     mesa = Mesa.objects.get(numero_mesa=sesion_mesa(request))
     lista_carrito = Carrito.objects.filter(numero_mesa=mesa)
 
@@ -211,6 +220,8 @@ def votacion_helados(request):
             'helados/votacion-helados.html',
             {'listaHelado': lista_helados,
              'votos': votos})
+    else: 
+        votos = Votacion.objects.filter(numero_mesa = sesion_mesa(request)).values('id_helado__sabor').annotate(num_votos=Count('id_helado')).order_by('-num_votos')
     return render(request,
         'helados/votacion-helados.html',
         {'listaHelado': lista_helados,

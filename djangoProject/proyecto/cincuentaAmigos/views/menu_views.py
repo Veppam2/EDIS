@@ -67,6 +67,9 @@ def postres(request):
 
 
 def carrito(request):
+    val = sesion_mesa(request)
+    if val is None:
+        return redirect(to="cincuentaAmigos:index")
     datos_carrito, precio_total = obtener_datos_carrito(request)
     return render(request,
         'carrito/carrito.html',
