@@ -1,10 +1,14 @@
 from django.shortcuts import render
 
 from ..models import Categoria, Alimento
-from .views import obtener_datos_carrito
+from .views import *
 
 
 def entradas(request):
+    val = sesion_mesa(request)
+    if val is None:
+        return redirect(to="cincuentaAmigos:index")
+
     id_categoria = Categoria.objects.get(nombre="Entradas")
     lista_entradas = Alimento.objects.filter(id_categoria=id_categoria)
     datos_carrito, precio_total = obtener_datos_carrito(request)
@@ -17,6 +21,10 @@ def entradas(request):
 
 
 def platillos(request):
+    val = sesion_mesa(request)
+    if val is None:
+        return redirect(to="cincuentaAmigos:index")
+
     id_categoria = Categoria.objects.get(nombre = "Platillos principales")
     lista_platillos= Alimento.objects.filter(id_categoria = id_categoria)
     datos_carrito, precio_total = obtener_datos_carrito(request)
@@ -29,6 +37,9 @@ def platillos(request):
 
 
 def bebidas(request):
+    val = sesion_mesa(request)
+    if val is None:
+        return redirect(to="cincuentaAmigos:index")
     id_categoria = Categoria.objects.get(nombre = "Bebidas")
     lista_bebidas= Alimento.objects.filter(id_categoria = id_categoria)
     datos_carrito, precio_total = obtener_datos_carrito(request)
@@ -41,6 +52,9 @@ def bebidas(request):
 
 
 def postres(request):
+    val = sesion_mesa(request)
+    if val is None:
+        return redirect(to="cincuentaAmigos:index")
     id_categoria = Categoria.objects.get(nombre = "Postres")
     lista_postres= Alimento.objects.filter(id_categoria = id_categoria)
     datos_carrito, precio_total = obtener_datos_carrito(request)

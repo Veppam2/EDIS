@@ -30,11 +30,14 @@ urlpatterns = [
     path('menu-principal/bebidas', menu_views.bebidas, name = 'bebidas'),
     path('menu-principal/postres', menu_views.postres, name = 'postres'),
     path('menu-principal/helados/', views.helados, name = 'helados'),
-    path('menuPrincipal/helados/votacion', views.votacion_helados, name = 'votacion'),
-    path('menuPrincipal/helados/nuevo-comensal', views.nuevo_comensal, name = 'nuevo-comensal'),
+    
     path('menu-principal/carrito/', menu_views.carrito, name='carrito'),
     path('menu-principal/agregar-al-carrito/', views.agregar_al_carrito, name='agregar-al-carrito'),
     path('menu-principal/eliminar-cantidad-carrito/', views.eliminar_cantidad, name='eliminar-cantidad-carrito'),
     path('menu-principal/eliminar-carrito/', views.eliminar_carrito, name='eliminar-carrito'),
     path('menu-principal/eliminar-alimento/', views.eliminar_alimento, name='eliminar-alimento'),
+    
+    path('menu-principal/agregar-al-carrito/', views.agregar_al_carrito, name='agregar-al-carrito'),
+    path('menu-principal/helados/votacion', views.votacion_helados, name = 'votacion'),
+    path('menu-principal/helados/nuevo-comensal', views.nuevo_comensal, name = 'nuevo-comensal'),
 ]
