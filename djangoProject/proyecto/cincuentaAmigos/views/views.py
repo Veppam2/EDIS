@@ -89,9 +89,15 @@ def agregar_al_carrito(request):
 
 def eliminar_carrito(request):
     mesa = Mesa.objects.get(numero_mesa = sesion_mesa(request))
+    ubicacion = str(request.POST.get("ubicacion"))
     lista_carrito = Carrito.objects.filter(numero_mesa = mesa)
-    
     lista_carrito.delete()
+
+    if(ubicacion == 'Votacion'):
+        return redirect(to="cincuentaAmigos:votacion")
+    
+    elif(ubicacion == 'Menu'):
+        return redirect(to="cincuentaAmigos:menu-principal")
 
     return redirect(request.META['HTTP_REFERER'])
 

@@ -126,12 +126,20 @@
                               
                               <div id="e-open-modal" class="e-modal-window">
                                 <div class="">
-                                  <a href="" title="Close" class="e-modal-close"><i class="fas fa-times"></i></a>
-                                  <p>¡Se envió con éxito tu orden a la cocina!</p>
-                                  <button type="button" class="e-pd btn "
-                                  data-mdb-ripple-color="dark"><a href="{% url 'cincuentaAmigos:votacion' %}">Votación helado</a></button>
-                                  <button type="button" class="e-pd btn "
-                                  data-mdb-ripple-color="dark"><a href="{% url 'cincuentaAmigos:menu-principal' %}">Regresar al menú</a></button>
+                                  <p class="text-center">¡Se envió con éxito tu orden a la cocina!</p>
+                                  <form action="{% url 'cincuentaAmigos:eliminar-carrito' %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="ubicacion" value="Votacion">
+                                    <button type="submit" class="e-pd btn "
+                                    data-mdb-ripple-color="dark">Votación helado</button>
+                                  </form>  
+                                  
+                                  <form action="{% url 'cincuentaAmigos:eliminar-carrito' %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="ubicacion" value="Menu">
+                                    <button type="submit" class="e-pd btn "
+                                    data-mdb-ripple-color="dark">Regresar al menú</button>
+                                  </form>  
                                 </div>
         
                         </div>
