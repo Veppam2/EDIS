@@ -67,84 +67,86 @@
   <!-- ======= Footer ======= -->
   <main id="main">
 
-      <!-- ======= Postres Section ======= -->
+      <!-- ======= Helado votacion ======= -->
 
-      <section id="menu" class="menu">
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Nuevo Voto</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="{% url 'cincuentaAmigos:votacion' %}" method="post">
-          {% csrf_token %}
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Nombre:</label>
-            <!--  Nombre del que vota -->
-            <input type="text" class="form-control" id="nombre_votante" name="nombre_votante">
+<section id="menu" class="menu">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nuevo Voto</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Sabor de Helado:</label>
-            <select id="sabor_votado" name ="sabor_votado">
-            <!--  Sabor del helado -->
-              {% for helado in listaHelado %}
-                <option value="{{helado.sabor}}">{{helado.sabor}}</option>
-                {% endfor %}
-            </select>
+          <div class="modal-body">
+            <form action="{% url 'cincuentaAmigos:votacion' %}" method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Nombre:</label>
+                <!--  Nombre del que vota -->
+                <input type="text" class="form-control" id="nombre_votante" name="nombre_votante">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Sabor de Helado:</label>
+                <select id="sabor_votado" name ="sabor_votado">
+                <!--  Sabor del helado -->
+                  {% for helado in listaHelado %}
+                    <option value="{{helado.sabor}}">{{helado.sabor}}</option>
+                    {% endfor %}
+                </select>
+              </div>
+
+            <button type="submit" class="btn btn-primary"> Votar! </button>
+            </form>
           </div>
-
-        <button type="submit" class="btn btn-primary"> Votar! </button>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal " id="resultadoVotacion" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Resultado de la votación</h5>
-      </div>
-      <div class="modal-body">
-        {% if votos %}
-        <p class="resultado">Helado ganador: {{votos.0.id_helado__sabor}}</p>
-        <p class="resultado">Votos:</p>
-        <ul>
-          {% for voto in votos %}
-            <li>
-              <p>{{voto.id_helado__sabor}}: {{ voto.num_votos }}</p> 
-            </li>
-          {%endfor%} 
-        </ul>
-        <p>En caso de empate se elige alteatoriamente entre los sabores ganadores.</p>
-        {% else %}
-        <p>No se resgistro ningún voto.</p>
-        {%  endif %}
-
-        <h5>¡Que tenga un buen día!</h5>
-
-      </div>
-      <div class="modal-footer">
-        <div >
-          <!-- <a href="{% url 'cincuentaAmigos:menu-principal' %}">
-            Cerrar
-            </a> -->
-            <a href="{% url 'cincuentaAmigos:nuevo-comensal' %}">
-            Cerrar
-            </a>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+
+    <div class="modal " id="resultadoVotacion" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Resultado de la votación</h5>
+          </div>
+          <div class="modal-body">
+            {% if votos %}
+            <p class="resultado">Helado ganador: {{votos.0.id_helado__sabor}}</p>
+            <p class="resultado">Votos:</p>
+            <ul>
+              {% for voto in votos %}
+                <li>
+                  <p>{{voto.id_helado__sabor}}: {{ voto.num_votos }}</p> 
+                </li>
+              {%endfor%} 
+            </ul>
+            <p>En caso de empate se elige alteatoriamente entre los sabores ganadores.</p>
+            {% else %}
+            <p>No se resgistro ningún voto.</p>
+            {%  endif %}
+
+            <h5>¡Que tenga un buen día!</h5>
+
+          </div>
+          <div class="modal-footer">
+            <div >
+              <!-- <a href="{% url 'cincuentaAmigos:menu-principal' %}">
+                Cerrar
+                </a> -->
+                <a href="{% url 'cincuentaAmigos:nuevo-comensal' %}">
+                Cerrar
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======= Sección Helados ======= -->
         <div class="container" data-aos="fade-up">
 
           <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
@@ -183,7 +185,7 @@
               </div>
             </div>
         </div>
-      </section><!-- Fin Postres Section -->
+</section><!-- Fin  Sección -->
 
 
   </main><!-- End #main -->

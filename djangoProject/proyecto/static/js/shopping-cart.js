@@ -53,6 +53,13 @@ jQuery(document).ready(function($){
 		}
 
 	});
+
+	// Regresar al menu
+	$('#return-to-menu').on('click', function(event){
+		event.preventDefault();
+		$shadow_layer.removeClass('is-visible');
+		toggle_panel_visibility($lateral_cart, $shadow_layer, $('body'));
+	});
 });
 
 function toggle_panel_visibility ($lateral_panel, $background_layer, $body) {

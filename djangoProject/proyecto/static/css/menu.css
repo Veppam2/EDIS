@@ -67,7 +67,7 @@ h6 {
 --------------------------------------------------------------*/
 section {
   overflow: hidden;
-  padding: 120px 0;
+  padding: 170px 0;
 }
 
 .section-bg {
@@ -316,7 +316,7 @@ section {
 }
 
 .menu .tab-content .tab-header {
-  padding: 30px 0 80px;
+  padding: 15px 0 80px;
 }
 
 .menu .tab-content .tab-header p {
@@ -415,6 +415,30 @@ section {
   margin-bottom: 0;
 }
 
+/* Botón al agregar platillo */
+.card-add {
+  display: flex;
+  width: 100%;
+  border: 2px solid #FFBD59;
+  border-radius: 9px;
+  overflow: hidden;
+  background: #FFBD59;
+  font-size: 1rem;
+  box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+  transition: transform .3s;
+  cursor: grab;
+  justify-content: center;
+  margin-left: 3px;
+  padding: 5px;
+}
+.card-add:hover{
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.4);
+    transform: scale(.9);
+    background: #ffcf87;
+    border: #ffcf87;
+    color: #ffffff;
+  }
+
 /* Boton de iniciar votación */
 .bton {
   box-sizing: border-box;
@@ -452,6 +476,8 @@ section {
   color: #fdfdfd;
   font-size: 1.5rem;
 }
+
+/* Helado */
 .card-helado{
   position: absolute;
   display:flex;
@@ -461,7 +487,7 @@ section {
 	border-radius: 9px;
 	overflow: hidden;
 	background:#ffffff;
-  font-size:1rem;
+  font-size:2rem;
 	box-shadow: 0px 1px 30px rgba(0,0,0,0.2);
 	transition: all 400ms ease; /* Animation */
 	cursor: grab;
@@ -469,7 +495,7 @@ section {
   padding: 10px;
   margin-left: 32%;
   margin-bottom: 0; 
-  margin-top: 5px; 
+  margin-top: 8px; 
   
 }
 .card-helado:hover{
@@ -935,6 +961,89 @@ header {
   display: table;
   clear: both;
 }
+
+/* Carrito */
+.carrito{
+  border: 1px solid #666;
+  width: 35%;
+  margin-top: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: auto;
+  position: sticky !important;
+  top: 0;
+  transition: .3s;
+  /* Estilos para ocultar */
+  margin-right: -100%;
+  opacity: 0;
+}
+.carrito .header-carrito{
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 30px 0;
+}
+.carrito .carrito-item{
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  position: relative;
+  border-bottom: 1px solid #666;
+  padding: 20px;
+}
+.carrito .carrito-item img{
+  margin-right: 20px;
+}
+.carrito .carrito-item .carrito-item-titulo{
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.carrito .carrito-item .selector-cantidad{
+  display: inline-block;
+  margin-right: 25px;
+}
+.carrito .carrito-item .selector-cantidad i{
+  border: 2px #000;
+  font-size: 18px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+.carrito .carrito-item .carrito-item-precio{
+  font-weight: bold;
+  display: inline-block;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.carrito .carrito-item .btn-eliminar{
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: #000;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid #000;
+  cursor: pointer;
+  display: block;
+  background: transparent;
+  z-index: 20;
+}
+.carrito .carrito-item .btn-eliminar i{
+  pointer-events: none;
+}
+
+
+
 /* Boton de checkout*/
 #cd-cart .checkout-btn {
   display: block;
@@ -1436,4 +1545,18 @@ background-color: #d2d2d2;
 }
 .c-btn:hover {
   color: #b3472f;
+}
+
+.c-mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.c-footer {
+  border-top: 0;
+  justify-content: space-between;
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: .5rem 1rem 1.5rem 1rem
 }

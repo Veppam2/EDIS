@@ -69,7 +69,7 @@
 
         <div class="section-header">
           <h2>nuestro</h2>
-          <p>CA<span>TÁL</span>OG<span>O</span></p>
+          <p>CAT<span>ÁLO</span>GO</p>
         </div>
 
         {% comment %} <div class="row gy-4"> {% endcomment %}
@@ -131,10 +131,18 @@
 		<h2>Carrito</h2>
 		<ul class="cd-cart-items">
       {% for dato in datosCarrito %}
-        <li>
-          <span class="cd-qty">{{ dato.cantidad }}x</span> {{ dato.alimento.nombre }}
-          <div class="cd-price">$ {{ dato.precio }}</div>
-        </li>
+      <li>
+        <span class="cd-qty">{{ dato.cantidad }}x</span> {{ dato.alimento.nombre }}
+        <div class="cd-price">$ {{ dato.precio }}</div>
+        <div class=" carrito-item-detalles ">
+          <i class="fa-solid fa-minus restar-cantidad"></i>
+          <input type="text" value="0" class="carrito-item-cantidad" disabled>
+          <i class="fa-solid fa-plus sumar-cantidad"></i>
+          <span class="btn-eliminar">
+            <i class="fa-solid fa-trash"></i>
+          </span>
+        </div>
+      </li> 
       {%endfor%} 
 		</ul> <!-- cd-cart-items -->
 
@@ -147,10 +155,7 @@
 		  <button class="checkout-btn" type="submit">Ver Carrito</a>
     </form>  
 		
-    <form action="{% url 'cincuentaAmigos:menu-principal' %}" method="post">
-      {% csrf_token %}
-		  <button class="cd-go-to-cart" type="submit">Regresar al menu</a>
-    </form>  
+    <button id="return-to-menu" class="cd-go-to-cart">Regresar al menú</button>
 	</div> <!-- cd-cart -->
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
