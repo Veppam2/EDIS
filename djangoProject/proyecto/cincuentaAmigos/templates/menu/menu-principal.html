@@ -134,14 +134,6 @@
       <li>
         <span class="cd-qty">{{ dato.cantidad }}x</span> {{ dato.alimento.nombre }}
         <div class="cd-price">$ {{ dato.precio }}</div>
-        <div class=" carrito-item-detalles ">
-          <i class="fa-solid fa-minus restar-cantidad"></i>
-          <input type="text" value="0" class="carrito-item-cantidad" disabled>
-          <i class="fa-solid fa-plus sumar-cantidad"></i>
-          <span class="btn-eliminar">
-            <i class="fa-solid fa-trash"></i>
-          </span>
-        </div>
       </li> 
       {%endfor%} 
 		</ul> <!-- cd-cart-items -->

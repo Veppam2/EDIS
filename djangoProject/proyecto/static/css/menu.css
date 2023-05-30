@@ -1021,27 +1021,6 @@ header {
   font-size: 18px;
   margin-bottom: 5px;
 }
-.carrito .carrito-item .btn-eliminar{
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  color: #000;
-  font-size: 20px;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  border-radius: 50%;
-  border: 1px solid #000;
-  cursor: pointer;
-  display: block;
-  background: transparent;
-  z-index: 20;
-}
-.carrito .carrito-item .btn-eliminar i{
-  pointer-events: none;
-}
-
 
 
 /* Boton de checkout*/
@@ -1559,4 +1538,123 @@ background-color: #d2d2d2;
   flex-wrap: wrap;
   align-items: center;
   padding: .5rem 1rem 1.5rem 1rem
+}
+
+/*--------------------------------------------------------------
+# Enviar
+--------------------------------------------------------------*/
+.e-modal-window {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.25);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+.e-modal-window:target {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;position: fixed;
+  min-height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(170, 170, 170, 0.439);
+  cursor: pointer;
+  z-index: 2;
+}
+.e-border {
+  display: block;
+  position: fixed;
+  min-height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(170, 170, 170, 0.439);
+  cursor: pointer;
+  z-index: 2;
+}
+.e-modal-window > div {
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2em;
+  background: white;
+}
+.e-modal-window header {
+  font-weight: bold;
+}
+.e-modal-window h1 {
+  font-size: 150%;
+  margin: 0 0 15px;
+}
+
+.e-modal-close {
+  color: #aaa;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+}
+.e-modal-close:hover {
+  color: black;
+}
+
+.e-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.e-modal-window > div {
+  border-radius: 1rem;
+}
+
+.e-modal-window div:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+
+.e-logo {
+  max-width: 150px;
+  display: block;
+}
+
+.e-btn {
+  background-color: white;
+  padding: 1em 1.5em;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+.e-btn i {
+  padding-right: 0.3em;
+}
+.e-pd {
+  max-width: 100%;
+  width: 85%;
+  align-items: center;
+  margin: 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background: #2e2e2e;
+  border: 2px solid #2e2e2e;
+  padding: 0.7rem;
+}
+.e-pd:hover {
+  box-shadow: 5px 5px 30px rgba(0,0,0,0.4);
+  background: #FFBD59;
+}
+.e-pd a{
+ color: #fff;
 }

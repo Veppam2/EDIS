@@ -118,9 +118,21 @@
                             <h5 class="text-uppercase">Precio total</h5>
                             <h5>$ {{ precioTotal }}</h5>
                             </div>
-
-                            <button type="button" class="btn btn-dark btn-block btn-lg"
-                            data-mdb-ripple-color="dark">Confirmar orden</button>
+                        
+                                  <a class="btn btn-dark btn-block btn-lg"
+                                  data-mdb-ripple-color="dark" href="#e-open-modal">Confirmar orden</a>
+                                </div>
+                              </div>
+                              
+                              <div id="e-open-modal" class="e-modal-window">
+                                <div class="">
+                                  <a href="" title="Close" class="e-modal-close"><i class="fas fa-times"></i></a>
+                                  <p>¡Se envió con éxito tu orden a la cocina!</p>
+                                  <button type="button" class="e-pd btn "
+                                  data-mdb-ripple-color="dark"><a href="{% url 'cincuentaAmigos:votacion' %}">Votación helado</a></button>
+                                  <button type="button" class="e-pd btn "
+                                  data-mdb-ripple-color="dark"><a href="{% url 'cincuentaAmigos:menu-principal' %}">Regresar al menú</a></button>
+                                </div>
         
                         </div>
                         </div>
