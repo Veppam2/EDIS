@@ -54,9 +54,6 @@
       </a>
 
       <div id="cd-cart-trigger"><a class="btn-book-a-table" href="">Carrito</a></div>
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
     </div>
   </header><!-- End Header -->
  
@@ -72,46 +69,92 @@
           <p>CAT<span>ÁLO</span>GO</p>
         </div>
 
-        {% comment %} <div class="row gy-4"> {% endcomment %}
+        <div class="va-carrousel-section">
+          <div class="va-whitewrap">
+      
+              <div id="va_container">
+                  <button class="deals-scroll-left deals-paddle">
+                      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left"
+                          class="svg-inline--fa fa-chevron-left fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 320 512">
+                          <path fill="currentColor"
+                              d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z">
+                          </path>
+                      </svg>
+                  </button>
+      
+                  <div class="va-carrousel-flexbox">
+                    {% for i in listaCategorias %}
+                        {% if i.nombre == "Entradas" %}
+                        <div class="va-card"> 
+                          <div class="menu-container">
+                            <img class="va-thumbnail" src="{{ i.imagen }}" alt="" />
+                            <p class="menu-title">{{ i.nombre }}</p>
+                            <div class="menu-overlay"></div>
+                            <div class="menu-button"><a href="{% url 'cincuentaAmigos:entradas' %}"> MOSTRAR </a></div>
+                          </div>
+                        </div>
+                        <div class="va-pd"></div>
+                        {% endif %}   
 
-          <div class="container-card">
-          {% for i in listaCategorias %}
-            <div class="card col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">                
-              <div class="card-image"><img src={{i.imagen}}></div>
-              <div class="contenido-card">
-                {% if i.nombre == "Entradas" %}
-                <a href="{% url 'cincuentaAmigos:entradas' %}">
-                  <h2 class="card-title">Entradas</h2>
-                {% endif %}    
-                
-                {% if i.nombre == "Platillos principales" %}
-                <a href="{% url 'cincuentaAmigos:platillos' %}">
-                  <h2 class="card-title">Platillos</h2>
-                {% endif %}    
+                        {% if i.nombre == "Platillos principales" %}
+                        <div class="va-card"> 
+                          <div class="menu-container">
+                            <img class="va-thumbnail" src="{{ i.imagen }}" alt="" />
+                            <p class="menu-title">{{ i.nombre }}</p>
+                            <div class="menu-overlay"></div>
+                            <div class="menu-button"><a href="{% url 'cincuentaAmigos:platillos' %}"> MOSTRAR </a></div>
+                          </div>
+                        </div>
+                        <div class="va-pd"></div>
+                        {% endif %}    
 
-                {% if i.nombre == "Bebidas" %}
-                <a href="{% url 'cincuentaAmigos:bebidas' %}">
-                  <h2 class="card-title">Bebidas</h2>
-                {% endif %} 
-                
-                {% if i.nombre == "Postres" %}
-                <a href="{% url 'cincuentaAmigos:postres' %}">
-                  <h2 class="card-title">Postres</h2>
-                {% endif %} 
-                </a>
+                        {% if i.nombre == "Bebidas" %}
+                        <div class="va-card"> 
+                          <div class="menu-container">
+                            <img class="va-thumbnail" src="{{ i.imagen }}" alt="" />
+                            <p class="menu-title">{{ i.nombre }}</p>
+                            <div class="menu-overlay"></div>
+                            <div class="menu-button"><a href="{% url 'cincuentaAmigos:bebidas' %}"> MOSTRAR </a></div>
+                          </div>
+                        </div>
+                        <div class="va-pd"></div>
+                        {% endif %} 
+                        
+                        {% if i.nombre == "Postres" %}
+                        <div class="va-card"> 
+                          <div class="menu-container">
+                            <img class="va-thumbnail" src="{{ i.imagen }}" alt="" />
+                            <p class="menu-title">{{ i.nombre }}</p>
+                            <div class="menu-overlay"></div>
+                            <div class="menu-button"><a href="{% url 'cincuentaAmigos:postres' %}"> MOSTRAR </a></div>
+                          </div>
+                        </div>
+                        <div class="va-pd"></div>
+                        {% endif %} 
+                    {% endfor %}
+
+                    <div class="va-card"> 
+                      <div class="menu-container">
+                        <img class="va-thumbnail" src="https://images.unsplash.com/photo-1629385742818-32909d7b45a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1040&q=80" alt="helado" />
+                        <p class="menu-title">Helado</p>
+                        <div class="menu-overlay"></div>
+                        <div class="menu-button"><a href="{% url 'cincuentaAmigos:helados' %}"> MOSTRAR </a></div>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <button class="deals-scroll-right deals-paddle">
+                      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                          class="svg-inline--fa fa-chevron-right fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 320 512">
+                          <path fill="currentColor"
+                              d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                          </path>
+                      </svg>
+                  </button>
               </div>
-            </div>
-          {% endfor %}
-        </div>
-
-        
-        <div class="d-flex align-items-stretch" type="button" data-aos="fade-up" data-aos-delay="500">
-          <form action="{% url 'cincuentaAmigos:helados' %}" method="GET">
-            <button class="card-helado"> 
-              Helado
-            </button>  
-          </form>        
-        </div>
+          </div>
       </div>
     </section><!-- End Section -->
   </main><!-- End #main -->
@@ -119,8 +162,8 @@
   <footer id="footer" class="footer">
     <div class="container">
       <div class="row gy-3">
-        <div id=""><a class="btn-cerrar-sesion" href="{% url 'cincuentaAmigos:logout' %}">Cerrar Sesión</a></div>
-
+        <div id=""><a class="btn-cerrar-sesion" href="{% url 'cincuentaAmigos:logout' %}"> <i class="fas fa-sign-out-alt"></i></a></div>
+        <div class="footer-pd">
       </div>
     </div>
   </footer>
@@ -164,8 +207,9 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'js/main.js' %}"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="{% static 'js/shopping-cart.js' %}"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
 </body>
 </html>

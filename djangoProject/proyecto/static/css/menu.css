@@ -1404,7 +1404,9 @@ xkeyframes
   margin-right: 10px;
   transition: 0.3s;
 }
-
+.footer-pd {
+  padding-top: 15px;
+}
 .footer .social-links a:hover {
   color: #fff;
   border-color: #fff;
@@ -1658,3 +1660,292 @@ background-color: #d2d2d2;
 .e-pd a{
  color: #fff;
 }
+
+
+/*--------------------------------------------------------------
+# Navegación
+--------------------------------------------------------------*/
+.link-plain,
+      .link-plain:hover,
+      .link-plain:active,
+      .link-plain:visited {
+          text-decoration: none;
+      }
+  
+      .link-plain-f,
+      .link-plain-f:hover,
+      .link-plain-f:active,
+      .link-plain-f:focus,
+      .link-plain-f:visited {
+          color: initial;
+          text-decoration: none !important;
+      }
+  
+      .div-center {
+          display: inline-block;
+          width: 100%;
+          text-align: center;
+      }
+      #va_container {
+          position: relative;
+          max-width: 1140px;
+          margin: auto;
+      }
+  
+      .va-thumbnail {
+          border-radius: 15px;
+          border: 0px;
+          max-width: 100%;
+          height: 285px;
+          object-fit: cover;
+      }
+
+      .va-div {
+        background-color: #fff;
+      }
+  
+      .va-title {
+          margin-top: 0px;
+          margin-bottom: 10px;
+          font-weight: 700;
+      }
+  
+      .va-carrousel-flexbox {
+  
+          display: flex;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          scrollbar-width: none;
+      }
+  
+      .va-carrousel-flexbox .va-card {
+          flex: 0 0 auto;
+      }
+  
+      .va-carrousel-flexbox .va-card:last-child {
+          margin-right: 15px;
+      }
+  
+      .va-carrousel-flexbox .va-card:last-child::after {
+          content: ' ';
+          display: inline-block;
+      }
+
+      .va-pd {
+        padding-left: 15px;
+      }
+  
+      .va-card {
+          width: 100px;
+          cursor: pointer;
+          user-select: none;
+          outline: none;
+      }
+  
+      .va-card:hover {
+          user-select: none;
+          outline: none;
+      }
+  
+      .va-card a {
+          display: block;
+      }
+  
+      @media (min-width: 768px) {
+          .va-card {
+              width: 300px;
+          }
+      }
+  
+      .va-carrousel,
+      .va-carrousel-flexbox {
+          width: 100%;
+          -webkit-overflow-scrolling: touch;
+      }
+  
+      .va-carrousel::-webkit-scrollbar,
+      .va-carrousel-flexbox::-webkit-scrollbar {
+          display: none;
+      }
+  
+      .va-carrousel-title {
+          display: inline-block;
+  
+          color: white;
+          font-weight: 700;
+          padding-bottom: 8px;
+  
+          margin-bottom: 18px;
+      }
+  
+      .va-title {
+          margin-top: 8px;
+          font-size: 11px;
+          max-height: 3em;
+          overflow: hidden;
+          color: white;
+          font-weight: 700;
+      }
+  
+      @media (min-width: 768px) {
+          .va-title {
+              font-size: 13px;
+          }
+      }
+  
+      .va-start-from {
+          font-size: 9px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          color: white;
+      }
+  
+      .va-points {
+          font-size: 12px;
+          font-weight: 700;
+          display: inline-block;
+          color: white;
+      }
+  
+      .deals-paddle {
+          color: rgb(87, 87, 87);
+          border-radius: 50%;
+          border: 0px solid;
+          margin: auto;
+          position: absolute;
+  
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        cursor:pointer;
+      }
+  
+      .deals-paddle:focus {
+          outline: none;
+      }
+  
+      .deals-paddle:active {
+          border-style: solid;
+          outline: none;
+          user-select: none;
+      }
+  
+      .deals-paddle svg {
+          width: 10px;
+      }
+  
+      @media (min-width: 768px) {
+          .other-game-button {
+              width: 300px;
+          }
+      }
+  
+      .deals-scroll-left {
+          top: 0;
+          left: -65px;
+          bottom: 0;
+      }
+  
+      .deals-scroll-right {
+          top: 0;
+          bottom: 0;
+          right: -65px;
+      }
+  
+      .va-carrousel-section {
+        font-family: "Roboto";
+        padding: 0px;
+        position: relative;
+      } 
+  
+      @media (min-width: 768px) {
+  
+          .va-carrousel-section {
+              padding-left: 15px;
+              padding-right: 15px;
+          }
+      }
+  
+      .va-whitewrap {
+  /*         background-color: white; */
+          padding-top: 15px;
+          margin-top: 15px;
+      }
+  
+      .va-seeall {
+          display: block;
+          font-size: 18px;
+          font-weight: 700;
+          border-top: 1px solid #DDDDDD;
+          text-align: center;
+          padding: 10px;
+      }
+
+      .menu-container {
+        position: relative;
+        border-radius: 5px;
+        border: 0px;
+        max-width: 100%;
+        height: 285px;
+        object-fit: cover;
+      }
+      
+      .menu-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0);
+        transition: background 0.5s ease;
+      }
+      
+      .menu-container:hover .menu-overlay {
+        display: block;
+        background: rgba(0, 0, 0, .3);
+      }
+      
+      .menu-title {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 120px;
+        font-weight: 700;
+        font-size: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        color: white;
+        z-index: 1;
+        transition: top .5s ease;
+      }
+      
+      .menu-container:hover .menu-title {
+        top: 90px;
+      }
+      
+      .menu-button {
+        position: absolute;
+        width: 100%;
+        left: 20%;
+        top: 180px;
+        text-align: center;
+        opacity: 0;
+        transition: opacity .35s ease;
+      }
+      
+      .menu-button a {
+        width: 60%;
+        padding: 12px 48px;
+        text-align: center;
+        color: #ffffff;
+        border: solid 2px rgb(255, 255, 255);
+        border-radius: 5px;
+        z-index: 1;
+      }
+      
+      .menu-container:hover .menu-button {
+        opacity: 1;
+      }
+      
+      
