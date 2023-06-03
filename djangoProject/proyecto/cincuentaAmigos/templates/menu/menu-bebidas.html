@@ -1,77 +1,77 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Primary Meta Tags -->
+    <title>50 Amigos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="title" content="50 Amigos">
+    <meta name="author" content="EDIS">
+    <meta name="description" content="Menú de tableta para el restaurante 50 amigos.">
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <!-- Primary Meta Tags -->
-  <title>50 Amigos</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="title" content="50 Amigos">
-  <meta name="author" content="EDIS">
-  <meta name="description" content="Menú de tableta para el restaurante 50 amigos.">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="{% static 'assets/img/favicon/CincuentaAmigos.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'assets/img/favicon/CincuentaAmigos.png' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'css/menu.css' %}" rel="stylesheet" />
+  </head>
+
+  <body class="foo">
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-between">
   
-  <!-- Favicon -->
-  <link rel="apple-touch-icon" href="{% static 'assets/img/favicon/CincuentaAmigos.png' %}">
-  <link rel="icon" type="image/png" href="{% static 'assets/img/favicon/CincuentaAmigos.png' %}">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="theme-color" content="#ffffff">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="{% static 'css/menu.css' %}" rel="stylesheet" />
-</head>
-
-<body class="foo">
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <a href="{% url 'cincuentaAmigos:menu-principal' %}" class="logo d-flex align-items-center me-auto me-lg-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>50<span>amigos</span></h1>
-      </a>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="{% url 'cincuentaAmigos:entradas' %}"><h5 class="h5-font">Entradas</h5></a></li>
-          <li><a href="{% url 'cincuentaAmigos:platillos' %}"><h5 class="h5-font">Platillos</h5></a></li>
-          <li><a class="active" href="{% url 'cincuentaAmigos:bebidas' %}"><h5 class="h5-font">Bebidas</h5></a></li>
-          <li><a href="{% url 'cincuentaAmigos:postres' %}"><h5 class="h5-font">Postres</h5></a></li>
-          <li class="dropdown"><a href="{% url 'cincuentaAmigos:helados' %}"><span><h5 class="h5-font">Helado</h5></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="{% url 'cincuentaAmigos:votacion' %}">Votación</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <div id="cd-cart-trigger"><a class="btn-book-a-table" href="">Carrito</a></div>
-    </div>
-  </header><!-- End Header -->
-
-
-  <!-- ======= Main ======= -->
-  <main id="main">
-     
-       <!-- ======= Bebida Section ======= -->
-       <section id="menu" class="menu">
+        <a href="{% url 'cincuentaAmigos:menu-principal' %}" class="logo d-flex align-items-center me-auto me-lg-0">
+          <h1>50<span>amigos</span></h1>
+        </a>
+  
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a href="{% url 'cincuentaAmigos:entradas' %}"><h5 class="h5-font">Entradas</h5></a></li>
+            <li><a href="{% url 'cincuentaAmigos:platillos' %}"><h5 class="h5-font">Platillos</h5></a></li>
+            <li><a class="active" href="{% url 'cincuentaAmigos:bebidas' %}"><h5 class="h5-font">Bebidas</h5></a></li>
+            <li><a href="{% url 'cincuentaAmigos:postres' %}"><h5 class="h5-font">Postres</h5></a></li>
+            <li class="dropdown">
+              <a href="{% url 'cincuentaAmigos:helados' %}">
+                <span><h5 class="h5-font">Helado</h5></span> <i class="bi bi-chevron-down dropdown-indicator"></i>
+              </a>
+              <ul>
+                <li><a href="{% url 'cincuentaAmigos:votacion' %}">Votación</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <div id="cd-cart-trigger"><a class="btn-book-a-table" href="">Carrito</a></div>
+      </div>
+    </header><!-- End Header -->
+  
+  
+    <!-- ======= Main ======= -->
+    <main id="main">
+       
+      <!-- ======= Bebida Section ======= -->
+      <section id="menu" class="menu">
         <div class="container" data-aos="fade-up">
   
           <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
-
+  
             <div class="tab-pane fade active show" id="menu-bebidas">
               <div class="tab-header text-center">
                 <p>Menu</p>
@@ -79,14 +79,13 @@
               </div>
   
               <div class="row gy-5">
-
                 {% for alimento in listaBebidas %}
-                  
+  
                 <div class="col-lg-3 menu-item">
                   <a href="" class="glightbox"><img src={{alimento.imagen}} class="img-normalizada" alt=""></a>
                   <div class="contenido-card">
                     <a href="{% url 'cincuentaAmigos:bebidas' %}">
-                    <h2 class="title">{{alimento.nombre}}</h2>
+                      <h2 class="title">{{alimento.nombre}}</h2>
                     </a>
                   </div>
                   <p class="descripcion">
@@ -106,149 +105,151 @@
                       data-precio="{{ alimento.precio }}">
                       Agregar
                     </button>
-                  </div>           
+                  </div>
                 </div><!-- Menu Item -->
-
-                {%endfor%} 
-                            
+                {% endfor %}
+  
               </div>
             </div>
+          </div>
         </div>  
       </section><!--  Section -->
-  </main><!-- End #main -->
-
-
-  <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header border-bottom-0">
-          <h5 class="center modal-title" id="exampleModalLabel">
-            Agregar al carrito
-          </h5>
-        </div>
-        <div class="c-mb-0 modal-body">
-          <table class="table table-image">
-            <thead>
-              <tr>
-                <th scope="col"></th>
-                <th scope="col">Producto</th>
-                <th scope="col">Precio</th>
-                <th scope="col">Cantidad</th>
-                <th scope="col">Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="w-25">
-                  <img src="" class="img-fluid img-thumbnail" alt="Sheep" id="cartItemImage">
-                </td>
-                <td id="cartItemName"></td>
-                <td id="cartItemPrice"></td>
-                <td class="qty">
-                  <input type="number" class="form-control" id="input1" value="1" min="1">
-                </td>
-                <td id="cartItemTotal"></td>
-              </tr>
-            </tbody>
-          </table> 
-        </div>
-        <div class="c-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-
-          <form action="{% url 'cincuentaAmigos:agregar-al-carrito' %}" method="post">
-            {% csrf_token %}
-            <button class="card-add" type="submit">Agregar a la orden</button>    
-            <input type="hidden" id="cartItemId" name="cartItemId" value="">
-            <input type="hidden" id="cantidad" name="cantidad" value="">
-          </form>  
+    </main><!-- End #main -->
+  
+  
+    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header border-bottom-0">
+            <h5 class="center modal-title" id="exampleModalLabel">
+              Agregar al carrito
+            </h5>
+          </div>
+          <div class="c-mb-0 modal-body">
+            <table class="table table-image">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="w-25">
+                    <img src="" class="img-fluid img-thumbnail" alt="Sheep" id="cartItemImage">
+                  </td>
+                  <td id="cartItemName"></td>
+                  <td id="cartItemPrice"></td>
+                  <td class="qty">
+                    <input type="number" class="form-control" id="input1" value="1" min="1">
+                  </td>
+                  <td id="cartItemTotal"></td>
+                </tr>
+              </tbody>
+            </table> 
+          </div>
+          <div class="c-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+  
+            <form action="{% url 'cincuentaAmigos:agregar-al-carrito' %}" method="post">
+              {% csrf_token %}
+              <button class="card-add" type="submit">Agregar a la orden</button>    
+              <input type="hidden" id="cartItemId" name="cartItemId" value="">
+              <input type="hidden" id="cantidad" name="cantidad" value="">
+            </form>  
+          </div>
         </div>
       </div>
-    </div>
-  </div> <!-- Fin Modal Cart -->
-
-
-  <div id="cd-shadow-layer"></div>
-
-	<div id="cd-cart">
-		<h2>Carrito</h2>
-		<ul class="cd-cart-items">
-      {% for dato in datosCarrito %}
+    </div> <!-- Fin Modal Cart -->
+  
+  
+    <div id="cd-shadow-layer"></div>
+  
+    <div id="cd-cart">
+      <h2>Carrito</h2>
+      <ul class="cd-cart-items">
+        {% for dato in datosCarrito %}
         <li>
           <span class="cd-qty">{{ dato.cantidad }}x</span> {{ dato.alimento.nombre }}
           <div class="cd-price">$ {{ dato.precio }}</div>
         </li>       
-      {%endfor%} 
-		</ul> <!-- cd-cart-items -->
-
-		<div class="cd-cart-total">
-			<p>Total <span>$ {{ precioTotal }}</span></p>
-		</div> <!-- cd-cart-total -->
-
-    <form action="{% url 'cincuentaAmigos:carrito' %}" method="post">
-      {% csrf_token %}
-		  <button class="checkout-btn" type="submit">Ver Carrito</a>
-    </form> 
-	
-    <button id="return-to-menu" class="cd-go-to-cart">Regresar al menú</button>
-	</div> <!-- cd-cart -->
-
-
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <div id="preloader"></div>
-
-   <!-- Vendor JS Files -->
-   <script src="{% static '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-   <script src="{% static '/assets/vendor/aos/aos.js' %}"></script>
-   <script src="{% static '/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
-   <script src="{% static '/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
-   <script src="{% static '/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
-   <script src="{% static '/assets/vendor/php-email-form/validate.js' %}"></script>
- 
-   <!-- Template Main JS File -->
-   <script src="{% static 'js/main.js' %}"></script>
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-   <script src="{% static 'js/shopping-cart.js' %}"></script>
-   <script>
-    $(document).ready(function() {
-      $('.cartButton').click(function() {
-        var id_alimento = $(this).data('id');
-        var nombre = $(this).data('nombre');
-        var imagen = $(this).data('imagen');
-        var descripcion = $(this).data('descripcion');
-        var precio = $(this).data('precio');
+        {% endfor %} 
+      </ul> <!-- cd-cart-items -->
   
-        // Actualizar los elementos del modal con los datos del alimento seleccionado
-        $('#cartItemId').val(id_alimento);
-        $('#cartItemImage').attr('src', imagen);
-        $('#cartItemName').text(nombre);
-        $('#cartItemPrice').text('$' + precio);
-        $('#cantidad').val('1');
+      <div class="cd-cart-total">
+        <p>Total <span>$ {{ precioTotal }}</span></p>
+      </div> <!-- cd-cart-total -->
   
-        // Calcular y actualizar el precio total
-        $('#input1').on('input', function() {
-          var qty = $(this).val();
+      <div class="js-btn">
+        <form action="{% url 'cincuentaAmigos:carrito' %}" method="post">
+          {% csrf_token %}
+          <button class="checkout-btn" type="submit">Ver Carrito</button>
+        </form>  
+      </div>
+      <div class="js-btn checkout-mg">
+        <button id="return-to-menu" class="checkout-btn-2">Regresar al menú</button>
+      </div>
+    </div> <!-- cd-cart -->
+  
+  
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  
+    <div id="preloader"></div>
+  
+    <!-- Vendor JS Files -->
+    <script src="{% static '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '/assets/vendor/aos/aos.js' %}"></script>
+    <script src="{% static '/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static '/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static '/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static '/assets/vendor/php-email-form/validate.js' %}"></script>
+  
+    <!-- Template Main JS File -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{% static 'js/shopping-cart.js' %}"></script>
+    <script>
+      $(document).ready(function() {
+        $('.cartButton').click(function() {
+          var id_alimento = $(this).data('id');
+          var nombre = $(this).data('nombre');
+          var imagen = $(this).data('imagen');
+          var descripcion = $(this).data('descripcion');
+          var precio = $(this).data('precio');
+  
+          // Actualizar los elementos del modal con los datos del alimento seleccionado
+          $('#cartItemId').val(id_alimento);
+          $('#cartItemImage').attr('src', imagen);
+          $('#cartItemName').text(nombre);
+          $('#cartItemPrice').text('$' + precio);
+          $('#cantidad').val('1');
+  
+          // Calcular y actualizar el precio total
+          $('#input1').on('input', function() {
+            var qty = $(this).val();
+            var total = precio * qty;
+            $('#cartItemTotal').text('$' + total);
+            $('#cantidad').val(qty);
+          });      
+  
+          // Inicializar el valor total
+          var qty = $('#input1').val();
+          var qty = $('#input1').val();
           var total = precio * qty;
           $('#cartItemTotal').text('$' + total);
-          $('#cantidad').val(qty);
-        });      
   
-        // Inicializar el valor total
-        var qty = $('#input1').val();
-        var qty = $('#input1').val();
-        var total = precio * qty;
-        $('#cartItemTotal').text('$' + total);
-        
-        $('#cartModal').modal('show');
-      });
+          $('#cartModal').modal('show');
+        });
   
-      // Desactivar el modal al hacer clic en el botón "Cerrar"
-      $('#cartModal').on('hidden.bs.modal', function() {
-        $(this).find('input').val('1'); // Restaurar el valor predeterminado de la cantidad
+        // Desactivar el modal al hacer clic en el botón "Cerrar"
+        $('#cartModal').on('hidden.bs.modal', function() {
+          $(this).find('input').val('1'); // Restaurar el valor predeterminado de la cantidad
+        });
       });
-    });
-  </script>
-
-</body>
-
+    </script>
+  
+  </body>
 </html>

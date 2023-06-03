@@ -1,215 +1,205 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Primary Meta Tags -->
+    <title>50 Amigos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="title" content="50 Amigos">
+    <meta name="author" content="EDIS">
+    <meta name="description" content="Menú de tableta para el restaurante 50 amigos.">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="{% static 'assets/img/favicon/CincuentaAmigos.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'assets/img/favicon/CincuentaAmigos.png' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <!-- Primary Meta Tags -->
-  <title>50 Amigos</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="title" content="50 Amigos">
-  <meta name="author" content="EDIS">
-  <meta name="description" content="Menú de tableta para el restaurante 50 amigos.">
-  
-  <!-- Favicon -->
-  <link rel="apple-touch-icon" href="{% static 'assets/img/favicon/CincuentaAmigos.png' %}">
-  <link rel="icon" type="image/png" href="{% static 'assets/img/favicon/CincuentaAmigos.png' %}">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="theme-color" content="#ffffff">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="{% static 'css/menu.css' %}" rel="stylesheet" />
+  </head>
 
-  <!-- Template Main CSS File -->
-  <link href="{% static 'css/menu.css' %}" rel="stylesheet" />
+  <body class="foo">
+    
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-between">
 
-  <!-- =======================================================
-  * Template Name: Yummy
-  * Updated: Mar 10 2023 with Bootstrap v5.2.3
-  * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
+        <a href="{% url 'cincuentaAmigos:menu-principal' %}" class="logo d-flex align-items-center me-auto me-lg-0">
+          <h1>50<span>amigos</span></h1>
+        </a>
 
-<body class="foo">
-  
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
+        <div id="cd-cart-trigger"><a class="btn-book-a-table" href="">Carrito</a></div>
+      </div>
+    </header><!-- End Header -->
 
-      <a href="{% url 'cincuentaAmigos:menu-principal' %}" class="logo d-flex align-items-center me-auto me-lg-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>50<span>amigos</span></h1>
-      </a>
+    <main id="main">
+      <!-- ======= Menu Section ======= -->
+      <section id="chefs" class="chefs section-bg">
+        <div class="container" data-aos="fade-up" >
 
-      <div id="cd-cart-trigger"><a class="btn-book-a-table" href="">Carrito</a></div>
-    </div>
-  </header><!-- End Header -->
- 
+          <div class="section-header">
+            <h2>nuestro</h2>
+            <p>CAT<span>ÁLO</span>GO</p>
+          </div>
 
-  <main id="main">
-
-    <!-- ======= Menu Section ======= -->
-    <section id="chefs" class="chefs section-bg">
-      <div class="container" data-aos="fade-up" >
-
-        <div class="section-header">
-          <h2>nuestro</h2>
-          <p>CAT<span>ÁLO</span>GO</p>
-        </div>
-
-        <div class="va-carrousel-section">
-          <div class="va-whitewrap">
-      
-              <div id="va_container">
-                  <button class="deals-scroll-left deals-paddle">
-                      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left"
-                          class="svg-inline--fa fa-chevron-left fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 320 512">
-                          <path fill="currentColor"
-                              d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z">
-                          </path>
-                      </svg>
-                  </button>
-      
-                  <div class="va-carrousel-flexbox">
-                    {% for i in listaCategorias %}
-                        {% if i.nombre == "Entradas" %}
-                        <div class="va-card"> 
-                          <div class="menu-container">
-                            <img class="va-thumbnail" src="{{ i.imagen }}" alt="" />
-                            <p class="menu-title">{{ i.nombre }}</p>
-                            <div class="menu-overlay"></div>
-                            <div class="menu-button"><a href="{% url 'cincuentaAmigos:entradas' %}"> MOSTRAR </a></div>
+          <div class="va-carrousel-section">
+            <div class="va-whitewrap">
+        
+                <div id="va_container">
+                    <button class="deals-scroll-left deals-paddle">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left"
+                            class="svg-inline--fa fa-chevron-left fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 320 512">
+                            <path fill="currentColor"
+                                d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z">
+                            </path>
+                        </svg>
+                    </button>
+        
+                    <div class="va-carrousel-flexbox">
+                      {% for i in listaCategorias %}
+                          {% if i.nombre == "Entradas" %}
+                          <div class="va-card"> 
+                            <div class="menu-container">
+                              <img class="va-thumbnail" src="{{ i.imagen }}" alt="" />
+                              <p class="menu-title">{{ i.nombre }}</p>
+                              <div class="menu-overlay"></div>
+                              <div class="menu-button"><a href="{% url 'cincuentaAmigos:entradas' %}"> MOSTRAR </a></div>
+                            </div>
                           </div>
-                        </div>
-                        <div class="va-pd"></div>
-                        {% endif %}   
+                          <div class="va-pd"></div>
+                          {% endif %}   
 
-                        {% if i.nombre == "Platillos principales" %}
-                        <div class="va-card"> 
-                          <div class="menu-container">
-                            <img class="va-thumbnail" src="{{ i.imagen }}" alt="" />
-                            <p class="menu-title">{{ i.nombre }}</p>
-                            <div class="menu-overlay"></div>
-                            <div class="menu-button"><a href="{% url 'cincuentaAmigos:platillos' %}"> MOSTRAR </a></div>
+                          {% if i.nombre == "Platillos principales" %}
+                          <div class="va-card"> 
+                            <div class="menu-container">
+                              <img class="va-thumbnail" src="{{ i.imagen }}" alt="" />
+                              <p class="menu-title">{{ i.nombre }}</p>
+                              <div class="menu-overlay"></div>
+                              <div class="menu-button"><a href="{% url 'cincuentaAmigos:platillos' %}"> MOSTRAR </a></div>
+                            </div>
                           </div>
-                        </div>
-                        <div class="va-pd"></div>
-                        {% endif %}    
+                          <div class="va-pd"></div>
+                          {% endif %}    
 
-                        {% if i.nombre == "Bebidas" %}
-                        <div class="va-card"> 
-                          <div class="menu-container">
-                            <img class="va-thumbnail" src="{{ i.imagen }}" alt="" />
-                            <p class="menu-title">{{ i.nombre }}</p>
-                            <div class="menu-overlay"></div>
-                            <div class="menu-button"><a href="{% url 'cincuentaAmigos:bebidas' %}"> MOSTRAR </a></div>
+                          {% if i.nombre == "Bebidas" %}
+                          <div class="va-card"> 
+                            <div class="menu-container">
+                              <img class="va-thumbnail" src="{{ i.imagen }}" alt="" />
+                              <p class="menu-title">{{ i.nombre }}</p>
+                              <div class="menu-overlay"></div>
+                              <div class="menu-button"><a href="{% url 'cincuentaAmigos:bebidas' %}"> MOSTRAR </a></div>
+                            </div>
                           </div>
-                        </div>
-                        <div class="va-pd"></div>
-                        {% endif %} 
-                        
-                        {% if i.nombre == "Postres" %}
-                        <div class="va-card"> 
-                          <div class="menu-container">
-                            <img class="va-thumbnail" src="{{ i.imagen }}" alt="" />
-                            <p class="menu-title">{{ i.nombre }}</p>
-                            <div class="menu-overlay"></div>
-                            <div class="menu-button"><a href="{% url 'cincuentaAmigos:postres' %}"> MOSTRAR </a></div>
+                          <div class="va-pd"></div>
+                          {% endif %} 
+                          
+                          {% if i.nombre == "Postres" %}
+                          <div class="va-card"> 
+                            <div class="menu-container">
+                              <img class="va-thumbnail" src="{{ i.imagen }}" alt="" />
+                              <p class="menu-title">{{ i.nombre }}</p>
+                              <div class="menu-overlay"></div>
+                              <div class="menu-button"><a href="{% url 'cincuentaAmigos:postres' %}"> MOSTRAR </a></div>
+                            </div>
                           </div>
-                        </div>
-                        <div class="va-pd"></div>
-                        {% endif %} 
-                    {% endfor %}
+                          <div class="va-pd"></div>
+                          {% endif %} 
+                      {% endfor %}
 
-                    <div class="va-card"> 
-                      <div class="menu-container">
-                        <img class="va-thumbnail" src="https://images.unsplash.com/photo-1629385742818-32909d7b45a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1040&q=80" alt="helado" />
-                        <p class="menu-title">Helado</p>
-                        <div class="menu-overlay"></div>
-                        <div class="menu-button"><a href="{% url 'cincuentaAmigos:helados' %}"> MOSTRAR </a></div>
+                      <div class="va-card"> 
+                        <div class="menu-container">
+                          <img class="va-thumbnail" src="https://images.unsplash.com/photo-1629385742818-32909d7b45a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1040&q=80" alt="helado" />
+                          <p class="menu-title">Helado</p>
+                          <div class="menu-overlay"></div>
+                          <div class="menu-button"><a href="{% url 'cincuentaAmigos:helados' %}"> MOSTRAR </a></div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-      
-                  <button class="deals-scroll-right deals-paddle">
-                      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
-                          class="svg-inline--fa fa-chevron-right fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 320 512">
-                          <path fill="currentColor"
-                              d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
-                          </path>
-                      </svg>
-                  </button>
-              </div>
-          </div>
+        
+                    <button class="deals-scroll-right deals-paddle">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                            class="svg-inline--fa fa-chevron-right fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 320 512">
+                            <path fill="currentColor"
+                                d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+      </section><!-- End Section -->
+    </main><!-- End #main -->
+
+    <footer id="footer" class="footer">
+      <div class="container">
+        <div class="row gy-3">
+          <div id=""><a class="btn-cerrar-sesion" href="{% url 'cincuentaAmigos:logout' %}"> <i class="fas fa-sign-out-alt"></i></a></div>
+          <div class="footer-pd">
+        </div>
       </div>
-    </section><!-- End Section -->
-  </main><!-- End #main -->
+    </footer>
 
-  <footer id="footer" class="footer">
-    <div class="container">
-      <div class="row gy-3">
-        <div id=""><a class="btn-cerrar-sesion" href="{% url 'cincuentaAmigos:logout' %}"> <i class="fas fa-sign-out-alt"></i></a></div>
-        <div class="footer-pd">
+    <div id="cd-shadow-layer"></div>
+
+    <div id="cd-cart">
+      <h2>Carrito</h2>
+      <ul class="cd-cart-items">
+        {% for dato in datosCarrito %}
+        <li>
+          <span class="cd-qty">{{ dato.cantidad }}x</span> {{ dato.alimento.nombre }}
+          <div class="cd-price">$ {{ dato.precio }}</div>
+        </li> 
+        {%endfor%} 
+      </ul> <!-- cd-cart-items -->
+
+      <div class="cd-cart-total">
+        <p>Total <span>$ {{ precioTotal }} </span></p>
+      </div> <!-- cd-cart-total -->
+
+      <div class="js-btn">
+        <form action="{% url 'cincuentaAmigos:carrito' %}" method="post">
+          {% csrf_token %}
+          <button class="checkout-btn" type="submit">Ver Carrito</a>
+        </form>  
       </div>
-    </div>
-  </footer>
+      <div class="js-btn checkout-mg">
+        <button id="return-to-menu" class="checkout-btn-2">Regresar al menú</button>
+      </div>
+    </div> <!-- cd-cart -->
 
-  <div id="cd-shadow-layer"></div>
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <div id="cd-cart">
-		<h2>Carrito</h2>
-		<ul class="cd-cart-items">
-      {% for dato in datosCarrito %}
-      <li>
-        <span class="cd-qty">{{ dato.cantidad }}x</span> {{ dato.alimento.nombre }}
-        <div class="cd-price">$ {{ dato.precio }}</div>
-      </li> 
-      {%endfor%} 
-		</ul> <!-- cd-cart-items -->
+    <div id="preloader"></div>
 
-		<div class="cd-cart-total">
-			<p>Total <span>$ {{ precioTotal }} </span></p>
-		</div> <!-- cd-cart-total -->
+    <!-- Vendor JS Files -->
+    <script src="{% static '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '/assets/vendor/aos/aos.js' %}"></script>
+    <script src="{% static '/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static '/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static '/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static '/assets/vendor/php-email-form/validate.js' %}"></script>
 
-    <form action="{% url 'cincuentaAmigos:carrito' %}" method="post">
-      {% csrf_token %}
-		  <button class="checkout-btn" type="submit">Ver Carrito</a>
-    </form>  
-		
-    <button id="return-to-menu" class="cd-go-to-cart">Regresar al menú</button>
-	</div> <!-- cd-cart -->
+    <!-- Template Main JS File -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/shopping-cart.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="{% static '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static '/assets/vendor/aos/aos.js' %}"></script>
-  <script src="{% static '/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
-  <script src="{% static '/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
-  <script src="{% static '/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
-  <script src="{% static '/assets/vendor/php-email-form/validate.js' %}"></script>
-
-  <!-- Template Main JS File -->
-  <script src="{% static 'js/main.js' %}"></script>
-  <script src="{% static 'js/shopping-cart.js' %}"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
-</body>
+  </body>
 </html>
