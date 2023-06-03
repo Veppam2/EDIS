@@ -82,26 +82,3 @@ Starting development server at http://0.0.0.0:8000/
 Quit the server with CONTROL-C.
 ```
 En ambos casos nos redirigimos a la url que nos despliega la terminal
-## Deployment
-
-Additional notes on how to deploy this on a live or release system. Explaining the most important branches, what pipelines they trigger and how to update the database (if anything special).
-
-### Server
-
-* Live:
-* Release:
-* Development:
-
-### Branches
-
-* Master:
-* Feature:
-* Bugfix:
-* etc...
-
-## Additional Documentation and Acknowledgments
-
-* Project folder on server:
-* Confluence link:
-* Asana board:
-* etc...
