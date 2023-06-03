@@ -148,7 +148,17 @@
                   <td id="cartItemName"></td>
                   <td id="cartItemPrice"></td>
                   <td class="qty">
-                    <input type="number" class="form-control" id="input1" value="1" min="1">
+                    <div class="d-flex">
+                      <button class="btn c-btn px-2" onclick="decrement()">
+                        <i class="fas fa-minus"></i>
+                      </button>
+
+                      <input type="number" class="form-control centered-input" id="input1" value="1" min="1" readonly>
+
+                      <button class="btn c-btn px-2" onclick="increment()">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
                   </td>
                   <td id="cartItemTotal"></td>
                 </tr>
@@ -213,8 +223,39 @@
 
     <!-- Template Main JS File -->
     <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://kit.fontawesome.com/b9101dc64a.js" crossorigin="anonymous"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="{% static 'js/shopping-cart.js' %}"></script>
+    <script>
+      function increment() {
+        var input = document.getElementById("input1");
+        var value = parseInt(input.value);
+        value += 1;
+        input.value = value;
+        input.setAttribute("value", value);
+        updateCartItemTotal();
+      }
+      
+      function decrement() {
+        var input = document.getElementById("input1");
+        var value = parseInt(input.value);
+        if (value > 1) {
+          value -= 1;
+          input.value = value;
+          input.setAttribute("value", value);
+          updateCartItemTotal();
+        }
+      }
+
+      function updateCartItemTotal() {
+        var input = document.getElementById("input1");
+        var qty = parseInt(input.value);
+        var price = parseFloat(document.getElementById("cartItemPrice").innerText.replace("$", ""));
+        var total = qty * price;
+        document.getElementById("cartItemTotal").innerText = "$" + total.toFixed(2);
+        document.getElementById("cantidad").value = qty;
+      }
+    </script>
     <script>
       $(document).ready(function () {
         $('.cartButton').click(function () {

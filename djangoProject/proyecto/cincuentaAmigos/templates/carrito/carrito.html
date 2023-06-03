@@ -33,10 +33,11 @@
   </head>
 
   <body>
-  <!-- ======= Header ======= -->
+    <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
       <div class="container d-flex align-items-center justify-content-between">
         <a href="{% url 'cincuentaAmigos:menu-principal' %}" class="logo d-flex align-items-center me-auto me-lg-0">
+          <h1>50<span>amigos</span></h1>
         </a>
       </div>
     </header><!-- End Header -->
@@ -72,7 +73,7 @@
                                 <i class="fas fa-minus"></i>
                               </button>
 
-                              <input id="form1" min="1" name="quantity" value="{{ dato.cantidad }}" type="number" class="form-control form-control-sm" readonly/>
+                              <input id="form1" min="1" name="quantity" value="{{ dato.cantidad }}" type="number" class="form-control form-control-sm centered-input" readonly/>
 
                               <button class="btn c-btn px-2" onclick="agregarCantidad({{ dato.alimento.id_alimento }}, 1)">
                                 <i class="fas fa-plus"></i>
@@ -105,7 +106,7 @@
                         <hr class="my-4">
 
                         <div class="d-flex justify-content-between mb-4">
-                            <h5 class="text-uppercase">Precio total</h5>
+                            <h5 class="text-uppercase">Total</h5>
                             <h5>$ {{ precioTotal }}</h5>
                         </div>
   
@@ -115,18 +116,27 @@
   
                     <div id="e-open-modal" class="e-modal-window">
                       <div class="">
-                        <p class="text-center">¡Se envió con éxito tu orden a la cocina!</p>
-                        <form action="{% url 'cincuentaAmigos:eliminar-carrito' %}" method="post">
-                          {% csrf_token %}
-                          <input type="hidden" name="ubicacion" value="Votacion">
-                          <button type="submit" class="e-pd btn" data-mdb-ripple-color="dark">Votación helado</button>
-                        </form>
+                        {% if datosCarrito %}
+                          <p class="text-center">¡Se envió con éxito tu orden a la cocina!</p>
+                          <form action="{% url 'cincuentaAmigos:eliminar-carrito' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="ubicacion" value="Votacion">
+                            <button type="submit" class="e-pd btn" data-mdb-ripple-color="dark">Votación helado</button>
+                          </form>
 
-                        <form action="{% url 'cincuentaAmigos:eliminar-carrito' %}" method="post">
-                          {% csrf_token %}
-                          <input type="hidden" name="ubicacion" value="Menu">
-                          <button type="submit" class="e-pd btn" data-mdb-ripple-color="dark">Regresar al menú</button>
-                        </form>
+                          <form action="{% url 'cincuentaAmigos:eliminar-carrito' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="ubicacion" value="Menu">
+                            <button type="submit" class="e-pd btn" data-mdb-ripple-color="dark">Regresar al menú</button>
+                          </form>
+                        {% else %}
+                          <p class="text-center">No tienes nada en tu carrito</p>
+                          <form action="{% url 'cincuentaAmigos:menu-principal' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="ubicacion" value="Menu">
+                            <button type="submit" class="e-pd btn" data-mdb-ripple-color="dark">Regresar al menú</button>
+                          </form>
+                        {% endif %}
                       </div>
                     </div>
                   </div>

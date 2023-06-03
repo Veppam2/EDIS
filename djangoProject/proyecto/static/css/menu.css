@@ -82,7 +82,6 @@ section {
 
 .section-header {
   text-align: center;
-  padding-bottom: 20px;
 }
 
 .section-header h2 {
@@ -841,12 +840,13 @@ header {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   z-index: 3;
 }
+
 @media only screen and (min-width: 768px) {
   #main-nav, #cd-cart {
     width: 350px;
   }
 }
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1000px) {
   #main-nav, #cd-cart {
     width: 30%;
     /* header height has changed */
@@ -1501,7 +1501,7 @@ xkeyframes
 }
 .table-image td.qty,
 .table-image th.qty {
-  max-width: 2rem;
+  width: 10rem;
 }
 
 .modal-footer {
@@ -1961,6 +1961,17 @@ background-color: #d2d2d2;
         z-index: 1;
         transition: top .5s ease;
       }
+      .font-w  {
+        color: #000;
+        padding-bottom: 20px;
+        font-weight: 700;
+        font-size: 48px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      .font-w span {
+        color: var(--color-primary);
+      }
       
       .menu-container:hover .menu-title {
         top: 90px;
@@ -1996,18 +2007,23 @@ background-color: #d2d2d2;
         align-items: center;
         margin: 1.5rem;
         font-size: 1rem;
-        color: #fff;
-        background: #2e2e2e;
-        border: 2px solid #2e2e2e;
+        color: #000;
+        background: #FFBD59;
+        border: 2px solid #FFBD59;
+        border-radius: 9px;
+        overflow: hidden;
+        box-shadow: 0px 1px 30px rgba(0,0,0,0.2);
+        transition: transform .3s;
+        cursor: grab;
         padding: 0.7rem;
       }
       .vot-boton:hover {
         box-shadow: 5px 5px 30px rgba(0,0,0,0.4);
-        background: #FFBD59;
+        transform: scale(.9);
+        background: #ffcf87;
+        border: #ffcf87;
+        color: #ffffff;
       }
-      .vot-boton a{
-       color: #fff;
-      } 
 
       .js-btn {
         position: relative;
@@ -2016,18 +2032,25 @@ background-color: #d2d2d2;
         max-width: 100%;
         align-items: center;
         width: 65%;
-        left: 5%;
         margin: 1.5rem;
         margin-top: 5rem;
         font-size: 1rem;
-        color: #fff;
-        background: #2e2e2e;
-        border: 2px solid #2e2e2e;
+        color: #000;
+        background: #FFBD59;
+        border: 2px solid #FFBD59;
+        border-radius: 9px;
+        overflow: hidden;
+        box-shadow: 0px 1px 30px rgba(0,0,0,0.2);
+        transition: transform .3s;
+        cursor: grab;
         padding: 0.7rem;
       }
       .vot-btn:hover {
         box-shadow: 5px 5px 30px rgba(0,0,0,0.4);
-        background: #FFBD59;
+        transform: scale(.95);
+        background: #ffcf87;
+        border: #ffcf87;
+        color: #ffffff;
       }
       .vot-btn a{
        color: #fff;
@@ -2035,5 +2058,7 @@ background-color: #d2d2d2;
       .js-btn {
         text-align: center;
       }
-
+      .centered-input {
+        text-align: center;
+      }
       
