@@ -1,10 +1,12 @@
 from django.db import models
 
+# Autor: EDIS
+
 """
 Modifaciones para las columnas en las tablas:
--> PrimaryKey: añadimos primary_key = True a la declaración de aatributo
--> unique :  añadimos unique = True a la declaración de aatributo
--> no-autoincrement : No usamos el método models.AutoField, declaramos como models.IntegerField y le añadimos que sea primaryKey
+-> PrimaryKey: añadimos primary_key = True a la declaración de atributo.
+-> unique :  añadimos unique = True a la declaración de aatributo.
+-> no-autoincrement : No usamos el método models.AutoField, declaramos como models.IntegerField y le añadimos que sea primaryKey.
 """
 
 class Categoria(models.Model):

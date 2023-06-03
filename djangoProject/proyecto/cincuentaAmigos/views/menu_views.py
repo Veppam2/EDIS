@@ -3,8 +3,12 @@ from django.shortcuts import render
 from ..models import Categoria, Alimento
 from .views import *
 
+# Autor: EDIS
 
 def entradas(request):
+    """
+    Vista para mostrar el menú de entradas.
+    """
     val = sesion_mesa(request)
     if val is None:
         return redirect(to="cincuentaAmigos:index")
@@ -19,8 +23,10 @@ def entradas(request):
                    'precioTotal': precio_total}
     )
 
-
 def platillos(request):
+    """
+    Vista para mostrar el menú de platillos principales
+    """
     val = sesion_mesa(request)
     if val is None:
         return redirect(to="cincuentaAmigos:index")
@@ -35,8 +41,10 @@ def platillos(request):
          'precioTotal': precio_total}
     )
 
-
 def bebidas(request):
+    """
+    Vista para mostrar el menú de bebidas
+    """
     val = sesion_mesa(request)
     if val is None:
         return redirect(to="cincuentaAmigos:index")
@@ -50,8 +58,10 @@ def bebidas(request):
          'precioTotal': precio_total}
     )
 
-
 def postres(request):
+    """
+    Vista para mostrar el menú de postres
+    """
     val = sesion_mesa(request)
     if val is None:
         return redirect(to="cincuentaAmigos:index")
@@ -65,8 +75,10 @@ def postres(request):
          'precioTotal': precio_total}
     )
 
-
 def carrito(request):
+    """
+    Vista para mostrar el carrito de compras
+    """
     datos_carrito, precio_total = obtener_datos_carrito(request)
     return render(request,
         'carrito/carrito.html',

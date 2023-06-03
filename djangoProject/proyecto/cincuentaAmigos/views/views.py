@@ -5,16 +5,27 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from ..models import *
 
+# Autor: EDIS
 # Vistas de Login
 
 def sesion_mesa(request):
-    return request.session.get('numero_mesa');
+    """
+    Obtiene el número de mesa de la sesión.
+    """
+    return request.session.get('numero_mesa')
+
 
 def admin_login(request):
+    """
+    Redirige a la página de administración.
+    """
     return redirect('/admin')
 
 
 def index(request):
+    """
+    Página de inicio.
+    """
     val = sesion_mesa(request)
     if val is None:
         return asigna_mesa(request)
@@ -23,6 +34,9 @@ def index(request):
 
 
 def logout(request):
+    """
+    Cierra la sesión y elimina la mesa.
+    """
     val = sesion_mesa(request)
     if val is None:
         return redirect(to="cincuentaAmigos:index")
@@ -33,7 +47,9 @@ def logout(request):
 
 
 def asigna_mesa(request):
-
+    """
+    Asigna una mesa al realizar una solicitud POST.
+    """
     if request.method == "POST":
         numero_mesa = request.POST.get("numero-mesa")
         ubicacion = request.POST.get("ubicacion")
@@ -60,6 +76,9 @@ def asigna_mesa(request):
 
 
 def menu_principal(request):
+    """
+    Página del menú principal.
+    """
     val = sesion_mesa(request)
     if val is None:
         return redirect(to="cincuentaAmigos:index")
@@ -76,6 +95,9 @@ def menu_principal(request):
 # Vistas del Carrito
 
 def agregar_al_carrito(request):
+    """
+    Agrega un elemento al carrito.
+    """
     val = sesion_mesa(request)
     if val is None:
         return redirect(to="cincuentaAmigos:index")
@@ -102,6 +124,9 @@ def agregar_al_carrito(request):
 
 
 def eliminar_carrito(request):
+    """
+    Elimina el carrito de la mesa actual y redirige según la ubicación.
+    """
     val = sesion_mesa(request)
     if val is None:
         return redirect(to="cincuentaAmigos:index")
@@ -120,6 +145,9 @@ def eliminar_carrito(request):
 
 
 def eliminar_alimento(request):
+    """
+    Elimina un elemento del carrito.
+    """
     mesa = Mesa.objects.get(numero_mesa = sesion_mesa(request))
     alimento_id = int(request.POST.get("alimento_id"))
     alimento = Alimento.objects.get(id_alimento=alimento_id)
@@ -135,6 +163,9 @@ def eliminar_alimento(request):
 
 
 def eliminar_cantidad(request):
+    """
+    Elimina una cantidad de un elemento del carrito.
+    """
     mesa = Mesa.objects.get(numero_mesa = sesion_mesa(request))
     cantidad = int(request.POST.get("cantidad"))
     alimento_id = int(request.POST.get("alimento_id"))
@@ -157,6 +188,11 @@ def eliminar_cantidad(request):
 
 
 def obtener_datos_carrito(request):
+    """
+    Obtiene los datos del carrito de la sesión actual.
+    Retorna una lista de los alimentos en el carrito con su cantidad y precio total,
+    así como el precio total de todos los alimentos en el carrito.
+    """
     mesa = Mesa.objects.get(numero_mesa=sesion_mesa(request))
     lista_carrito = Carrito.objects.filter(numero_mesa=mesa)
 
@@ -179,6 +215,9 @@ def obtener_datos_carrito(request):
 # Votación de helados
 
 def nuevo_comensal(request):
+    """
+    Elimina el carrito y los votos de la sesión actual y redirige al menú principal.
+    """
     val = sesion_mesa(request)
     if val is None:
         return redirect(to="cincuentaAmigos:index")
@@ -190,6 +229,9 @@ def nuevo_comensal(request):
 
 
 def votacion_helados(request):
+    """
+    Realiza la votación de helados.
+    """
     val = sesion_mesa(request)
     if val is None:
         return redirect(to="cincuentaAmigos:index")
@@ -221,7 +263,9 @@ def votacion_helados(request):
 
 
 def helados(request):
-
+    """
+    Muestra el menú de helados y realiza la votación si ya hay votos registrados.
+    """
     val = sesion_mesa(request)
     if val is None:
         return redirect(to="cincuentaAmigos:index")

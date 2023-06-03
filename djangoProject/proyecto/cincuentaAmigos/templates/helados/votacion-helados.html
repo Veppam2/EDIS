@@ -131,9 +131,11 @@
               </div>
               <div class="modal-footer">
                 <div>
-                  <a href="{% url 'cincuentaAmigos:nuevo-comensal' %}">
-                      Cerrar
-                  </a>
+                  {% if votos %}
+                    <a href="{% url 'cincuentaAmigos:nuevo-comensal' %}"> Cerrar </a>
+                  {% else %}
+                    <a href=""> Cerrar </a>
+                  {% endif %}
                 </div>
               </div>
             </div>
@@ -220,7 +222,6 @@
     <script src="{% static '/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
     <script src="{% static '/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
     <script src="{% static '/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
-    <script src="{% static '/assets/vendor/php-email-form/validate.js' %}"></script>
     
     <!-- Template Main JS File -->
     <script src="{% static 'js/main.js' %}"></script>
@@ -230,18 +231,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
-    <script type="text/javascript">
-      $('#exampleModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget); 
-        var recipient = button.data('whatever'); 
-        var modal = $(this);
-        modal.find('.modal-title').text("Nuevo Voto");
-        modal.find('.modal-body input').val();
-      });
-    
-      $('#resultadoVotacion').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget); 
-      });
+    <script src="{% static 'js/helado.js' %}"></script>
+      
     </script>
   </body>
 </html>
