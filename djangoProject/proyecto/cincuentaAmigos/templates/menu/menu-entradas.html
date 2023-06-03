@@ -77,7 +77,7 @@
               <div class="row gy-5">
                 {% for alimento in listaEntradas %}
                 <div class="col-lg-3 menu-item">
-                  <a href="" class="glightbox"><img src={{alimento.imagen}} class="img-normalizada" alt=""></a>
+                  <img src={{alimento.imagen}} class="img-normalizada" alt="">
                   <div class="contenido-card">
                     <a href="{% url 'cincuentaAmigos:entradas' %}">
                       <h2 class="title">{{alimento.nombre}}</h2>

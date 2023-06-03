@@ -162,7 +162,7 @@
               </div>
               {% for helado in listaHelado %}
                 <div class="col-lg-3 menu-item">
-                  <a href="" class="glightbox"><img src={{helado.imagen}} class="img-normalizada" alt=""></a>
+                  <img src={{helado.imagen}} class="img-normalizada" alt="">
                   <div class="contenido-card">
                     <a href="{% url 'cincuentaAmigos:postres' %}">
                       <h2 class="title">{{helado.sabor}}</h2>
