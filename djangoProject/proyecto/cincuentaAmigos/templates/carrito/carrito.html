@@ -73,14 +73,14 @@
                                 <i class="fas fa-minus"></i>
                               </button>
 
-                              <input id="form1" min="1" name="quantity" value="{{ dato.cantidad }}" type="number" class="form-control form-control-sm centered-input" readonly/>
+                              <input id="form1" min="1" name="quantity" value="{{ dato.cantidad }}" type="number" class="form-control form-control-sm js-btn" readonly/>
 
                               <button class="btn c-btn px-2" onclick="agregarCantidad({{ dato.alimento.id_alimento }}, 1)">
                                 <i class="fas fa-plus"></i>
                               </button>
                             </div>
                             <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                <h6 class="mb-0">$ {{ dato.precio }}</h6>
+                                <h6 class="mb-0 wd-10">$ {{ dato.precio }}</h6>
                             </div>
                             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                               <button class="btn px-2" onclick="eliminarTotal({{ dato.alimento.id_alimento }})">
@@ -162,6 +162,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script src="{% static 'js/main.js' %}"></script>
-    <script src="{% static 'js/shopping-cart.js' %}"></script>
+    <script src="{% static 'js/cart.js' %}"></script>
   </body>
 </html>

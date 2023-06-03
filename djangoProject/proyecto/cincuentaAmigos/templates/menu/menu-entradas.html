@@ -137,7 +137,7 @@
                         <i class="fas fa-minus"></i>
                       </button>
 
-                      <input type="number" class="form-control centered-input" id="input1" value="1" min="1" readonly>
+                      <input type="number" class="form-control js-btn" id="input1" value="1" min="1" readonly>
 
                       <button class="btn c-btn px-2" onclick="increment()">
                         <i class="fas fa-plus"></i>
@@ -204,75 +204,7 @@
     <script src="{% static 'js/main.js' %}"></script>
     <script src="https://kit.fontawesome.com/b9101dc64a.js" crossorigin="anonymous"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="{% static 'js/shopping-cart.js' %}"></script>
-    <script>
-      function increment() {
-        var input = document.getElementById("input1");
-        var value = parseInt(input.value);
-        value += 1;
-        input.value = value;
-        input.setAttribute("value", value);
-        updateCartItemTotal();
-      }
-      
-      function decrement() {
-        var input = document.getElementById("input1");
-        var value = parseInt(input.value);
-        if (value > 1) {
-          value -= 1;
-          input.value = value;
-          input.setAttribute("value", value);
-          updateCartItemTotal();
-        }
-      }
-
-      function updateCartItemTotal() {
-        var input = document.getElementById("input1");
-        var qty = parseInt(input.value);
-        var price = parseFloat(document.getElementById("cartItemPrice").innerText.replace("$", ""));
-        var total = qty * price;
-        document.getElementById("cartItemTotal").innerText = "$" + total.toFixed(2);
-        document.getElementById("cantidad").value = qty;
-      }
-    </script>
-    <script>
-      $(document).ready(function() {
-        $('.cartButton').click(function() {
-          var id_alimento = $(this).data('id');
-          var nombre = $(this).data('nombre');
-          var imagen = $(this).data('imagen');
-          var descripcion = $(this).data('descripcion');
-          var precio = $(this).data('precio');
-
-          // Actualizar los elementos del modal con los datos del alimento seleccionado
-          $('#cartItemId').val(id_alimento);
-          $('#cartItemImage').attr('src', imagen);
-          $('#cartItemName').text(nombre);
-          $('#cartItemPrice').text('$' + precio);
-          $('#cantidad').val('1');
-
-          // Calcular y actualizar el precio total
-          $('#input1').on('input', function() {
-            var qty = $(this).val();
-            var total = precio * qty;
-            $('#cartItemTotal').text('$' + total);
-            $('#cantidad').val(qty);
-          });
-
-          // Inicializar el valor total
-          var qty = $('#input1').val();
-          var total = precio * qty;
-          $('#cartItemTotal').text('$' + total);
-
-          $('#cartModal').modal('show');
-        });
-
-        // Desactivar el modal al hacer clic en el botón "Cerrar"
-        $('#cartModal').on('hidden.bs.modal', function() {
-          $(this).find('input').val('1'); // Restaurar el valor predeterminado de la cantidad
-        });
-      });
-    </script>
-
+    <script src="{% static 'js/cart.js' %}"></script>
+    <script src="{% static 'js/product.js' %}"></script>
   </body>
 </html>
