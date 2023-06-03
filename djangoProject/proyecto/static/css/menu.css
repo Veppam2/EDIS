@@ -1,15 +1,8 @@
 /**
-* Template Name: Yummy
-* Updated: Mar 10 2023 with Bootstrap v5.2.3
-* Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
 
-/*--------------------------------------------------------------
-# Set main reusable colors and fonts using CSS variables
-# Learn more about CSS variables at https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
---------------------------------------------------------------*/
 /* Fonts */
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 :root {
@@ -57,6 +50,9 @@ h5,
 h6 {
   font-family: var(--font-secondary);
 }
+.center-p {
+  text-align: center;
+}
 
 .h5-font {
   font-size: 18px;
@@ -69,6 +65,12 @@ section {
   overflow: hidden;
   padding: 170px 0;
 }
+@media (max-width: 1200px) {
+  section {
+    overflow: hidden;
+    padding: 120px 0;
+  }
+}
 
 .section-bg {
   background-color: #eee;
@@ -76,7 +78,6 @@ section {
 
 .section-header {
   text-align: center;
-  padding-bottom: 20px;
 }
 
 .section-header h2 {
@@ -316,7 +317,10 @@ section {
 }
 
 .menu .tab-content .tab-header {
-  padding: 15px 0 80px;
+  padding: 15px 0 60px;
+}
+.menu-padding {
+  padding: 15px 0 20px !important;
 }
 
 .menu .tab-content .tab-header p {
@@ -360,6 +364,15 @@ section {
   border-radius: 400px;
   z-index: 1;
   object-fit: cover;
+}
+@media (max-width: 1200px) {
+  .img-normalizada {
+    width: 13rem;
+    height: 13rem;
+    border-radius: 100px;
+    z-index: 1;
+    object-fit: cover;
+  }
 }
 
 .menu .tab-content .menu-item h4 {
@@ -457,6 +470,11 @@ section {
 }
 .bton:hover, .bton:focus {
   color: #ffffff;
+}
+.boton-centrar {
+  margin-left: 20%;
+  padding-top: 30px;
+  margin-bottom: 10px;
 }
 
 .first {
@@ -566,7 +584,7 @@ section {
 /*--------------------------------------------------------------
 # Desktop Navigation
 --------------------------------------------------------------*/
-@media (min-width: 1280px) {
+@media (min-width: 1000px) {
   .navbar {
     padding: 0;
   }
@@ -783,6 +801,9 @@ header {
     transform: scale(1);
   }
 }
+.wd-10 {
+  width: 5rem
+}
 
 #cd-hamburger-menu {
   position: absolute;
@@ -818,12 +839,13 @@ header {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   z-index: 3;
 }
+
 @media only screen and (min-width: 768px) {
   #main-nav, #cd-cart {
     width: 350px;
   }
 }
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1000px) {
   #main-nav, #cd-cart {
     width: 30%;
     /* header height has changed */
@@ -1037,7 +1059,26 @@ header {
   cursor: grab;
 }
 #cd-cart .checkout-btn:hover {
-  background: #86df5cca;
+  background: rgba(128, 255, 89, 0.77);
+	color: #ffffff;
+}
+.checkout-mg {
+  margin-top: 1rem;
+}
+.checkout-btn-2 {
+  display: block;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background: #FFBD59;
+  color: #FFF;  
+  text-align: center;
+  border: #FFBD59;
+  border-radius: 10px;
+  cursor: grab;
+}
+.checkout-btn-2:hover {
+  background: #ffbd59ce;
 	color: #ffffff;
 }
 
@@ -1404,7 +1445,9 @@ xkeyframes
   margin-right: 10px;
   transition: 0.3s;
 }
-
+.footer-pd {
+  padding-top: 15px;
+}
 .footer .social-links a:hover {
   color: #fff;
   border-color: #fff;
@@ -1457,7 +1500,7 @@ xkeyframes
 }
 .table-image td.qty,
 .table-image th.qty {
-  max-width: 2rem;
+  width: 10rem;
 }
 
 .modal-footer {
@@ -1469,36 +1512,36 @@ xkeyframes
 --------------------------------------------------------------*/
 @media (min-width: 1025px) {
   .h-custom {
-  height: 100vh !important;
+    height: 100vh !important;
   }
 }
   
 .card-registration .select-input.form-control[readonly]:not([disabled]) {
-font-size: 1rem;
-line-height: 2.15;
-padding-left: .75em;
-padding-right: .75em;
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: .75em;
+  padding-right: .75em;
 }
 
 .card-registration .select-arrow {
-top: 13px;
+  top: 13px;
 }
 
 .bg-grey {
-background-color: #d2d2d2;
+  background-color: #d2d2d2;
 }
   
 @media (min-width: 992px) {
   .card-registration-2 .bg-grey {
-  border-top-right-radius: 16px;
-  border-bottom-right-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
   }
 }
   
 @media (max-width: 991px) {
   .card-registration-2 .bg-grey {
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
   }
 }
 
@@ -1514,9 +1557,9 @@ background-color: #d2d2d2;
 }
 
 .c-section {
-    height: 100%;
-    overflow: auto;
-    padding: 80px 0 !important;
+  height: 100%;
+  overflow: auto;
+  padding: 80px 0 !important;
 }
 
 .c-btn {
@@ -1656,5 +1699,358 @@ background-color: #d2d2d2;
   background: #FFBD59;
 }
 .e-pd a{
- color: #fff;
+  color: #fff;
 }
+
+
+/*--------------------------------------------------------------
+# Navegación
+--------------------------------------------------------------*/
+.link-plain,
+.link-plain:hover,
+.link-plain:active,
+.link-plain:visited {
+  text-decoration: none;
+}
+
+.link-plain-f,
+.link-plain-f:hover,
+.link-plain-f:active,
+.link-plain-f:focus,
+.link-plain-f:visited {
+  color: initial;
+  text-decoration: none !important;
+}
+
+.div-center {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+#va_container {
+  position: relative;
+  max-width: 1140px;
+  margin: auto;
+}
+
+.va-thumbnail {
+  border-radius: 15px;
+  border: 0px;
+  max-width: 100%;
+  height: 285px;
+  object-fit: cover;
+}
+
+.va-div {
+  background-color: #fff;
+}
+
+.va-title {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.va-carrousel-flexbox {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.va-carrousel-flexbox .va-card {
+  flex: 0 0 auto;
+}
+
+.va-carrousel-flexbox .va-card:last-child {
+  margin-right: 15px;
+}
+
+.va-carrousel-flexbox .va-card:last-child::after {
+  content: ' ';
+  display: inline-block;
+}
+
+.va-pd {
+  padding-left: 15px;
+}
+
+.va-card {
+  width: 100px;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+
+.va-card:hover {
+  user-select: none;
+  outline: none;
+}
+
+.va-card a {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .va-card {
+    width: 300px;
+  }
+}
+
+.va-carrousel,
+.va-carrousel-flexbox {
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.va-carrousel::-webkit-scrollbar,
+.va-carrousel-flexbox::-webkit-scrollbar {
+  display: none;
+}
+
+.va-carrousel-title {
+  display: inline-block;
+  color: white;
+  font-weight: 700;
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+}
+
+.va-title {
+  margin-top: 8px;
+  font-size: 11px;
+  max-height: 3em;
+  overflow: hidden;
+  color: white;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .va-title {
+    font-size: 13px;
+  }
+}
+
+.va-start-from {
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.va-points {
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-block;
+  color: white;
+}
+
+.deals-paddle {
+  color: rgb(87, 87, 87);
+  border-radius: 50%;
+  border: 0px solid;
+  margin: auto;
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor:pointer;
+}
+
+.deals-paddle:focus {
+  outline: none;
+}
+
+.deals-paddle:active {
+  border-style: solid;
+  outline: none;
+  user-select: none;
+}
+
+.deals-paddle svg {
+  width: 10px;
+}
+
+@media (min-width: 768px) {
+  .other-game-button {
+    width: 300px;
+  }
+}
+
+.deals-scroll-left {
+  top: 0;
+  left: -65px;
+  bottom: 0;
+}
+
+.deals-scroll-right {
+  top: 0;
+  bottom: 0;
+  right: -65px;
+}
+
+.va-carrousel-section {
+  font-family: "Roboto";
+  padding: 0px;
+  position: relative;
+} 
+
+@media (min-width: 768px) {
+  .va-carrousel-section {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+.va-whitewrap {
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.va-seeall {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    border-top: 1px solid #DDDDDD;
+    text-align: center;
+    padding: 10px;
+}
+
+.menu-container {
+  position: relative;
+  border-radius: 5px;
+  border: 0px;
+  max-width: 100%;
+  height: 285px;
+  object-fit: cover;
+}
+
+.menu-overlay {
+  border-radius: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.5s ease;
+}
+
+.menu-container:hover .menu-overlay {
+  display: block;
+  background: rgba(0, 0, 0, .3);
+}
+
+.menu-title {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 120px;
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  z-index: 1;
+  transition: top .5s ease;
+}
+.font-w  {
+  color: #000;
+  padding-bottom: 20px;
+  font-weight: 700;
+  font-size: 48px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.font-w span {
+  color: var(--color-primary);
+}
+
+.menu-container:hover .menu-title {
+  top: 90px;
+}
+
+.menu-button {
+  position: absolute;
+  width: 100%;
+  left: 20%;
+  top: 180px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+
+.menu-button a {
+  width: 60%;
+  padding: 12px 48px;
+  text-align: center;
+  color: #ffffff;
+  border: solid 2px rgb(255, 255, 255);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.menu-container:hover .menu-button {
+  opacity: 1;
+}
+
+.vot-boton {
+  max-width: 100%;
+  width: 15rem;
+  align-items: center;
+  margin: 1.5rem;
+  font-size: 1rem;
+  color: #000;
+  background: #FFBD59;
+  border: 2px solid #FFBD59;
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0px 1px 30px rgba(0,0,0,0.2);
+  transition: transform .3s;
+  cursor: grab;
+  padding: 0.7rem;
+}
+.vot-boton:hover {
+  box-shadow: 5px 5px 30px rgba(0,0,0,0.4);
+  transform: scale(.9);
+  background: #ffcf87;
+  border: #ffcf87;
+  color: #ffffff;
+}
+
+.js-btn {
+  position: relative;
+}
+.vot-btn {
+  max-width: 100%;
+  align-items: center;
+  width: 65%;
+  margin: 1.5rem;
+  margin-top: 5rem;
+  font-size: 1rem;
+  color: #000;
+  background: #FFBD59;
+  border: 2px solid #FFBD59;
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0px 1px 30px rgba(0,0,0,0.2);
+  transition: transform .3s;
+  cursor: grab;
+  padding: 0.7rem;
+}
+.vot-btn:hover {
+  box-shadow: 5px 5px 30px rgba(0,0,0,0.4);
+  transform: scale(.95);
+  background: #ffcf87;
+  border: #ffcf87;
+  color: #ffffff;
+}
+.vot-btn a{
+  color: #fff;
+}
+.js-btn {
+  text-align: center;
+}
+      

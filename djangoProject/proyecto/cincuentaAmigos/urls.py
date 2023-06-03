@@ -18,6 +18,8 @@ from django.urls import path
 
 from .views import menu_views, views
 
+# Autor: EDIS
+
 app_name = 'cincuentaAmigos'
 urlpatterns = [
     path('admin/', views.admin_login, name="admin"),
